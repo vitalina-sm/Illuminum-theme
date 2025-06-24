@@ -1,4 +1,10 @@
+{% stylesheet %}
+.il-footer {
+    padding: 70px 0 30px 0;
 
+
+}
+{% endstylesheet %}
 
 <div class="section-background color-{{ section.settings.color_scheme }}"></div>
 <div
@@ -17,16 +23,17 @@
 
   <div
     class="
-      spacing-style
+     {% comment %} spacing-style
       layout-panel-flex
-      layout-panel-flex--{{ section.settings.content_direction }}
+      layout-panel-flex--{{ section.settings.content_direction }}{% endcomment %}
       section-content-wrapper
       {% if section.settings.vertical_on_mobile %} mobile-column{% endif %}
+      il-footer
     "
-    style="
+    {% comment %}style="
       {% render 'layout-panel-style', settings: section.settings %}
       {%  render 'spacing-style', settings: section.settings %}
-    "
+    "{% endcomment %}
   >
     {% content_for 'blocks' %}
   </div>

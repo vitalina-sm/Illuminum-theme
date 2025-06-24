@@ -9,7 +9,7 @@
 {% enddoc %}
 
 {% liquid
-  assign image_sizes = '(min-width: 750px) 50vw, 100vw'
+  assign image_sizes = '(min-width: 850px) 50vw, 100vw'
   # if the card-gallery has a section.settings.product_card_size:
   # assume grid-template autofill(card-size, 1fr) and calculate the sizes attribute based on the minimum card size
 
@@ -28,7 +28,7 @@
   {% assign image_sizes = sizes_attribute | strip %}
 {% elsif section.settings.columns and section.settings.layout_type != 'editorial' %}
   {% assign viewport_width = 100.0 | divided_by: section.settings.columns %}
-  {% assign sizes_attribute = '(min-width: 750px) [viewport_width]vw, 100vw'
+  {% assign sizes_attribute = '(min-width: 850px) [viewport_width]vw, 100vw'
     | replace: '[viewport_width]', viewport_width
   %}
   {% assign image_sizes = sizes_attribute | strip %}
@@ -232,7 +232,7 @@
     text-overflow: ellipsis;
   }
 
-  @media screen and (width >= 750px) {
+  @media screen and (width >= 850px) {
     .product-grid[data-product-card-size='extra-large'] .product-card-gallery__title-placeholder {
       padding: var(--padding-3xl);
       font-size: var(--font-size--3xl);
@@ -326,7 +326,7 @@
     }
   }
 
-  @media screen and (width < 750px) {
+  @media screen and (width < 850px) {
     .product-card-gallery__title-placeholder {
       font-size: var(--font-size--xl);
       padding: var(--padding-md);

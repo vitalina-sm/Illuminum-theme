@@ -30,7 +30,7 @@
     min-height: 500px;
     box-shadow: 0 5px 30px rgba(0, 0, 0, 0.15);
 
-    @media screen and (max-width: 750px) {
+    @media screen and (max-width: 850px) {
       position: fixed;
       display: block;
       margin: auto 0 0 0;
@@ -41,13 +41,13 @@
   }
 
   .quick-add-modal[open] {
-    @media screen and (width >= 750px) {
+    @media screen and (width >= 850px) {
       display: flex;
     }
   }
 
   .quick-add-modal .view-more-details__wrapper {
-    @media screen and (max-width: 750px) {
+    @media screen and (max-width: 850px) {
       display: none;
     }
   }
@@ -94,7 +94,7 @@
     overflow-y: auto;
     max-height: 100vh;
 
-    @media screen and (max-width: 750px) {
+    @media screen and (max-width: 850px) {
       grid-template-columns: repeat(4, 1fr);
       grid-template-rows: auto;
       padding-inline: var(--padding-xl);
@@ -147,7 +147,7 @@
   }
 
   .quick-add-modal__content .product-header {
-    @media screen and (max-width: 750px) {
+    @media screen and (max-width: 850px) {
       display: flex;
       flex-direction: column;
       grid-column: 2 / -1;
@@ -157,7 +157,7 @@
   }
 
   .quick-add-modal__content .product-header a:not(product-price *) {
-    @media screen and (width < 750px) {
+    @media screen and (width < 850px) {
       font-size: var(--font-size--md);
       font-weight: 500;
       color: inherit;
@@ -167,7 +167,7 @@
 
   .quick-add-modal__content variant-picker,
   .quick-add-modal__content product-form-component {
-    @media screen and (max-width: 750px) {
+    @media screen and (max-width: 850px) {
       grid-column: 1 / -1;
     }
   }
@@ -189,7 +189,7 @@
       animation-delay: 0.1s;
     }
 
-    @media screen and (max-width: 750px) {
+    @media screen and (max-width: 850px) {
       grid-column: 2 / span 2;
       grid-row: span 1;
       overflow-y: auto;
@@ -244,7 +244,7 @@
       .view-more-details__wrapper,
       .view-more-details__wrapper *
     ) {
-    @media screen and (width >= 750px) {
+    @media screen and (width >= 850px) {
       display: none !important;
     }
   }
@@ -287,7 +287,7 @@
     top: 0;
     animation: fadeIn 0.4s var(--animation-timing-fade-in) both;
 
-    @media screen and (width >= 750px) {
+    @media screen and (width >= 850px) {
       position: sticky;
       grid-column: 1 / 4;
       overflow-y: auto;
@@ -303,7 +303,7 @@
   .quick-add-modal__content .product-information__media media-gallery {
     pointer-events: none;
 
-    @media screen and (width >= 750px) {
+    @media screen and (width >= 850px) {
       position: absolute;
       inset: 0;
     }
@@ -337,7 +337,7 @@
   }
 
   .quick-add-modal__content .product-information__media slideshow-slide[aria-hidden='true'] {
-    @media screen and (max-width: 750px) {
+    @media screen and (max-width: 850px) {
       display: none;
     }
   }

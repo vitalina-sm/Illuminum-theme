@@ -1,0 +1,72 @@
+<div class="il-slide">
+  {% content_for 'blocks' %}
+</div>
+
+<div class="swiper-slide">
+  <div class="slider__image">
+    <img src="https://cdn.shopify.com/s/files/1/0921/1445/2824/files/hero-new.jpg?v=1750318710" alt=""/>
+  </div>
+  <div class="content">
+    <div class="text-wrapper">
+      <p class="product-edition">ILLUMINUM CORE RANGE</p>
+      <p class="product-name">Black Rose</p>
+    </div>
+    <div class="product-card">
+      <div class="product-card__image">
+        <img src="https://cdn.shopify.com/s/files/1/0921/1445/2824/files/illuminum-london-fragrance-perfume-Black_Rose_Illuminum_Product1_0038-600x600_5ec3a01c-d41c-4b57-8bfa-160cfacc2baa.jpg?v=1750251728" alt=""/>
+      </div>
+      <div class="product-card__info">
+        <div class="product-card__size text"> size 50ml</div>
+        <div class="product-card__price text">50$</div>
+      </div>
+      <a href="/products/white-gardenia-petals" class="product-card__link"></a>
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "IL-Slide",
+  "tag": null,
+  "blocks": [
+    {
+      "type": "@theme"
+    },
+    {
+      "type": "@app"
+    }
+  ],
+  "settings": [
+    {
+      "type": "header",
+      "content": "Image"
+    },
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Image"
+    },
+    {
+      "type": "checkbox",
+      "id": "image_mob_enabled",
+      "label": "Extra image for mobile",
+      "default": false
+    },
+    {
+      "type": "image_picker",
+      "id": "image_mob",
+      "label": "Image"
+    },
+    {
+      "type": "product",
+      "id": "product_card",
+      "label": "Product"
+    }
+  ],
+  "presets": [
+    {
+      "name": "IL-Slide"
+    }
+  ]
+}
+{% endschema %}

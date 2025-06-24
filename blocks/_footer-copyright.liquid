@@ -1,20 +1,29 @@
+{{ 'block-footer-copyright.css' | asset_url | stylesheet_tag }}
 
 
-<div
-  class="
+<div class="il-footer-utilities">
+  <div class="
     footer-utilities__group-copyright
     custom-typography
     {% if block.settings.font_size != "" %}custom-font-size{% endif %}
   "
-  style="{% render 'typography-style', preset: 'custom', settings: block.settings %}"
-  {{ block.shopify_attributes }}
->
+          style="{% render 'typography-style', preset: 'custom', settings: block.settings %}"
+          {{ block.shopify_attributes }}
+  >
   <span class="footer-utilities__text">
     &copy; {{ 'now' | date: '%Y' }}
-    {{ shop.name | link_to: routes.root_url -}}
-    , {{ powered_by_link }}
+    ILLUMINUM london
   </span>
+  </div>
+  <div class="footer-utilities__social-links">
+    <a href="https://www.instagram.com/illuminum.london/" target="_blank">facebook</a>
+    <a href="https://www.instagram.com/illuminum_london/" target="_blank">instagram</a>
+    <a href="https://www.instagram.com/illuminum.london/" target="_blank">tiktok</a>
+    <a href="https://www.instagram.com/illuminum.london/" target="_blank">pinterest</a>
+  </div>
+  <div class="footer-utilities__language-switcher">Europe (€) | English</div>
 </div>
+
 
 {% schema %}
 {

@@ -40,7 +40,7 @@ class HeaderComponent extends Component {
   #offscreen = false;
 
   /**
-   * The last recorded scrollTop of the document, when sticky behavior is 'scroll-up
+   * The last recorded scrollTop of the document, when sticky behavior is 'scroll-up'
    * @type {number}
    */
   #lastScrollTop = 0;
@@ -80,9 +80,7 @@ class HeaderComponent extends Component {
   #observeStickyPosition = (alwaysSticky = true) => {
     if (this.#intersectionObserver) return;
 
-    const config = {
-      threshold: alwaysSticky ? 1 : 0,
-    };
+    const config = { threshold: alwaysSticky ? 1 : 0 };
 
     this.#intersectionObserver = new IntersectionObserver(([entry]) => {
       if (!entry) return;
@@ -112,7 +110,7 @@ class HeaderComponent extends Component {
    * Updates the visibility of the menu and drawer
    * @param {boolean} hideMenu - Whether to hide the menu and show the drawer
    */
-  #updateMenuVisibility(hideMenu) {
+  #updateMenuVisibility = (hideMenu) => {
     if (hideMenu) {
       this.refs.headerDrawerContainer.classList.remove('desktop:hidden');
       this.#menuDrawerHiddenWidth = window.innerWidth;
@@ -122,14 +120,18 @@ class HeaderComponent extends Component {
       this.#menuDrawerHiddenWidth = null;
       this.refs.headerMenu.classList.remove('hidden');
     }
-  }
+  };
 
+  /**
+   * Handles window scroll for sticky behavior
+   */
   #handleWindowScroll = () => {
     const stickyMode = this.getAttribute('sticky');
     if (!this.#offscreen && stickyMode !== 'always') return;
 
     const scrollTop = document.scrollingElement?.scrollTop ?? 0;
     const isScrollingUp = scrollTop < this.#lastScrollTop;
+
     if (this.#timeout) {
       clearTimeout(this.#timeout);
       this.#timeout = null;
@@ -180,6 +182,22 @@ class HeaderComponent extends Component {
     this.#lastScrollTop = scrollTop;
   };
 
+  /**
+   * Disables page scroll when hovering or touching the header
+   */
+  #disablePageScroll = () => {
+    document.addEventListener('wheel', this.#preventScroll, { passive: false });
+    document.addEventListener('touchmove', this.#preventScroll, { passive: false });
+  };
+
+  /**
+   * Enables page scroll when leaving the header
+   */
+  #enablePageScroll = () => {
+    document.removeEventListener('wheel', this.#preventScroll, { passive: false });
+    document.removeEventListener('touchmove', this.#preventScroll, { passive: false });
+  };
+
   connectedCallback() {
     super.connectedCallback();
     this.#resizeObserver.observe(this);
@@ -193,6 +211,20 @@ class HeaderComponent extends Component {
         document.addEventListener('scroll', this.#handleWindowScroll);
       }
     }
+
+    // Add scroll lock listeners
+    this.addEventListener('mouseenter', this.#disablePageScroll);
+    this.addEventListener('mouseleave', this.#enablePageScroll);
+
+    // Handle touch events for mobile devices
+    let touchTimeout;
+    this.addEventListener('touchstart', () => {
+      clearTimeout(touchTimeout);
+      this.#disablePageScroll();
+    });
+    this.addEventListener('touchend', () => {
+      touchTimeout = setTimeout(this.#enablePageScroll, 100);
+    });
   }
 
   disconnectedCallback() {
@@ -201,6 +233,10 @@ class HeaderComponent extends Component {
     this.#intersectionObserver?.disconnect();
     this.removeEventListener('overflowMinimum', this.#handleOverflowMinimum);
     document.removeEventListener('scroll', this.#handleWindowScroll);
+    this.removeEventListener('mouseenter', this.#disablePageScroll);
+    this.removeEventListener('mouseleave', this.#enablePageScroll);
+    this.removeEventListener('touchstart', this.#disablePageScroll);
+    this.removeEventListener('touchend', this.#enablePageScroll);
     document.body.style.setProperty('--header-height', '0px');
   }
 }

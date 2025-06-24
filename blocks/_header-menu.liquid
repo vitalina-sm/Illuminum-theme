@@ -181,7 +181,7 @@
   }
 
   .menu-list__link {
-    font-family: var(--menu-top-level-font-family);
+    {% comment %}font-family: var(--menu-top-level-font-family);
     font-style: var(--menu-top-level-font-style);
     font-weight: var(--menu-top-level-font-weight);
     font-size: var(--menu-top-level-font-size);
@@ -192,15 +192,17 @@
     text-decoration: none;
     display: flex;
     min-height: var(--minimum-touch-target);
-    align-items: center;
+    align-items: center;{% endcomment %}
+
+    font-family: "Inter", sans-serif;
+    font-weight: 600;
+    font-size: 20px;
+    line-height: 140%;
+    color: #fff;
 
     &:hover,
     &:focus {
       color: var(--menu-top-level-font-color);
-    }
-
-    @media screen and (width >= 750px) {
-      font-size: var(--menu-top-level-font-size-desktop);
     }
   }
 
@@ -814,6 +816,10 @@
         {
           "value": "none",
           "label": "t:options.default"
+        },
+        {
+          "value": "lowercase",
+          "label": "Lowercase"
         },
         {
           "value": "uppercase",

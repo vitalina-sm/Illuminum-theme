@@ -6,7 +6,8 @@
  * or related systems. Please exercise caution as any changes
  * made to this file may be overwritten.
  * ------------------------------------------------------------
- */{
+ */
+{
   "sections": {
     "hero_iyt6zg": {
       "type": "hero",
@@ -41,7 +42,9 @@
       "block_order": [
         "text_tzGazA"
       ],
+      "disabled": true,
       "settings": {
+        "link": "",
         "open_in_new_tab": false,
         "media_type_1": "image",
         "media_type_2": "image",
@@ -61,6 +64,8 @@
         "overlay_color": "#00000099",
         "overlay_style": "gradient",
         "gradient_direction": "to top",
+        "blurred_reflection": false,
+        "reflection_opacity": 75,
         "padding-block-start": 0,
         "padding-block-end": 0
       }
@@ -80,6 +85,7 @@
               "type": "_inline-collection-title",
               "static": true,
               "settings": {
+                "collection": "",
                 "font": "var(--font-heading--family)",
                 "weight": "",
                 "line_height": "normal",
@@ -103,8 +109,10 @@
           "block_order": []
         }
       },
+      "disabled": true,
       "name": "t:names.collection_links_spotlight",
       "settings": {
+        "collection_list": [],
         "layout": "spotlight",
         "section_width": "page-width",
         "alignment": "left",
@@ -122,6 +130,7 @@
           "static": true,
           "settings": {
             "media_type": "image",
+            "link": "",
             "video_loop": true,
             "video_autoplay": false,
             "image_position": "cover",
@@ -166,6 +175,7 @@
               "type": "_featured-product-price",
               "static": true,
               "settings": {
+                "product": "",
                 "show_sale_price_first": true,
                 "type_preset": "h5"
               },
@@ -202,8 +212,10 @@
           "block_order": []
         }
       },
+      "disabled": true,
       "name": "t:names.featured_product",
       "settings": {
+        "product": "",
         "layout": "media-left",
         "color_scheme": "scheme-3",
         "padding-block-start": 0,
@@ -316,6 +328,7 @@
             "group_JHtHYm": {
               "type": "group",
               "settings": {
+                "link": "",
                 "open_in_new_tab": false,
                 "content_direction": "row",
                 "vertical_on_mobile": true,
@@ -354,6 +367,7 @@
                   "type": "group",
                   "name": "t:names.group",
                   "settings": {
+                    "link": "",
                     "open_in_new_tab": false,
                     "content_direction": "column",
                     "vertical_on_mobile": true,
@@ -424,6 +438,12 @@
                         "type_preset": "h5",
                         "width": "100%",
                         "alignment": "left",
+                        "font": "var(--font-body--family)",
+                        "font_size": "1rem",
+                        "line_height": "normal",
+                        "letter_spacing": "normal",
+                        "case": "none",
+                        "color": "var(--color-foreground)",
                         "padding-block-start": 0,
                         "padding-block-end": 0,
                         "padding-inline-start": 0,
@@ -441,6 +461,7 @@
                   "type": "group",
                   "name": "t:names.group",
                   "settings": {
+                    "link": "",
                     "open_in_new_tab": false,
                     "content_direction": "column",
                     "vertical_on_mobile": true,
@@ -507,6 +528,7 @@
           ]
         }
       },
+      "disabled": true,
       "name": "t:names.products_grid",
       "settings": {
         "collection": "all",
@@ -585,8 +607,10 @@
         "text_69C6UJ",
         "text_hzq6cM"
       ],
+      "disabled": true,
       "name": "t:names.hero",
       "settings": {
+        "link": "",
         "open_in_new_tab": false,
         "media_type_1": "image",
         "media_type_2": "image",
@@ -606,9 +630,16 @@
         "overlay_color": "#00000075",
         "overlay_style": "gradient",
         "gradient_direction": "to top",
+        "blurred_reflection": false,
+        "reflection_opacity": 75,
         "padding-block-start": 0,
         "padding-block-end": 40
       }
+    },
+    "il_slider_zTHTnP": {
+      "type": "IL-slider",
+      "name": "IL-Slider",
+      "settings": {}
     }
   },
   "order": [
@@ -616,6 +647,7 @@
     "collection_links_Ut4aMz",
     "featured_product_mTUbKC",
     "product_list_UwRqN4",
-    "hero_MVUtj6"
+    "hero_MVUtj6",
+    "il_slider_zTHTnP"
   ]
 }

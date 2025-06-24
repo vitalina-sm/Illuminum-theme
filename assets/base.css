@@ -207,11 +207,11 @@ p:empty {
 :empty:first-child + :where(p, h1, h2, h3, h4, h5, h6) {
   margin-block-start: 0;
 }
-
+/*
 :is(p, h1, h2, h3, h4, h5, h6):last-child,
 :where(p, h1, h2, h3, h4, h5, h6) + :has(+ :empty:last-child) {
   margin-block-end: 0;
-}
+}*/
 
 /* view transitions */
 @media (prefers-reduced-motion: no-preference) {
@@ -319,7 +319,7 @@ p:empty {
   .page-width-normal,
   .page-width-narrow,
   .page-width-content {
-    --page-margin: 40px;
+    --page-margin: 30px;
   }
 }
 
@@ -419,11 +419,6 @@ p:empty {
 /* For full-width sections with margin, content still spans full width but with space on the sides */
 .section--full-width.section--full-width-margin > * {
   grid-column: 1 / -1;
-
-  @media screen and (width >= 750px) {
-    padding-left: var(--page-margin);
-    padding-right: var(--page-margin);
-  }
 }
 
 /* Some section content break out to full width of the page */
@@ -2216,7 +2211,7 @@ deferred-media[class] :is(.deferred-media__poster-button img, .deferred-media__p
   }
 }
 
-@media (width >= 750px) {
+@media (width >= 990px) {
   .layout-panel-flex {
     flex-direction: var(--flex-direction);
   }
@@ -4116,4 +4111,10 @@ text-component {
   z-index: auto;
   transform: none;
   box-shadow: none;
+}
+
+
+/* Hide Shopify Preview Bar */
+#PBarNextFrameWrapper {
+  display: none;
 }

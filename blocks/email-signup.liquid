@@ -1,13 +1,40 @@
+{{ 'block-email-sugnup.css' | asset_url | stylesheet_tag }}
 
+{% liquid
+  assign image = settings.logo
+
+  if block.settings.inverse and settings.logo_inverse
+    assign image = settings.logo_inverse
+  endif
+%}
+
+{%- if image -%}
+  {% capture logo_image %}
+    {{-
+    image
+    | image_url: width: 3840
+    | image_tag:
+    width: image.width,
+    widths: '375, 550, 750, 1100, 1500, 1780, 2000, 3000, 3840',
+    height: image.height,
+    class: 'logo-block__image',
+    alt: shop.name,
+    sizes: '(min-width: 750px) calc(var(--logo-width)), 100vw'
+    -}}
+  {% endcapture %}
+{%- endif -%}
 
 <div
-  class="email-signup-block size-style spacing-style"
+  class="email-signup-block size-style spacing-style il-email-signup"
   style="{% render 'size-style', settings: block.settings %}{% render 'spacing-style', settings: block.settings %}"
   {{ block.shopify_attributes }}
 >
+
+  <div class="il-email-signup__heading">{{ block.settings.heading }}</div>
+  <div class="il-email-signup__description">{{ block.settings.description }}</div>
   {%- form 'customer', class: 'email-signup__form spacing-style' %}
     <div
-      class="email-signup__input-group {% if block.settings.inherit_color_scheme == false %}color-{{ block.settings.color_scheme }}{% endif %}"
+      class="email-signup__input-group il-email-signup__input-group {% if block.settings.inherit_color_scheme == false %}color-{{ block.settings.color_scheme }}{% endif %}"
       style="--border-width: {{ block.settings.border_width }}px; --border-radius: {{ block.settings.border_radius }}px;"
     >
       <label
@@ -18,7 +45,7 @@
       </label>
       <input
         id="EmailInput-{{ block.id }}"
-        class="email-signup__input email-signup__input--{{ block.settings.border_style }} {{ block.settings.input_type_preset }} {{ block.settings.border_variation }}"
+        class="email-signup__input il-email-signup__input email-signup__input--{{ block.settings.border_style }} {{ block.settings.input_type_preset }} {{ block.settings.border_variation }}"
         type="email"
         name="contact[email]"
         autocorrect="off"
@@ -89,195 +116,46 @@
       </div>
     {%- endif -%}
   {% endform %}
+  <div class="il-email-signup__privacy-text">{{ block.settings.privacy_text }}</div>
+  {% if logo_image %}
+    <div class="il-logo__image-wrapper">
+      {{ logo_image }}
+    </div>
+  {% else %}
+    {% render 'jumbo-text', text: shop.name %}
+  {% endif %}
 </div>
-
-{% stylesheet %}
-  .email-signup-block {
-    @media screen and (width < 750px) {
-      width: 100%;
-    }
-  }
-
-  .email-signup__form {
-    display: flex;
-    flex-direction: column;
-  }
-
-  .email-signup__input-group {
-    position: relative;
-    display: grid;
-    grid-template-columns: 1fr auto;
-    background-color: transparent;
-  }
-
-  .email-signup__input-group:not(:has(.email-signup__button--integrated)) {
-    gap: var(--gap-xs);
-  }
-
-  .email-signup__input-group:not(:has(.email-signup__button--arrow)) {
-    @media screen and (width < 750px) {
-      grid-template-columns: 1fr;
-    }
-  }
-
-  .email-signup__input {
-    width: 100%;
-    border-width: var(--border-width);
-    border-radius: var(--border-radius);
-    border-style: solid;
-    border-color: var(--color-input-border);
-  }
-
-  .email-signup__button {
-    white-space: nowrap;
-    padding: 0;
-
-    @media screen and (width < 750px) {
-      width: 100%;
-    }
-  }
-
-  .email-signup__input,
-  .email-signup__button--text {
-    padding: var(--padding-lg) var(--padding-3xl);
-  }
-
-  .email-signup__input-group .email-signup__input--underline {
-    --box-shadow-color: var(--color-input-border);
-    --box-shadow-multiplier: 1;
-    color: var(--color-input-text);
-    background-color: transparent;
-    padding: 12px 0;
-    border: none;
-    border-radius: 0;
-    box-shadow: 0px calc(var(--border-width) * var(--box-shadow-multiplier)) 0px var(--box-shadow-color);
-    transition: box-shadow var(--animation-values);
-
-    &:focus-visible {
-      --box-shadow-multiplier: 1.75;
-      --box-shadow-color: var(--color-input-text);
-      outline: none;
-    }
-  }
-
-  .email-signup__input::placeholder {
-    color: rgb(from var(--color-input-text) r g b / 70%);
-  }
-
-  .email-signup__input-group .email-signup__input--none {
-    color: var(--color-input-text);
-    background-color: var(--color-input-background);
-    border: none;
-  }
-
-  .email-signup__input:has(+ .email-signup__button--arrow),
-  .email-signup__input:has(+ .email-signup__button--integrated) {
-    @media screen and (width < 750px) {
-      text-align: left;
-    }
-  }
-
-  .email-signup__button--arrow {
-    aspect-ratio: 1;
-    padding-inline: var(--padding-xs);
-
-    &:not(.email-signup__button--integrated) {
-      width: auto;
-    }
-  }
-
-  .email-signup__button--integrated {
-    --button-offset: var(--margin-xs);
-    position: absolute;
-    height: calc(100% - (var(--button-offset) * 2) - (var(--border-width) * 2));
-    right: calc(var(--button-offset) + var(--border-width));
-    top: calc(var(--button-offset) + var(--border-width));
-
-    @media screen and (width < 750px) {
-      width: fit-content;
-    }
-
-    &.email-signup__button--text {
-      padding: 0 var(--padding-3xl);
-    }
-
-    &.email-signup__button--text.button-unstyled {
-      padding: 0 var(--padding-xl);
-    }
-
-    &.button-unstyled {
-      border-radius: var(--border-radius);
-    }
-
-    > .email-signup__button-icon {
-      padding: 0;
-    }
-  }
-
-  .email-signup__input--underline + .email-signup__button--integrated {
-    right: 0;
-    --button-offset: calc(10% - var(--border-width));
-
-    &.email-signup__button--text.button-unstyled {
-      padding: 0;
-    }
-
-    &.button-unstyled {
-      border-radius: 0;
-    }
-  }
-
-  .email-signup__button:not(.button-unstyled) {
-    background-color: var(--button-background-color);
-    color: var(--button-color);
-    font-weight: var(--button-font-weight-primary);
-    text-transform: var(--button-text-case-primary);
-  }
-
-  .email-signup__button.button-secondary {
-    font-weight: var(--button-font-weight-secondary);
-    text-transform: var(--button-text-case-secondary);
-  }
-
-  .email-signup__button.button-unstyled {
-    background-color: transparent;
-    color: var(--color-input-text);
-  }
-
-  .email-signup__button.button-unstyled:hover {
-    color: rgb(from var(--color-input-text) r g b / 70%);
-    cursor: pointer;
-  }
-
-  .email-signup__button-icon {
-    fill: currentcolor;
-    padding: 5px;
-
-    @media screen and (width < 750px) {
-      padding: 0;
-      align-self: center;
-      justify-self: center;
-      width: var(--icon-size-lg);
-      height: var(--icon-size-lg);
-    }
-  }
-
-  .email-signup__message {
-    display: flex;
-    align-items: center;
-    gap: var(--gap-xs);
-  }
-
-  .email-signup__message-text {
-    margin: 0;
-  }
-{% endstylesheet %}
 
 {% schema %}
 {
   "name": "t:names.email_signup",
   "tag": null,
   "settings": [
+    {
+      "type": "header",
+      "content": "Text"
+    },
+    {
+      "type": "textarea",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Stay in the know"
+    },
+    {
+      "type": "textarea",
+      "id": "description",
+      "label": "Description",
+      "default": "Receive personalized email updates, launch annoucement, and exclusive access based on your interests."
+    },
+    {
+      "type": "richtext",
+      "id": "privacy_text",
+      "label": "Privacy text"
+    },
+    {
+      "type": "header",
+      "content": "Email Signup"
+    },
     {
       "type": "paragraph",
       "content": "t:content.email_signups_create_customer_profiles"

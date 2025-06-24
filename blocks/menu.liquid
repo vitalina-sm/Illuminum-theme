@@ -29,6 +29,7 @@
         menu__details
         spacing-style
         {% if block.settings.inherit_color_scheme == false %} color-{{ color_scheme }}{% endif %}
+        il-menu
       "
       style="
         --spacing--size: {{ block.settings.menu_spacing }}px;
@@ -125,6 +126,31 @@
   .menu--caret .icon-plus,
   .menu--plus .icon-caret {
     display: none;
+  }
+
+  .il-menu {
+
+    .menu__heading {
+        font-weight: 700;
+        font-size: 14px;
+        line-height: 140%;
+        padding: 0;
+        margin-bottom: 14px;
+    }
+
+    .menu__item {
+        padding: 6px 0;
+    }
+
+    .menu__item a {
+        font-weight: 400;
+        font-size: 16px;
+        line-height: 140%;
+        text-transform: uppercase;
+        display: flex;
+        padding: 5px 0;
+        color: #0c0c0c;
+    }
   }
 {% endstylesheet %}
 

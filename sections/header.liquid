@@ -80,7 +80,7 @@
 
   # Skip mobile search under specific conditions:
   # Always render if search_row is bottom
-  # Don't render when shop.customer_accounts_enabled is false and search_position is left and search_style is not none
+  # Dont render when shop.customer_accounts_enabled is false and search_position is left and search_style is not none
   assign skip_mobile_search = false
   if shop.customer_accounts_enabled == false and section.settings.search_position == 'left' and search_style != 'none'
     assign skip_mobile_search = true
@@ -236,7 +236,7 @@
           style="{{ style | strip }}"
         {%- endif -%}
       >
-        <div class="header__columns spacing-style">
+        <div class="header__columns">
           {{ content }}
         </div>
       </div>
@@ -405,7 +405,7 @@
 
   .header__column {
     display: flex;
-    align-items: center;
+    align-items: start;
     /* on mobile, header__column nodes are ignored to create a new grid-template-area based on all visible content */
     @media screen and (width < 750px) {
       display: contents;
@@ -442,6 +442,8 @@
     grid-template-areas: 'left center right';
     grid-gap: var(--gap-xl);
     grid-template-columns: var(--header-template-columns);
+    padding: 30px;
+    align-items: start !important;
 
     /* Three column layout */
     --header-left: 1fr;
@@ -485,8 +487,7 @@
       grid-column: span 3;
       column-gap: 0;
       align-items: center;
-      padding-block: 0;
-      padding-inline: 0 var(--padding-3xs);
+      padding: 20px;
 
       .header-logo {
         grid-area: center;
@@ -517,7 +518,7 @@
 
   /* Set header paddings based on height setting */
   .header {
-    --header-padding: var(--padding-sm);
+    --header-padding: 30px;
     --font-paragraph--line-height: 1;
   }
 

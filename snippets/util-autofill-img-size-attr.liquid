@@ -28,7 +28,7 @@
 
   assign max_breakpoint = max_breakpoint | default: 2000
 
-  assign min_breakpoint = min_breakpoint | default: 750
+  assign min_breakpoint = min_breakpoint | default: 850
 
   # Calculate maximum number of columns at max width
   assign max_cols = max_breakpoint | divided_by: card_size_with_gap | floor
