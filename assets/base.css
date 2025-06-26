@@ -2275,6 +2275,16 @@ deferred-media[class] :is(.deferred-media__poster-button img, .deferred-media__p
     margin-block: clamp(1.5rem, 1em * 3.3, 2.5rem) clamp(1rem, 1em * 0.25, 2rem);
   }
 
+  :is(h1) {
+    font-size: 1.5rem;
+    line-height: 1.75rem;
+    letter-spacing: .025em;
+    text-align: start;
+    font-weight: 700;
+    margin-bottom: 50px;
+    text-transform: uppercase;
+  }
+
   :is(p, h1, h2, h3, h4, h5, h6):first-child,
   :empty:first-child + :is(p, h1, h2, h3, h4, h5, h6) {
     margin-block-start: 0;
@@ -2329,8 +2339,20 @@ deferred-media[class] :is(.deferred-media__poster-button img, .deferred-media__p
   }
 }
 
+.rte,
 .shopify-policy__container {
   padding-block: var(--padding-xl);
+  max-width: 90ch!important;
+
+  :is(h2, h3, h4, h5, h6) {
+    font-size: 1rem;
+    line-height: 1.25rem;
+  }
+
+  :is(p, ul, ol, li) {
+    font-size: .875rem;
+    line-height: 1.25rem;
+  }
 }
 
 .checkbox {
