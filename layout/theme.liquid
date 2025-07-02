@@ -3,8 +3,20 @@
   class="no-js{% if request.design_mode %} shopify-design-mode{% endif %}"
   lang="{{ request.locale.iso_code }}"
 >
+  <style>
+    {% if template.name == 'index' %}
+      .menu-list__link-title,
+      .header-actions__cart-icon,
+      .cart-bubble__text, .cart-bubble__text-count {
+        color: #fff !important;
+      }
+    {% else %}
+
+    {% endif %}
+  </style>
   <head>
     {{ 'base.css' | asset_url | stylesheet_tag }}
+    {{ 'main-override.css' | asset_url | stylesheet_tag }}
 
     {%- if settings.favicon != blank -%}
       <link

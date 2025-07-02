@@ -1,0 +1,81 @@
+{{ 'il-subscriptions.css' | asset_url | stylesheet_tag }}
+
+{% liquid
+  assign section_class = 'il-subscriptions--' | append: section.id
+%}
+
+<div class="section">
+  <div class="{{ section_class }} il-subscriptions">
+    <div class="il-subscriptions__left">
+      {% content_for 'block', type: 'email-signup', id: 'email_signup' %}
+    </div>
+     <div class="il-subscriptions__right">
+      {% content_for 'block', type: 'il-text-with-link', id: 'il_text_with_link' %}
+    </div>
+  </div>
+</div>
+
+{% render 'il-x-margins', parent_class: section_class, settings: section.settings %}
+
+{% schema %}
+{
+  "name": "IL Subscriptions",
+  "tag": "section",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Margin"
+    },
+    {
+      "type": "checkbox",
+      "id": "enable_margin_desktop",
+      "label": "Enable on desktop",
+      "default": false
+    },
+    {
+      "type": "number",
+      "id": "margin_top_desktop",
+      "info": "px",
+      "label": "Top",
+      "default": 0,
+      "visible_if": "{{ section.settings.enable_margin_desktop }}"
+    },
+    {
+      "type": "number",
+      "id": "margin_bottom_desktop",
+      "info": "px",
+      "label": "Bottom",
+      "default": 0,
+      "visible_if": "{{ section.settings.enable_margin_desktop }}"
+    },
+    {
+      "type": "checkbox",
+      "id": "enable_margin_mobile",
+      "label": "Enable on mobile",
+      "default": false
+    },
+    {
+      "type": "number",
+      "id": "margin_top_mobile",
+      "info": "px",
+      "label": "Top",
+      "default": 0,
+      "visible_if": "{{ section.settings.enable_margin_mobile }}"
+    },
+    {
+      "type": "number",
+      "id": "margin_bottom_mobile",
+      "info": "px",
+      "label": "Bottom",
+      "default": 0,
+      "visible_if": "{{ section.settings.enable_margin_mobile }}"
+    }
+  ],
+  "blocks": [{ "type": "@theme" }, { "type": "@app" }],
+  "presets": [
+    {
+      "name": "IL Subscriptions"
+    }
+  ]
+}
+{% endschema %}

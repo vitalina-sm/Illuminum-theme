@@ -22,11 +22,13 @@
     echo '--column-count: ' | append: section.settings.columns | append: ';'
     echo '--column-count-mobile: ' | append: section.settings.mobile_columns | append: ';'
   endcapture
+
+  assign section_class = 'product-recommendations-' | append: section.id
 %}
 
 <product-recommendations
   id="product-recommendations-{{ section.id }}"
-  class="product-recommendations"
+  class="product-recommendations {{ section_class }}"
   data-url="{{ routes.product_recommendations_url }}?limit={{ section.settings.max_products }}"
   data-section-id="{{ section.id }}"
   data-product-id="{{ section.settings.product.id | default: product.id }}"
@@ -170,6 +172,8 @@
   </div>
 </product-recommendations>
 
+{% render 'il-x-margins', parent_class: section_class, settings: section.settings %}
+
 {% stylesheet %}
   .product-recommendations__skeleton-item {
     aspect-ratio: 3 / 4;
@@ -186,6 +190,29 @@
 
   product-recommendations:has([data-has-recommendations='false']) {
     display: none;
+  }
+
+  .product-recommendations .product-card__content {
+    .product-grid-view-zoom-out--title {
+        font-family: var(--second-family);
+        font-weight: 400;
+        font-size: 32px;
+        line-height: 125%;
+        color: var(--text-color-black);
+        margin-bottom: 15px;
+        max-width: 194px;
+    }
+
+    .price {
+        font-family: var(--font-family);
+        font-weight: 400;
+        font-size: 16px;
+        color: var(--text-color-black);
+    }
+
+    add-to-cart-component {
+        display: none !important;
+    }
   }
 {% endstylesheet %}
 
@@ -430,27 +457,51 @@
     },
     {
       "type": "header",
-      "content": "t:content.padding"
+      "content": "Margin"
     },
     {
-      "type": "range",
-      "id": "padding-block-start",
-      "label": "t:settings.top",
-      "min": 0,
-      "max": 100,
-      "step": 1,
-      "unit": "px",
-      "default": 0
+      "type": "checkbox",
+      "id": "enable_margin_desktop",
+      "label": "Enable on desktop",
+      "default": false
     },
     {
-      "type": "range",
-      "id": "padding-block-end",
-      "label": "t:settings.bottom",
-      "min": 0,
-      "max": 100,
-      "step": 1,
-      "unit": "px",
-      "default": 0
+      "type": "number",
+      "id": "margin_top_desktop",
+      "info": "px",
+      "label": "Top",
+      "default": 0,
+      "visible_if": "{{ section.settings.enable_margin_desktop }}"
+    },
+    {
+      "type": "number",
+      "id": "margin_bottom_desktop",
+      "info": "px",
+      "label": "Bottom",
+      "default": 0,
+      "visible_if": "{{ section.settings.enable_margin_desktop }}"
+    },
+    {
+      "type": "checkbox",
+      "id": "enable_margin_mobile",
+      "label": "Enable on mobile",
+      "default": false
+    },
+    {
+      "type": "number",
+      "id": "margin_top_mobile",
+      "info": "px",
+      "label": "Top",
+      "default": 0,
+      "visible_if": "{{ section.settings.enable_margin_mobile }}"
+    },
+    {
+      "type": "number",
+      "id": "margin_bottom_mobile",
+      "info": "px",
+      "label": "Bottom",
+      "default": 0,
+      "visible_if": "{{ section.settings.enable_margin_mobile }}"
     }
   ],
   "presets": [
@@ -471,9 +522,7 @@
         "icons_shape": "none",
         "section_width": "page-width",
         "gap": 28,
-        "color_scheme": "scheme-1",
-        "padding-block-start": 48,
-        "padding-block-end": 48
+        "color_scheme": "scheme-1"
       },
       "blocks": {
         "header": {

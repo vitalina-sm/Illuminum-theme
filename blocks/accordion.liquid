@@ -22,7 +22,7 @@
     flex: 1;
     width: 100%;
   }
-  @container style(--border-width: 0) or style(--border-style: none) {
+  {% comment %}@container style(--border-width: 0) or style(--border-style: none) {
     .accordion--dividers:not([class*='color-']) accordion-custom:first-child .details {
       border-block-start: var(--style-border-width) solid var(--color-border);
     }
@@ -30,11 +30,11 @@
     .accordion--dividers:not([class*='color-']) accordion-custom:last-child .details {
       border-block-end: var(--style-border-width) solid var(--color-border);
     }
-  }
+  }{% endcomment %}
 
-  .accordion--dividers accordion-custom:not(:first-child) .details {
+  {% comment %}.accordion--dividers accordion-custom:not(:first-child) .details {
     border-block-start: var(--style-border-width) solid var(--color-border);
-  }
+  }{% endcomment %}
 
   .accordion--dividers .details-content {
     padding-block-end: var(--padding-sm);
@@ -47,13 +47,26 @@
 
   /* because we can't pass apply a specific class on a block based on its parent block setting */
   .accordion .details__header {
-    font-family: var(--summary-font-family);
+    {% comment %}font-family: var(--summary-font-family);
     font-style: var(--summary-font-style);
     font-weight: var(--summary-font-weight);
     font-size: var(--summary-font-size);
     line-height: var(--summary-font-line-height);
-    text-transform: var(--summary-font-case);
+    text-transform: var(--summary-font-case);{% endcomment %}
+
+    font-family: var(--font-family);
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 140%;
+    color: #000;
+    padding: 20px;
+    text-transform: capitalize;
+    background-color: #eaeaea;
   }
+  .accordion .details {
+    border: none !important;
+  }
+
 {% endstylesheet %}
 
 {% schema %}

@@ -69,6 +69,32 @@
     -o-object-fit: cover;
     object-fit: cover;
 }
+
+
+.il-slider__image::before,
+.il-slider__image::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    width: 100%;
+    height: 50%;
+}
+
+.il-slider__image::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url('https://cdn.shopify.com/s/files/1/0921/1445/2824/files/shadow.png?v=1751006417') no-repeat center center;
+    background-size: cover;
+    pointer-events: none;
+    height: 100%;
+    min-width: 100%;
+    z-index: 1;
+}
 @media (max-width: 767.98px) {
     .il-slider__flex {
         flex-direction: column-reverse;
@@ -95,6 +121,7 @@
     justify-content: space-between;
     align-items: end;
     padding: 30px;
+    z-index: 2;
 }
 
 @media screen and (max-width: 750px) {
@@ -109,7 +136,7 @@
     font-weight: 700;
     font-size: 12px;
     line-height: 140%;
-    color: #0C0C0C;
+    color: #fff;
     margin-bottom: 5px;
 }
 
@@ -118,7 +145,7 @@
     font-weight: 400;
     font-size: 96px;
     line-height: 90%;
-    color: #0C0C0C;
+    color: #fff;
     margin: 0 0 50px 0;
 }
 
@@ -240,7 +267,7 @@
 .swiper-pagination-bullet {
     width: 8px;
     height: 8px;
-    background: #0C0C0C;
+    background: #fff;
     opacity: 1;
     border-radius: 50%;
     margin: 5px 0;
@@ -250,7 +277,7 @@
 .swiper-pagination-bullet-active {
     width: 8px;
     height: 79px;
-    background: #0C0C0C;
+    background: #fff;
     border-radius: 0;
 }
 

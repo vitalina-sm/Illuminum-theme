@@ -1,6 +1,16 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "current": {
     "logo": "shopify://shop_images/logo-final.svg",
+    "logo_inverse": "shopify://shop_images/illuminum_london_logo.svg",
     "type_body_font": "inter_n4",
     "type_subheading_font": "inter_n4",
     "type_heading_font": "inter_n4",
@@ -11,18 +21,18 @@
     "type_size_h1": "120",
     "type_line_height_h1": "display-tight",
     "type_font_h2": "heading",
-    "type_size_h2": "72",
+    "type_size_h2": "64",
     "type_font_h3": "heading",
-    "type_size_h3": "48",
+    "type_size_h3": "16",
     "type_font_h4": "subheading",
-    "type_size_h4": "24",
+    "type_size_h4": "16",
     "type_case_h4": "none",
     "type_font_h5": "body",
     "type_size_h5": "12",
     "type_line_height_h5": "display-loose",
     "type_case_h5": "uppercase",
     "type_font_h6": "body",
-    "type_size_h6": "12",
+    "type_size_h6": "16",
     "type_line_height_h6": "display-loose",
     "type_letter_spacing_h6": "heading-normal",
     "type_case_h6": "uppercase",
@@ -47,16 +57,19 @@
     "product_corner_radius": 0,
     "card_corner_radius": 0,
     "card_title_case": "uppercase",
+    "show_variant_image": false,
     "variant_swatch_width": 18,
     "variant_swatch_height": 18,
     "variant_swatch_radius": 0,
+    "variant_swatch_border_style": "none",
+    "variant_button_border_width": 0,
     "variant_button_radius": 0,
     "variant_button_width": "default-width-buttons",
     "content_for_index": [],
     "color_schemes": {
       "scheme-1": {
         "settings": {
-          "background": "#ffffff00",
+          "background": "rgba(0,0,0,0)",
           "foreground_heading": "#0c0c0c",
           "foreground": "#0c0c0c",
           "primary": "#666666",

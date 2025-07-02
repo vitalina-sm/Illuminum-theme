@@ -275,8 +275,8 @@
     /* used to apply transparency to .header__row, will only ever be transparent or unset */
     --header-bg-color: transparent;
     /* used to display the appropriate logo based on transparency state */
-    --header-logo-display: none;
-    --header-logo-inverse-display: block;
+   {% comment %} --header-logo-display: none;
+    --header-logo-inverse-display: block;{% endcomment %}
 
     position: absolute;
     top: 0;
@@ -286,7 +286,7 @@
     background-color: transparent;
     z-index: var(--layer-overlay);
 
-    &[transparent='not-sticky'][data-sticky-state='active'],
+    {% comment %}&[transparent='not-sticky'][data-sticky-state='active'],
     &:has(
         .header__row:hover,
         [role='menu']:is(:hover),
@@ -303,7 +303,7 @@
       --color-foreground: inherit;
       --color-background: inherit;
       --color-border: inherit;
-    }
+    }{% endcomment %}
 
     .header__row {
       transition: color var(--animation-speed) var(--animation-easing),

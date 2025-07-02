@@ -1,9 +1,8 @@
 import Swiper from 'swiper';
-import {Mousewheel, Pagination, FreeMode} from 'swiper/modules';
+import { Mousewheel, Pagination, FreeMode } from 'swiper/modules';
 import 'swiper/css';
 
 document.addEventListener('DOMContentLoaded', () => {
-    console.log('il-slider.js loaded');
     const sliderSection = document.querySelector('.il-slider'),
           sliderEl = document.querySelector('.il-slider__images .swiper-container');
     let slider,

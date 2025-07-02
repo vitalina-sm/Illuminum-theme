@@ -1,0 +1,87 @@
+{% doc %}
+  Add margins to the section or to top and bottom.
+  It's important to add settings bellow for margins to the section / block in the schema.
+
+  For block settings change "vissible_if" to "visible_if": "{{ block.settings.enable_margin_desktop }}" etc
+    {
+      "type": "header",
+      "content": "Margin"
+    },
+    {
+      "type": "checkbox",
+      "id": "enable_margin_desktop",
+      "label": "Enable on desktop",
+      "default": false
+    },
+    {
+      "type": "number",
+      "id": "margin_top_desktop",
+      "info": "px",
+      "label": "Top",
+      "default": 0,
+      "visible_if": "{{ section.settings.enable_margin_desktop }}"
+    },
+    {
+      "type": "number",
+      "id": "margin_bottom_desktop",
+      "info": "px",
+      "label": "Bottom",
+      "default": 0,
+      "visible_if": "{{ section.settings.enable_margin_desktop }}"
+    },
+    {
+      "type": "checkbox",
+      "id": "enable_margin_mobile",
+      "label": "Enable on mobile",
+      "default": false
+    },
+    {
+      "type": "number",
+      "id": "margin_top_mobile",
+      "info": "px",
+      "label": "Top",
+      "default": 0,
+      "visible_if": "{{ section.settings.enable_margin_mobile }}"
+    },
+    {
+      "type": "number",
+      "id": "margin_bottom_mobile",
+      "info": "px",
+      "label": "Bottom",
+      "default": 0,
+      "visible_if": "{{ section.settings.enable_margin_mobile }}"
+    }
+
+  Accepts:
+  - parent_class {string}: The class of parent element with id of the section or block
+  - settings {object}: The settings of the section or block
+
+  {% render 'il-x-margins', parent_class: 'il-interactive', settings: section.settings %}
+{% enddoc %}
+
+{% liquid
+    assign enable_margin_desktop = settings.enable_margin_desktop
+    assign enable_margin_mobile = settings.enable_margin_mobile
+    assign margin_top_desktop = settings.margin_top_desktop
+    assign margin_bottom_desktop = settings.margin_bottom_desktop
+    assign margin_top_mobile = settings.margin_top_mobile
+    assign margin_bottom_mobile = settings.margin_bottom_mobile
+%}
+
+{% if enable_margin_desktop or enable_margin_mobile %}
+    <style>
+        {% if enable_margin_desktop %}
+        .{{ parent_class }} {
+            margin-top: {{ margin_top_desktop }}px;
+            margin-bottom: {{ margin_bottom_desktop }}px;
+        }
+        {% endif %}
+
+        @media screen and (max-width: 767px) {
+            .{{ parent_class }} {
+                margin-top: {{ margin_top_mobile }}px;
+                margin-bottom: {{ margin_bottom_mobile }}px;
+            }
+        }
+    </style>
+{% endif %}

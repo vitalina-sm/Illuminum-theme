@@ -1,0 +1,94 @@
+@import '_vars';
+
+.il-subscriptions {
+  display: flex;
+  column-gap: 30px;
+  padding: 100px 0;
+
+  @media screen and (max-width: 767px) {
+    padding: 0;
+    flex-direction: column;
+  }
+
+  * {
+    text-align: center;
+  }
+
+  .il-logo__image-wrapper {
+    display: none !important;
+  }
+
+  .email-signup__input-group {
+    @media screen and (max-width: 767px) {
+      display: flex;
+      flex-direction: column;
+    }
+  }
+
+  .il-email-signup .il-email-signup__input-group button {
+    @media screen and (max-width: 767px) {
+      display: block !important;
+      width: 100%;
+    }
+  }
+
+  .email-signup__button {
+    font-family: $font-family;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 140%;
+    text-transform: uppercase;
+    color: $text-white;
+  }
+
+  &__left {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex: 1;
+
+    @media screen and (max-width: 767px) {
+      padding: 100px 0;
+    }
+  }
+
+  &__right {
+    display: flex;
+    align-items: start;
+    justify-content: center;
+    flex: 1;
+    @media screen and (max-width: 767px) {
+      padding: 100px 0 113px 0;
+    }
+  }
+
+  .il-email-signup {
+    max-width: 470px;
+
+    &__heading {
+      margin-bottom: 15px;
+    }
+
+    &__description {
+      margin-bottom: 30px;
+    }
+
+    &__privacy-text {
+      margin-top: 10px;
+    }
+  }
+
+  .il-text-with-link {
+    &__heading {
+      margin: 0 0 15px 0;
+    }
+
+    &__description {
+      margin: 0 0 20px 0;
+    }
+
+    &__button {
+      padding: 10px;
+    }
+  }
+}

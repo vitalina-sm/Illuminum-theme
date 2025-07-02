@@ -6,7 +6,8 @@
  * or related systems. Please exercise caution as any changes
  * made to this file may be overwritten.
  * ------------------------------------------------------------
- */{
+ */
+{
   "sections": {
     "main": {
       "type": "product-information",
@@ -22,12 +23,12 @@
             "large_first_image": false,
             "icons_style": "arrow",
             "slideshow_controls_style": "counter",
-            "slideshow_mobile_controls_style": "counter",
+            "slideshow_mobile_controls_style": "dots",
             "thumbnail_position": "left",
             "thumbnail_width": 57,
-            "aspect_ratio": "1/1.25",
+            "aspect_ratio": "adapt",
             "media_radius": 0,
-            "extend_media": true,
+            "extend_media": false,
             "constrain_to_viewport": false,
             "zoom": true,
             "video_loop": false,
@@ -43,12 +44,14 @@
           "type": "_product-details",
           "static": true,
           "settings": {
-            "gap": 12,
-            "sticky_details_desktop": true,
-            "width": "fill",
+            "width": "custom",
             "custom_width": 100,
-            "width_mobile": "fill",
+            "width_mobile": "fit-content",
             "custom_width_mobile": 100,
+            "height": "fill",
+            "details_position": "flex-start",
+            "gap": 0,
+            "sticky_details_desktop": true,
             "inherit_color_scheme": true,
             "color_scheme": "",
             "background_media": "none",
@@ -64,14 +67,63 @@
             "padding-inline-end": 0
           },
           "blocks": {
+            "il_text_byfbcN": {
+              "type": "il-text",
+              "name": "IL Text",
+              "settings": {
+                "heading": "<p><strong>{{ closest.product.vendor }}</strong> <strong>{{ closest.product.metafields.custom.fragrance.value }}</strong></p>",
+                "heading_font_style": "caption_3",
+                "alignment": "left",
+                "enable_margin_desktop": true,
+                "margin_top_desktop": 5,
+                "margin_bottom_desktop": 0,
+                "enable_margin_mobile": false,
+                "margin_top_mobile": 0,
+                "margin_bottom_mobile": 0
+              },
+              "blocks": {}
+            },
+            "il_text_4QVk8z": {
+              "type": "il-text",
+              "name": "IL Text",
+              "settings": {
+                "heading": "<h1>{{ closest.product.title }}</h1>",
+                "heading_font_style": "heading_2",
+                "alignment": "left",
+                "enable_margin_desktop": true,
+                "margin_top_desktop": 0,
+                "margin_bottom_desktop": 15,
+                "enable_margin_mobile": false,
+                "margin_top_mobile": 0,
+                "margin_bottom_mobile": 0
+              },
+              "blocks": {}
+            },
+            "il_text_xa8PJn": {
+              "type": "il-text",
+              "name": "IL Text",
+              "settings": {
+                "heading": "{{ closest.product.description }}",
+                "heading_font_style": "regular_text",
+                "alignment": "left",
+                "enable_margin_desktop": true,
+                "margin_top_desktop": 0,
+                "margin_bottom_desktop": 15,
+                "enable_margin_mobile": true,
+                "margin_top_mobile": 0,
+                "margin_bottom_mobile": 15
+              },
+              "blocks": {}
+            },
             "heading_m7KmQQ": {
               "type": "text",
+              "disabled": true,
               "settings": {
-                "text": "<h1>{{ closest.product.title }}</h1>",
+                "text": "<p><strong>{{ closest.product.vendor }}</strong><strong>{{ closest.product.metafields.custom.fragrance.value }}</strong></p>",
                 "width": "100%",
                 "max_width": "normal",
-                "alignment": "center",
-                "type_preset": "h3",
+                "alignment": "left",
+                "type_preset": "h6",
                 "font": "var(--font-primary--family)",
                 "font_size": "var(--font-size--heading-md)",
                 "line_height": "normal",
@@ -82,7 +134,60 @@
                 "background": false,
                 "background_color": "#00000026",
                 "corner_radius": 0,
-                "padding-block-start": 50,
+                "padding-block-start": 0,
+                "padding-block-end": 0,
+                "padding-inline-start": 0,
+                "padding-inline-end": 0
+              },
+              "blocks": {}
+            },
+            "text_dyzQb9": {
+              "type": "text",
+              "disabled": true,
+              "settings": {
+                "text": "<h1>{{ closest.product.title }}</h1>",
+                "width": "100%",
+                "max_width": "normal",
+                "alignment": "left",
+                "type_preset": "h2",
+                "font": "var(--font-primary--family)",
+                "font_size": "var(--font-size--heading-md)",
+                "line_height": "normal",
+                "letter_spacing": "normal",
+                "case": "none",
+                "wrap": "pretty",
+                "color": "var(--color-foreground)",
+                "background": false,
+                "background_color": "#00000026",
+                "corner_radius": 0,
+                "padding-block-start": 5,
+                "padding-block-end": 0,
+                "padding-inline-start": 0,
+                "padding-inline-end": 0
+              },
+              "blocks": {}
+            },
+            "text_g9D4zL": {
+              "type": "text",
+              "name": "t:names.text",
+              "disabled": true,
+              "settings": {
+                "text": "{{ closest.product.description }}",
+                "width": "100%",
+                "max_width": "none",
+                "alignment": "left",
+                "type_preset": "h4",
+                "font": "var(--font-body--family)",
+                "font_size": "1rem",
+                "line_height": "normal",
+                "letter_spacing": "normal",
+                "case": "none",
+                "wrap": "pretty",
+                "color": "var(--color-foreground)",
+                "background": false,
+                "background_color": "#00000026",
+                "corner_radius": 0,
+                "padding-block-start": 15,
                 "padding-block-end": 0,
                 "padding-inline-start": 0,
                 "padding-inline-end": 0
@@ -95,26 +200,20 @@
                 "product": "{{ closest.product }}",
                 "show_sale_price_first": true,
                 "show_installments": true,
-                "show_tax_info": true,
-                "type_preset": "h5",
+                "show_tax_info": false,
+                "type_preset": "h3",
                 "width": "100%",
-                "alignment": "center",
+                "alignment": "left",
+                "font": "var(--font-body--family)",
+                "font_size": "1rem",
+                "line_height": "normal",
+                "letter_spacing": "normal",
+                "case": "none",
+                "color": "var(--color-foreground)",
                 "padding-block-start": 0,
                 "padding-block-end": 50,
                 "padding-inline-start": 0,
                 "padding-inline-end": 0
-              },
-              "blocks": {}
-            },
-            "divider_HrJgFt": {
-              "type": "_divider",
-              "name": "t:names.divider",
-              "settings": {
-                "thickness": 1,
-                "corner_radius": "square",
-                "width_percent": 100,
-                "padding-block-start": 12,
-                "padding-block-end": 12
               },
               "blocks": {}
             },
@@ -125,8 +224,8 @@
                 "variant_style": "buttons",
                 "show_swatches": true,
                 "alignment": "left",
-                "padding-block-start": 12,
-                "padding-block-end": 24,
+                "padding-block-start": 0,
+                "padding-block-end": 50,
                 "padding-inline-start": 0,
                 "padding-inline-end": 0
               },
@@ -139,7 +238,7 @@
                 "stacking": false,
                 "show_pickup_availability": true,
                 "padding-block-start": 0,
-                "padding-block-end": 0,
+                "padding-block-end": 35,
                 "padding-inline-start": 0,
                 "padding-inline-end": 0
               },
@@ -164,6 +263,7 @@
                 },
                 "accelerated-checkout": {
                   "type": "accelerated-checkout",
+                  "disabled": true,
                   "static": true,
                   "settings": {
                     "product": "{{ closest.product }}"
@@ -195,7 +295,7 @@
                 "accordion_row_NdBezV": {
                   "type": "_accordion-row",
                   "settings": {
-                    "heading": "Description",
+                    "heading": "Ingredients",
                     "open_by_default": false
                   },
                   "blocks": {
@@ -232,7 +332,7 @@
                 "accordion_row_iJM37V": {
                   "type": "_accordion-row",
                   "settings": {
-                    "heading": "Care",
+                    "heading": "How to use",
                     "open_by_default": false
                   },
                   "blocks": {
@@ -265,56 +365,22 @@
                   "block_order": [
                     "text_VdG98J"
                   ]
-                },
-                "accordion_row_pLFDcD": {
-                  "type": "_accordion-row",
-                  "settings": {
-                    "heading": "Design",
-                    "open_by_default": false
-                  },
-                  "blocks": {
-                    "text_qLGEN9": {
-                      "type": "text",
-                      "settings": {
-                        "text": "<p>Our dedication to excellence extends beyond materials; it encompasses the artistry and craftsmanship illustrated in every piece we create.</p>",
-                        "width": "100%",
-                        "max_width": "normal",
-                        "alignment": "left",
-                        "type_preset": "custom",
-                        "font": "var(--font-secondary--family)",
-                        "font_size": "var(--font-size--body-lg)",
-                        "line_height": "normal",
-                        "letter_spacing": "normal",
-                        "case": "none",
-                        "wrap": "pretty",
-                        "color": "",
-                        "background": false,
-                        "background_color": "#00000026",
-                        "corner_radius": 0,
-                        "padding-block-start": 12,
-                        "padding-block-end": 0,
-                        "padding-inline-start": 0,
-                        "padding-inline-end": 0
-                      },
-                      "blocks": {}
-                    }
-                  },
-                  "block_order": [
-                    "text_qLGEN9"
-                  ]
                 }
               },
               "block_order": [
                 "accordion_row_NdBezV",
-                "accordion_row_iJM37V",
-                "accordion_row_pLFDcD"
+                "accordion_row_iJM37V"
               ]
             }
           },
           "block_order": [
+            "il_text_byfbcN",
+            "il_text_4QVk8z",
+            "il_text_xa8PJn",
             "heading_m7KmQQ",
+            "text_dyzQb9",
+            "text_g9D4zL",
             "price_a7krng",
-            "divider_HrJgFt",
             "variant_picker_R3rGDr",
             "buy_buttons_eYQEYi",
             "accordion_NKWPiW"
@@ -323,42 +389,146 @@
       },
       "settings": {
         "product": "{{ closest.product }}",
-        "content_width": "content-full-width",
+        "content_width": "content-center-aligned",
         "desktop_media_position": "left",
         "equal_columns": true,
         "limit_details_width": true,
-        "gap": 0,
+        "gap": 32,
         "color_scheme": "",
-        "padding-block-start": 0,
-        "padding-block-end": 0
+        "padding-block-start": 100,
+        "padding-block-end": 100
+      }
+    },
+    "il_text_message_NzPhMN": {
+      "type": "IL-text-message",
+      "name": "IL Text Message",
+      "settings": {
+        "title": "Overview of the collection",
+        "subtext": "<p>“95 Percent” is a fragrance collection by Illuminum created in collaboration with three remarkable chefs — Jackson Boxer, Yuki Gomi, and Tom Wolfe. Inspired by the fact that 95% of what we taste is actually scent, the series explores the boundary between flavor and aroma. Using their refined sense of smell, the chefs crafted unique perfumes that push the limits of sensory experience.</p>",
+        "enable_margin_desktop": true,
+        "margin_top_desktop": 150,
+        "margin_bottom_desktop": 125,
+        "enable_margin_mobile": true,
+        "margin_top_mobile": 52,
+        "margin_bottom_mobile": 49
+      }
+    },
+    "il_interactive_notes_EzgEhA": {
+      "type": "IL-interactive-notes",
+      "blocks": {
+        "il_interactive_content_8GVmCU": {
+          "type": "IL-interactive-content",
+          "settings": {
+            "title": "Top notes",
+            "subtext": "Fennel, Bergamot",
+            "image": "shopify://shop_images/bergamot.png"
+          }
+        },
+        "il_interactive_content_yLwy7N": {
+          "type": "IL-interactive-content",
+          "settings": {
+            "title": "Middle",
+            "subtext": "Fennel, Bergamot",
+            "image": "shopify://shop_images/productphoto-1.jpg"
+          }
+        },
+        "il_interactive_content_Khrzii": {
+          "type": "IL-interactive-content",
+          "settings": {
+            "title": "Base",
+            "subtext": "Fennel, Bergamot",
+            "image": "shopify://shop_images/hero-mobile.jpg"
+          }
+        }
+      },
+      "block_order": [
+        "il_interactive_content_8GVmCU",
+        "il_interactive_content_yLwy7N",
+        "il_interactive_content_Khrzii"
+      ],
+      "name": "IL Interactive notes",
+      "settings": {
+        "enable_margin_desktop": true,
+        "margin_top_desktop": 125,
+        "margin_bottom_desktop": 125,
+        "enable_margin_mobile": true,
+        "margin_top_mobile": 49,
+        "margin_bottom_mobile": 62
+      }
+    },
+    "il_subscriptions_YfjyaQ": {
+      "type": "IL-subscriptions",
+      "blocks": {
+        "email_signup": {
+          "type": "email-signup",
+          "static": true,
+          "settings": {
+            "heading": "Stay in the know",
+            "heading_font_style": "heading_3",
+            "description": "Receive personalized email updates, launch annoucement, and exclusive access based on your interests.",
+            "description_font_style": "regular_text",
+            "privacy_text": "<p>This site is protected by reCAPTCHA and the <a href=\"/policies/privacy-policy\" title=\"Privacy Policy\">Google Privacy Policy</a> and <a href=\"/policies/privacy-policy\" title=\"Privacy Policy\">Terms of Service</a> apply.</p>",
+            "privacy_text_font_style": "caption_1",
+            "width": "custom",
+            "custom_width": 9,
+            "inherit_color_scheme": true,
+            "color_scheme": "",
+            "border_style": "all",
+            "border_width": 0.5,
+            "border_radius": 0,
+            "input_type_preset": "paragraph",
+            "style_class": "button",
+            "display_type": "text",
+            "label": "Subscribe",
+            "integrated_button": false,
+            "button_type_preset": "paragraph",
+            "padding-block-start": 0,
+            "padding-block-end": 0,
+            "padding-inline-start": 0,
+            "padding-inline-end": 0
+          },
+          "blocks": {}
+        },
+        "il_text_with_link": {
+          "type": "il-text-with-link",
+          "static": true,
+          "settings": {
+            "heading": "Illuminum wrapping service",
+            "heading_font_style": "heading_3",
+            "description": "For every order placed on Illuminum you can select a gift box",
+            "description_font_style": "regular_text",
+            "button_text": "DISCOVER GIFTING OPTIONS",
+            "button_link": "shopify://collections"
+          },
+          "blocks": {}
+        }
+      },
+      "name": "IL Subscriptions",
+      "settings": {
+        "enable_margin_desktop": true,
+        "margin_top_desktop": 125,
+        "margin_bottom_desktop": 132,
+        "enable_margin_mobile": true,
+        "margin_top_mobile": 49,
+        "margin_bottom_mobile": 75
       }
     },
     "product_recommendations_qnzPkn": {
       "type": "product-recommendations",
       "blocks": {
-        "text_GbxcYC": {
-          "type": "text",
-          "name": "t:names.header",
+        "il_text_A8Lbgc": {
+          "type": "il-text",
+          "name": "IL Text",
           "settings": {
-            "text": "<h3>You may also like</h3>",
-            "width": "100%",
-            "max_width": "normal",
-            "alignment": "center",
-            "type_preset": "h4",
-            "font": "var(--font-primary--family)",
-            "font_size": "",
-            "line_height": "normal",
-            "letter_spacing": "normal",
-            "case": "none",
-            "wrap": "pretty",
-            "color": "",
-            "background": false,
-            "background_color": "#00000026",
-            "corner_radius": 0,
-            "padding-block-start": 0,
-            "padding-block-end": 0,
-            "padding-inline-start": 0,
-            "padding-inline-end": 0
+            "heading": "<p>You may also like</p>",
+            "heading_font_style": "heading_2",
+            "alignment": "left",
+            "enable_margin_desktop": true,
+            "margin_top_desktop": 0,
+            "margin_bottom_desktop": 50,
+            "enable_margin_mobile": true,
+            "margin_top_mobile": 0,
+            "margin_bottom_mobile": 0
           },
           "blocks": {}
         },
@@ -368,7 +538,7 @@
           "static": true,
           "settings": {
             "product": "{{ closest.product }}",
-            "product_card_gap": 16,
+            "product_card_gap": 15,
             "inherit_color_scheme": true,
             "color_scheme": "",
             "border": "none",
@@ -400,7 +570,9 @@
             },
             "group_396y6r": {
               "type": "group",
+              "disabled": true,
               "settings": {
+                "link": "",
                 "open_in_new_tab": false,
                 "content_direction": "row",
                 "vertical_on_mobile": true,
@@ -439,6 +611,7 @@
                   "type": "group",
                   "name": "t:names.group",
                   "settings": {
+                    "link": "",
                     "open_in_new_tab": false,
                     "content_direction": "column",
                     "vertical_on_mobile": true,
@@ -508,6 +681,12 @@
                         "type_preset": "h5",
                         "width": "100%",
                         "alignment": "left",
+                        "font": "var(--font-body--family)",
+                        "font_size": "1rem",
+                        "line_height": "normal",
+                        "letter_spacing": "normal",
+                        "case": "none",
+                        "color": "var(--color-foreground)",
                         "padding-block-start": 0,
                         "padding-block-end": 0,
                         "padding-inline-start": 0,
@@ -520,68 +699,10 @@
                     "text_CayfE3",
                     "price_ahRCgD"
                   ]
-                },
-                "group_PihxwT": {
-                  "type": "group",
-                  "name": "t:names.group",
-                  "settings": {
-                    "open_in_new_tab": false,
-                    "content_direction": "column",
-                    "vertical_on_mobile": true,
-                    "horizontal_alignment": "flex-start",
-                    "vertical_alignment": "center",
-                    "align_baseline": false,
-                    "horizontal_alignment_flex_direction_column": "flex-start",
-                    "vertical_alignment_flex_direction_column": "flex-start",
-                    "gap": 0,
-                    "width": "fill",
-                    "custom_width": 40,
-                    "width_mobile": "fill",
-                    "custom_width_mobile": 100,
-                    "height": "fit",
-                    "custom_height": 100,
-                    "inherit_color_scheme": true,
-                    "color_scheme": "",
-                    "background_media": "none",
-                    "video_position": "cover",
-                    "background_image_position": "cover",
-                    "border": "none",
-                    "border_width": 1,
-                    "border_opacity": 100,
-                    "border_radius": 0,
-                    "toggle_overlay": false,
-                    "overlay_color": "#00000026",
-                    "overlay_style": "solid",
-                    "gradient_direction": "to top",
-                    "padding-block-start": 0,
-                    "padding-block-end": 0,
-                    "padding-inline-start": 0,
-                    "padding-inline-end": 0
-                  },
-                  "blocks": {
-                    "swatches_EdNBpW": {
-                      "type": "swatches",
-                      "settings": {
-                        "product": "{{ closest.product }}",
-                        "product_swatches_alignment": "flex-end",
-                        "product_swatches_alignment_mobile": "flex-start",
-                        "hide_padding": false,
-                        "product_swatches_padding_top": 0,
-                        "product_swatches_padding_bottom": 0,
-                        "product_swatches_padding_left": 0,
-                        "product_swatches_padding_right": 0
-                      },
-                      "blocks": {}
-                    }
-                  },
-                  "block_order": [
-                    "swatches_EdNBpW"
-                  ]
                 }
               },
               "block_order": [
-                "group_tEHPmM",
-                "group_PihxwT"
+                "group_tEHPmM"
               ]
             }
           },
@@ -592,31 +713,38 @@
         }
       },
       "block_order": [
-        "text_GbxcYC"
+        "il_text_A8Lbgc"
       ],
       "name": "t:names.product_recommendations",
       "settings": {
         "product": "{{ closest.product }}",
         "recommendation_type": "related",
-        "layout_type": "grid",
+        "layout_type": "carousel",
         "carousel_on_mobile": false,
-        "max_products": 4,
-        "columns": 4,
+        "max_products": 10,
+        "columns": 3,
         "mobile_columns": "2",
-        "columns_gap": 16,
+        "columns_gap": 30,
         "rows_gap": 16,
-        "icons_style": "arrow",
+        "icons_style": "none",
         "icons_shape": "none",
         "section_width": "page-width",
         "gap": 28,
         "color_scheme": "scheme-1",
-        "padding-block-start": 48,
-        "padding-block-end": 48
+        "enable_margin_desktop": true,
+        "margin_top_desktop": 134,
+        "margin_bottom_desktop": 250,
+        "enable_margin_mobile": true,
+        "margin_top_mobile": 75,
+        "margin_bottom_mobile": 150
       }
     }
   },
   "order": [
     "main",
+    "il_text_message_NzPhMN",
+    "il_interactive_notes_EzgEhA",
+    "il_subscriptions_YfjyaQ",
     "product_recommendations_qnzPkn"
   ]
 }

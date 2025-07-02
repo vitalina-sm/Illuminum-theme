@@ -151,8 +151,11 @@
                   "name": "t:names.email_signup",
                   "settings": {
                     "heading": "Stay in the know",
+                    "heading_font_style": "heading_5",
                     "description": "Receive personalized email updates, launch annoucement, and exclusive access based on your interests.",
+                    "description_font_style": "regular_text",
                     "privacy_text": "<p>This site is protected by reCAPTCHA and the <a href=\"/policies/privacy-policy\" title=\"Privacy Policy\">Google Privacy Policy</a> and <a href=\"/policies/privacy-policy\" title=\"Privacy Policy\">Terms of Service</a> apply.</p>",
+                    "privacy_text_font_style": "caption_1",
                     "width": "fill",
                     "custom_width": 100,
                     "inherit_color_scheme": true,

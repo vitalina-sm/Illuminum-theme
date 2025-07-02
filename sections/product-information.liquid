@@ -141,7 +141,7 @@
     .product-information__grid:not(:has(.product-information__media:empty)) {
       /* Media on the left side */
       &.product-information--media-left {
-        grid-template-columns: 1fr min(50vw, var(--sidebar-width));
+        grid-template-columns: 1fr min(50vw, 100%);
 
         .product-information__media {
           padding-right: calc(var(--gap, 0) / 2);
@@ -157,7 +157,7 @@
 
       /* Media on the right side */
       &.product-information--media-right {
-        grid-template-columns: min(50vw, var(--sidebar-width)) 1fr;
+        grid-template-columns: min(50vw, 100%) 1fr;
 
         .product-information__media {
           padding-left: calc(var(--gap, 0) / 2);
@@ -246,12 +246,30 @@
   }
 
   .product-information__grid--limit-details .product-details > .group-block {
-    max-width: var(--sidebar-width);
+    max-width: 100%;
   }
 
   /* If the header is sticky, make product details content stick underneath the header */
   body:has(#header-group #header-component[data-sticky-state='active']) .product-details.sticky-content--desktop {
     --sticky-header-offset: var(--header-height);
+  }
+
+  .product-information {
+
+    product-price > div {
+        display: flex;
+        height: 19px;
+        line-height: 19px;
+        margin-block: 0 !important;
+    }
+
+    .price {
+        font-family: var(--font-family);
+        font-weight: 400;
+        font-size: 16px;
+        line-height: 118%;
+        color: var(--text-color-black);
+    }
   }
 {% endstylesheet %}
 

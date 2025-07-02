@@ -1,0 +1,139 @@
+@import '_vars';
+
+h1,
+.h1.h1,
+.text-block.h1 > *,
+.heading-1,
+.heading-1 * {
+  font-family: $second-family;
+  font-weight: 400;
+  font-size: 96px;
+  line-height: 141%;
+  color: #000;
+  margin: 0;
+}
+
+h2,
+.h2.h2,
+.text-block.h2 > *,
+.heading-2,
+.heading-2 * {
+  font-family: $second-family;
+  font-weight: 400;
+  line-height: 126%;
+  font-size: 64px;
+  color: #000;
+  margin: 0;
+}
+
+h3,
+.h3,
+.h3.h3,
+.text-block.h3 > *,
+.heading-3,
+.heading-3 * {
+  font-family: $second-family;
+  font-weight: 400;
+  font-size: 40px;
+  line-height: 127%;
+  color: #000;
+  margin: 0;
+}
+
+h5,
+.h5.h5,
+.text-block.h5 > *,
+.heading-5,
+.heading-5 * {
+  font-family: $second-family;
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 140%;
+  color: #000;
+  margin: 0;
+}
+
+.menu-link,
+.menu-link * {
+  font-family: $font-family;
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 140%;
+  color: #000;
+  margin: 0;
+}
+
+.link-item,
+.link-item *,
+.link-item-hovered,
+.link-item-hovered * {
+  font-family: $font-family !important;
+  font-weight: 400 !important;;
+  font-size: 16px!important;;
+  line-height: 140%!important;;
+  text-transform: uppercase!important;;
+  color: #000!important;;
+  margin: 0;
+  transition: all 0.2s ease-in-out;
+}
+
+.link-item-hovered,
+.link-item-hovered * {
+  &:hover {
+    text-decoration: underline;
+    text-underline-offset: 3px;
+  }
+}
+
+.regular-text,
+.regular-text * {
+  font-family: $font-family;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 140%;
+  color: #000;
+  margin: 0;
+}
+
+.caption-1,
+.caption-1 * {
+  font-family: $font-family;
+  font-weight: 400;
+  font-size: 10px;
+  line-height: 140%;
+  color: #000;
+  margin: 0;
+}
+
+.caption-2,
+.caption-2 * {
+  font-family: $font-family;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 140%;
+  text-transform: uppercase;
+  color: #000;
+  margin: 0;
+}
+
+.caption-3,
+.caption-3 * {
+  font-family: $font-family;
+  font-weight: 700;
+  font-size: 12px;
+  line-height: 140%;
+  color: #000;
+  margin: 0;
+}
+
+.for-desktop {
+  @media screen and (max-width: 767px) {
+    display: none !important;
+  }
+}
+
+.for-mobile {
+  @media screen and (min-width: 768px) {
+    display: none !important;
+  }
+}

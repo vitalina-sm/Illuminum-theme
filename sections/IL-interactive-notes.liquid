@@ -1,0 +1,217 @@
+{{ 'il-interactive-notes.css' | asset_url | stylesheet_tag }}
+<script src="{{ 'il-interactive.js' | asset_url }}" type="module" defer></script>
+
+{% liquid
+  assign section_class = 'il-interactive--' | append: section.id
+%}
+
+<div class="section">
+  <il-interactive-notes class="{{ section_class }} il-interactive for-desktop">
+    <div class="il-interactive__text-container">
+      <div class="il-interactive__text-container-inner">
+        {% for block in section.blocks %}
+          <div class="il-interactive__text-content {% if forloop.first %}active{% endif %}" data-block-id="{{ block.id }}">
+            <p class="il-interactive__title">{{ block.settings.title }}</p>
+            <p class="il-interactive__subtext">{{ block.settings.subtext }}</p>
+          </div>
+        {% endfor %}
+      </div>
+    </div>
+    <div class="il-interactive__image-container">
+      {% for block in section.blocks %}
+        <img class="il-interactive__image {% if forloop.first %}active{% endif %}" src="{{ block.settings.image | img_url: 'master' }}" alt="{{ block.settings.image.alt | escape }}" data-block-id="{{ block.id }}">
+      {% endfor %}
+    </div>
+  </il-interactive-notes>
+  <il-interactive-notes-slider class="{{ section_class }} il-interactive for-mobile">
+    <div class="swiper-container">
+      <div class="swiper-wrapper">
+        {% for block in section.blocks %}
+          <div class="swiper-slide">
+            <div class="il-interactive__swiper-slide-inner">
+              <div class="il-interactive__image-container">
+                  <img class="il-interactive__image"
+                       src="{{ block.settings.image | img_url: 'master' }}"
+                       alt="{{ block.settings.image.alt | escape }}"
+                       data-block-id="{{ block.id }}">
+                </div>
+              <div class="swiper-pagination"></div>
+              <div class="il-interactive__text-container-inner">
+                <div class="il-interactive__text-content" data-block-id="{{ block.id }}">
+                  <p class="il-interactive__title">{{ block.settings.title }}</p>
+                  <p class="il-interactive__subtext">{{ block.settings.subtext }}</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        {% endfor %}
+      </div>
+    </div>
+  </il-interactive-notes-slider>
+</div>
+
+{% render 'il-x-margins', parent_class: section_class, settings: section.settings %}
+
+{% comment %}<script>
+document.addEventListener('DOMContentLoaded', () => {
+  const textContents = document.querySelectorAll('.il-interactive__text-content');
+  const images = document.querySelectorAll('.il-interactive__image');
+
+  // Function to reset active classes
+  function resetActiveClasses() {
+    textContents.forEach(content => content.classList.remove('active'));
+    images.forEach(image => image.classList.remove('active'));
+  }
+
+  // Function to set active state based on block ID
+  function setActive(blockId) {
+    resetActiveClasses();
+    const targetText = document.querySelector(`.il-interactive__text-content[data-block-id="${blockId}"]`);
+    const targetImage = document.querySelector(`.il-interactive__image[data-block-id="${blockId}"]`);
+    if (targetText) targetText.classList.add('active');
+    if (targetImage) targetImage.classList.add('active');
+  }
+
+  // Handle click events
+  textContents.forEach(content => {
+    content.addEventListener('click', () => {
+      const blockId = content.getAttribute('data-block-id');
+      setActive(blockId);
+    });
+  });
+
+  // Handle hover events
+  textContents.forEach(content => {
+    content.addEventListener('mouseenter', () => {
+      const blockId = content.getAttribute('data-block-id');
+      setActive(blockId);
+    });
+
+    // On mouseleave, revert to the last clicked active text content or the first one
+    content.addEventListener('mouseleave', () => {
+      const activeText = document.querySelector('.il-interactive__text-content.active');
+      if (activeText) {
+        const blockId = activeText.getAttribute('data-block-id');
+        setActive(blockId);
+      } else {
+        // Fallback to the first text content if no active text is found
+        const firstText = document.querySelector('.il-interactive__text-content');
+        if (firstText) {
+          const blockId = firstText.getAttribute('data-block-id');
+          setActive(blockId);
+        }
+      }
+    });
+  });
+});
+</script>{% endcomment %}
+
+{% schema %}
+{
+  "name": "IL Interactive notes",
+  "tag": "section",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Margin"
+    },
+    {
+      "type": "checkbox",
+      "id": "enable_margin_desktop",
+      "label": "Enable on desktop",
+      "default": false
+    },
+    {
+      "type": "number",
+      "id": "margin_top_desktop",
+      "info": "px",
+      "label": "Top",
+      "default": 0,
+      "visible_if": "{{ section.settings.enable_margin_desktop }}"
+    },
+    {
+      "type": "number",
+      "id": "margin_bottom_desktop",
+      "info": "px",
+      "label": "Bottom",
+      "default": 0,
+      "visible_if": "{{ section.settings.enable_margin_desktop }}"
+    },
+    {
+      "type": "checkbox",
+      "id": "enable_margin_mobile",
+      "label": "Enable on mobile",
+      "default": false
+    },
+    {
+      "type": "number",
+      "id": "margin_top_mobile",
+      "info": "px",
+      "label": "Top",
+      "default": 0,
+      "visible_if": "{{ section.settings.enable_margin_mobile }}"
+    },
+    {
+      "type": "number",
+      "id": "margin_bottom_mobile",
+      "info": "px",
+      "label": "Bottom",
+      "default": 0,
+      "visible_if": "{{ section.settings.enable_margin_mobile }}"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "IL-interactive-content",
+      "name": "IL Interactive content",
+      "settings": [
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title",
+          "default": "Top notes"
+        },
+        {
+          "type": "textarea",
+          "id": "subtext",
+          "label": "Subtext",
+          "default": "Fennel, Bergamot"
+        },
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "IL Interactive notes",
+      "blocks": [
+        {
+          "type": "IL-interactive-content",
+          "settings": {
+            "title": "Top notes",
+            "subtext": "Fennel, Bergamot"
+          }
+        },
+        {
+          "type": "IL-interactive-content",
+          "settings": {
+            "title": "Middle",
+            "subtext": "Fennel, Bergamot"
+          }
+        },
+        {
+          "type": "IL-interactive-content",
+          "settings": {
+            "title": "Base",
+            "subtext": "Fennel, Bergamot"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

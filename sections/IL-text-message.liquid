@@ -1,0 +1,94 @@
+{{ 'il-text-message.css' | asset_url | stylesheet_tag }}
+
+{% liquid
+  assign section_class = 'il-text-message--' | append: section.id
+%}
+
+<div class="section">
+  <div class="{{ section_class }} il-text-message">
+    <p class="il-text-message__title">{{ section.settings.title }}</p>
+    <div class="il-text-message__content">
+      {{ section.settings.subtext | richtext }}
+    </div>
+  </div>
+</div>
+
+{% render 'il-x-margins', parent_class: section_class, settings: section.settings %}
+
+{% schema %}
+{
+  "name": "IL Text Message",
+  "tag": "section",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Text content"
+    },
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Title",
+      "default": "Overview of the collection"
+    },
+    {
+      "type": "richtext",
+      "id": "subtext",
+      "label": "Subtext",
+      "default": "<p>“95 Percent” is a fragrance collection by Illuminum created in collaboration with three remarkable chefs — Jackson Boxer, Yuki Gomi, and Tom Wolfe. Inspired by the fact that 95% of what we taste is actually scent, the series explores the boundary between flavor and aroma. Using their refined sense of smell, the chefs crafted unique perfumes that push the limits of sensory experience.</p>"
+    },
+    {
+      "type": "header",
+      "content": "Margin"
+    },
+    {
+      "type": "checkbox",
+      "id": "enable_margin_desktop",
+      "label": "Enable on desktop",
+      "default": false
+    },
+    {
+      "type": "number",
+      "id": "margin_top_desktop",
+      "info": "px",
+      "label": "Top",
+      "default": 0,
+      "visible_if": "{{ section.settings.enable_margin_desktop }}"
+    },
+    {
+      "type": "number",
+      "id": "margin_bottom_desktop",
+      "info": "px",
+      "label": "Bottom",
+      "default": 0,
+      "visible_if": "{{ section.settings.enable_margin_desktop }}"
+    },
+    {
+      "type": "checkbox",
+      "id": "enable_margin_mobile",
+      "label": "Enable on mobile",
+      "default": false
+    },
+    {
+      "type": "number",
+      "id": "margin_top_mobile",
+      "info": "px",
+      "label": "Top",
+      "default": 0,
+      "visible_if": "{{ section.settings.enable_margin_mobile }}"
+    },
+    {
+      "type": "number",
+      "id": "margin_bottom_mobile",
+      "info": "px",
+      "label": "Bottom",
+      "default": 0,
+      "visible_if": "{{ section.settings.enable_margin_mobile }}"
+    }
+  ],
+  "presets": [
+    {
+      "name": "IL Text Message"
+    }
+  ]
+}
+{% endschema %}

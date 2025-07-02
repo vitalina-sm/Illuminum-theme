@@ -2,6 +2,12 @@
 
 {% liquid
   assign image = settings.logo
+  assign heading_font_style = block.settings.heading_font_style | replace: '_', '-'
+  assign description_font_style = block.settings.description_font_style | replace: '_', '-'
+  assign privacy_text_font_style = block.settings.privacy_text_font_style | replace: '_', '-'
+  assign heading = block.settings.heading
+  assign description = block.settings.description
+  assign privacy_text = block.settings.privacy_text
 
   if block.settings.inverse and settings.logo_inverse
     assign image = settings.logo_inverse
@@ -25,13 +31,17 @@
 {%- endif -%}
 
 <div
-  class="email-signup-block size-style spacing-style il-email-signup"
+  class="email-signup-block il-email-signup"
   style="{% render 'size-style', settings: block.settings %}{% render 'spacing-style', settings: block.settings %}"
   {{ block.shopify_attributes }}
 >
 
-  <div class="il-email-signup__heading">{{ block.settings.heading }}</div>
-  <div class="il-email-signup__description">{{ block.settings.description }}</div>
+  <div class="il-email-signup__heading {% if heading_font_style != 'unset' %}{{ heading_font_style }}{% endif %}">
+    {{ block.settings.heading }}
+  </div>
+  <div class="il-email-signup__description {% if block.settings.description_font_style != 'unset' %}{{ block.settings.description_font_style }}{% endif %}">
+    {{ block.settings.description }}
+  </div>
   {%- form 'customer', class: 'email-signup__form spacing-style' %}
     <div
       class="email-signup__input-group il-email-signup__input-group {% if block.settings.inherit_color_scheme == false %}color-{{ block.settings.color_scheme }}{% endif %}"
@@ -116,7 +126,9 @@
       </div>
     {%- endif -%}
   {% endform %}
-  <div class="il-email-signup__privacy-text">{{ block.settings.privacy_text }}</div>
+  <div class="il-email-signup__privacy-text {% if privacy_text_font_style != 'unset' %}{{ privacy_text_font_style }}{% endif %}">
+    {{ block.settings.privacy_text }}
+  </div>
   {% if logo_image %}
     <div class="il-logo__image-wrapper">
       {{ logo_image }}
@@ -142,15 +154,147 @@
       "default": "Stay in the know"
     },
     {
+      "type": "select",
+      "id": "heading_font_style",
+      "label": "Font style",
+      "options": [
+        {
+          "value": "unset",
+          "label": "Unset"
+        },
+        {
+          "value": "heading_1",
+          "label": "Heading 1"
+        },
+        {
+          "value": "heading_2",
+          "label": "Heading 2"
+        },
+        {
+          "value": "heading_3",
+          "label": "Heading 3"
+        },
+        {
+          "value": "heading_5",
+          "label": "Heading 5"
+        },
+        {
+          "value": "regular_text",
+          "label": "Regular text"
+        },
+        {
+          "value": "caption_1",
+          "label": "Caption 1"
+        },
+        {
+          "value": "caption_2",
+          "label": "Caption 2"
+        },
+        {
+          "value": "caption_3",
+          "label": "Caption 3"
+        }
+      ],
+        "default": "unset"
+    },
+    {
       "type": "textarea",
       "id": "description",
       "label": "Description",
       "default": "Receive personalized email updates, launch annoucement, and exclusive access based on your interests."
     },
     {
+      "type": "select",
+      "id": "description_font_style",
+      "label": "Font style",
+      "options": [
+        {
+          "value": "unset",
+          "label": "Unset"
+        },
+        {
+          "value": "heading_1",
+          "label": "Heading 1"
+        },
+        {
+          "value": "heading_2",
+          "label": "Heading 2"
+        },
+        {
+          "value": "heading_3",
+          "label": "Heading 3"
+        },
+        {
+          "value": "heading_5",
+          "label": "Heading 5"
+        },
+        {
+          "value": "regular_text",
+          "label": "Regular text"
+        },
+        {
+          "value": "caption_1",
+          "label": "Caption 1"
+        },
+        {
+          "value": "caption_2",
+          "label": "Caption 2"
+        },
+        {
+          "value": "caption_3",
+          "label": "Caption 3"
+        }
+      ],
+        "default": "unset"
+    },
+    {
       "type": "richtext",
       "id": "privacy_text",
       "label": "Privacy text"
+    },
+    {
+      "type": "select",
+      "id": "privacy_text_font_style",
+      "label": "Font style",
+      "options": [
+        {
+          "value": "unset",
+          "label": "Unset"
+        },
+        {
+          "value": "heading_1",
+          "label": "Heading 1"
+        },
+        {
+          "value": "heading_2",
+          "label": "Heading 2"
+        },
+        {
+          "value": "heading_3",
+          "label": "Heading 3"
+        },
+        {
+          "value": "heading_5",
+          "label": "Heading 5"
+        },
+        {
+          "value": "regular_text",
+          "label": "Regular text"
+        },
+        {
+          "value": "caption_1",
+          "label": "Caption 1"
+        },
+        {
+          "value": "caption_2",
+          "label": "Caption 2"
+        },
+        {
+          "value": "caption_3",
+          "label": "Caption 3"
+        }
+      ],
+        "default": "unset"
     },
     {
       "type": "header",

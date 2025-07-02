@@ -3,12 +3,20 @@
 {% liquid
   assign use_inverse_logo = false
 
+  comment
   if section.settings.enable_transparent_header_home and template.name == 'index' and section.settings.home_color_scheme == 'inverse'
     assign use_inverse_logo = true
   elsif section.settings.enable_transparent_header_product and template.name == 'product' and section.settings.product_color_scheme == 'inverse'
     assign use_inverse_logo = true
   elsif section.settings.enable_transparent_header_collection and template.name == 'collection' and section.settings.collection_color_scheme == 'inverse'
     assign use_inverse_logo = true
+  endif
+  endcomment
+
+  if template.name == 'index' and settings.logo_inverse != blank
+    assign logo_image = settings.logo_inverse
+  else
+    assign logo_image = settings.logo
   endif
 
   if use_inverse_logo
@@ -53,7 +61,7 @@
     data-testid="header-logo"
   >
     {% render 'image',
-      image: settings.logo,
+      image: logo_image,
       class: 'header-logo__image',
       height: block.settings.custom_height,
       text_fallback: shop.name,
@@ -61,7 +69,7 @@
     %}
   </span>
 
-  {% if use_inverse_logo %}
+{% comment %}  {% if use_inverse_logo %}
     <span
       class="header-logo__image-container header-logo__image-container--inverse"
       data-testid="header-logo-inverse"
@@ -74,7 +82,7 @@
         style: inverse_logo_style
       %}
     </span>
-  {% endif %}
+  {% endif %}{% endcomment %}
 </a>
 
 {% stylesheet %}

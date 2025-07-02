@@ -206,7 +206,7 @@
     {% endif %}
   </local-pickup>
 {% endif %}
-
+<div class="note-free-shipping">Free shipping, same day delivery & 30 days free return</div>
 {% stylesheet %}
   .buy-buttons-block {
     width: 100%;
@@ -378,6 +378,30 @@
     width: var(--icon-size-xs);
     height: var(--icon-size-xs);
   }
+
+    .add-to-cart-text__content {
+    font-family: var(--font-family);
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 140%;
+    text-transform: uppercase;
+    color: var(--text-white);
+  }
+
+  add-to-cart-component .add-to-cart-button {
+    padding: 18px;
+  }
+
+  .note-free-shipping {
+     font-family: var(--font-family);
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 140%;
+    text-transform: uppercase;
+    color: var(--text-color-black);
+    margin-bottom: 40px;
+  }
+
 {% endstylesheet %}
 
 {% schema %}

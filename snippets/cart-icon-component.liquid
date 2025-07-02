@@ -8,7 +8,8 @@
     class="svg-wrapper"
     aria-hidden="true"
   >
-    {{ 'icon-cart.svg' | inline_asset_content }}
+   {% comment %} {{ 'icon-cart.svg' | inline_asset_content }}{% endcomment %}
+    cart
   </span>
 
   {% render 'cart-bubble', limit: 100, live_region: true %}

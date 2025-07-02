@@ -183,7 +183,7 @@
 
 .il-email-signup {
 
-  .il-email-signup__heading {
+  /*.il-email-signup__heading {
     font-weight: 700;
     font-size: 14px;
     line-height: 140%;
@@ -196,10 +196,9 @@
     line-height: 140%;
     margin-bottom: 25px;
     max-width: 488px;
-  }
+  }*/
 
   .il-email-signup__input-group {
-
     button {
       display: none;
     }
@@ -208,7 +207,6 @@
   .il-email-signup__input {
     border: 1px solid #000;
     width: 100%;
-    max-width: 470px;
     height: 66px;
     background: #e8e8e8;
   }
@@ -224,13 +222,13 @@
   .il-email-signup__privacy-text {
     margin-top: 10px;
 
-    * {
+   /* * {
       font-family: var(--font-family);
       font-weight: 400;
       font-size: 10px;
       line-height: 140%;
       color: #000;
-    }
+    }*/
   }
 
   .il-logo__image-wrapper {
@@ -252,5 +250,27 @@
     height: auto;
     object-fit: contain;
     object-position: left;
+  }
+}
+
+.il-footer {
+  .il-email-signup {
+    max-width: 470px;
+
+    &__heading {
+      margin-bottom: 10px;
+    }
+
+    &__description {
+      margin-bottom: 25px;
+
+      @media screen and (max-width: 767px) {
+        margin-bottom: 20px;
+      }
+    }
+
+    &__privacy-text {
+      margin-top: 10px;
+    }
   }
 }
