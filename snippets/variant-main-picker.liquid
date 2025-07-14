@@ -109,7 +109,7 @@
                 {% else %}
                   <span class="variant-option__button-label__text">{{ product_option.name | escape -}} {{ product_option_value | escape }}</span>
                 {% endif %}
-                {% render 'strikethrough-variant', product_option: product_option_value %}
+                {% comment %}{% render 'strikethrough-variant', product_option: product_option_value %}{% endcomment %}
               </label>
             {%- endfor -%}
             {% if option_id_attribute %}

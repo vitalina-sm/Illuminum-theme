@@ -1,0 +1,61 @@
+{% comment %}<script src="https://a.klaviyo.com/media/js/onsite/onsite.js"></script>{% endcomment %}
+<script src="{{ 'klaviyo-notify.js' | asset_url }}" preload="true"></script>
+
+<span class="preorder-klaviyo klaviyo-bis-button"
+      data-product-id="{{ product.id }}"
+      data-variant-id="{{ product.selected_or_first_available_variant.id }}"
+      id="KlaviyoNotifyButton"
+></span>
+
+{% stylesheet %}
+.preorder-klaviyo {
+    margin-bottom: 25px;
+
+    .button {
+        width: 100%;
+        font-family: var(--font-family);
+        font-weight: 400;
+        font-size: 16px;
+        line-height: 140%;
+        text-transform: uppercase;
+        color: var(--text-white);
+    }
+}
+{% endstylesheet %}
+
+<script>
+    var klaviyo = klaviyo || [];
+    klaviyo.init({
+        account: "VMZT4n",
+        platform: "shopify"
+    });
+    klaviyo.enable("backinstock",{
+        trigger: {
+            product_page_text: "Preorder",
+            product_page_class: "button",
+            product_page_text_align: "center",
+            product_page_margin: "0px",
+            alternate_anchor: "KlaviyoNotifyButton",
+            replace_anchor: false
+        },
+        modal: {
+            headline: "{product_name}",
+            body_content: "We will inform you when your pre-ordered fragrance becomes available for purchase",
+            email_field_label: "Email",
+            button_label: "Preorder",
+            subscription_success_label: "Thank you!. You’ll hear when your fragrance awaits.",
+            footer_content: '',
+            additional_styles: "@import url('{{ 'klaviyo-override.css' | asset_url }}');",
+            drop_background_color: "#0c0c0c",
+            background_color: "#fff",
+            text_color: "#0c0c0c",
+            button_text_color: "#fff",
+            button_background_color: "#0c0c0c",
+            close_button_color: "#6A6A6A",
+            error_background_color: "#fff",
+            error_text_color: "#8c2225",
+            success_background_color: "#fff",
+            success_text_color: "#0c0c0c"
+        }
+    });
+</script>

@@ -1,0 +1,57 @@
+#klaviyo-bis-modal {
+    #container,
+    .form-control,
+    input:active,
+    input:focus,
+    input:focus-visible,
+    .btn {
+        border-radius: 0 !important;
+    }
+
+    .modal-title {
+        font-family: "Outfit", sans-serif;
+        font-weight: 400;
+        font-size: 40px;
+        color: #000;
+    }
+
+    p,
+    #completed_message,
+    input,
+    input:autofill {
+        font-family: "Inter", sans-serif;
+        font-weight: 400;
+        font-size: 16px;
+        line-height: 140%;
+        color: #000;
+    }
+
+    input,
+    input:autofill {
+        border: 1px solid #000;
+    }
+
+    input::placeholder {
+        font-family: "Inter", sans-serif;
+        font-weight: 600;
+        font-size: 16px;
+        line-height: 140%;
+        color: #828282;
+        text-align: center;
+    }
+
+    input:focus-visible {
+        border: 1px solid #000 !important;
+        outline-color: #000 !important;
+        border-radius: 0 !important;
+    }
+
+    .btn {
+        font-family: "Inter", sans-serif;
+        font-weight: 400;
+        font-size: 16px;
+        line-height: 140%;
+        text-transform: uppercase;
+        color: #e6e6e6;
+    }
+}

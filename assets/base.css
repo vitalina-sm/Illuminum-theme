@@ -4140,10 +4140,12 @@ text-component {
 }
 
 
-/* Hide Shopify Preview Bar */
+/*
+!* Hide Shopify Preview Bar *!
 #PBarNextFrameWrapper {
   display: none;
 }
+*/
 
 .cart-items-component {
   background: #fff;

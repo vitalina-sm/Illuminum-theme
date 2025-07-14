@@ -1,6 +1,6 @@
 {
   "scripts": {
-    "dev": "webpack watch --config webpack.config.js",
+    "dev": "shopify theme dev -s illuminumlondon.myshopify.com",
     "build": "webpack build --mode=production --node-env=production",
     "build:dev": "webpack build --mode=development",
     "build:prod": "webpack build --mode=production --node-env=production",

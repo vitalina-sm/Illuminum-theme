@@ -36,72 +36,75 @@
   endif
 %}
 
-<span
-  class="buy-buttons-block buy-buttons-block--{{ block.id }}"
-  {{ block.shopify_attributes }}
->
-  {%- if product != blank -%}
-    {%- assign product_form_id = 'BuyButtons-ProductForm-' | append: block.id -%}
-    <product-form-component
-      data-section-id="{{ section.id }}"
-      data-product-id="{{ product.id }}"
-      data-product-url="{{ product.url }}"
-      on:submit="/handleSubmit"
-    >
-      <div
-        class="visually-hidden"
-        aria-live="assertive"
-        role="status"
-        aria-atomic="true"
-        ref="liveRegion"
-      ></div>
-      {%- form 'product', product, id: product_form_id, novalidate: 'novalidate', data-type: 'add-to-cart-form' -%}
-        <input
-          type="hidden"
-          name="id"
-          ref="variantId"
-          value="{{ product.selected_or_first_available_variant.id }}"
+{% unless product.available %}
+    {% comment %} Preorder button (Klaviyoy) {% endcomment %}
+    {% render 'preorder-button-klaviyo', product: product %}
+
+    {% else %}
+    <span class="buy-buttons-block buy-buttons-block--{{ block.id }}" {{ block.shopify_attributes }}>
+      {%- if product != blank -%}
+        {%- assign product_form_id = 'BuyButtons-ProductForm-' | append: block.id -%}
+        <product-form-component
+          data-section-id="{{ section.id }}"
+          data-product-id="{{ product.id }}"
+          data-product-url="{{ product.url }}"
+          on:submit="/handleSubmit"
         >
-        <div
-          class="product-form-buttons spacing-style{% if block.settings.stacking %} product-form-buttons--stacked{% endif %}"
-          style="{% render 'spacing-style', settings: block.settings %}"
-        >
-          {% content_for 'block', type: 'quantity', id: 'quantity' %}
-          {% content_for 'block',
-            type: 'add-to-cart',
-            id: 'add-to-cart',
-            can_add_to_cart: can_add_to_cart,
-            add_to_cart_text: add_to_cart_text
-          %}
-          <span
-            class="product-form-text__error hidden"
-            ref="addToCartTextError"
+          <div
+            class="visually-hidden"
+            aria-live="assertive"
+            role="status"
+            aria-atomic="true"
+            ref="liveRegion"
+          ></div>
+          {%- form 'product', product, id: product_form_id, novalidate: 'novalidate', data-type: 'add-to-cart-form' -%}
+            <input
+              type="hidden"
+              name="id"
+              ref="variantId"
+              value="{{ product.selected_or_first_available_variant.id }}"
+            >
+            <div
+              class="product-form-buttons spacing-style{% if block.settings.stacking %} product-form-buttons--stacked{% endif %}"
+              style="{% render 'spacing-style', settings: block.settings %}"
+            >
+              {% content_for 'block', type: 'quantity', id: 'quantity' %}
+              {% content_for 'block',
+                type: 'add-to-cart',
+                id: 'add-to-cart',
+                can_add_to_cart: can_add_to_cart,
+                add_to_cart_text: add_to_cart_text
+              %}
+              <span
+                class="product-form-text__error hidden"
+                ref="addToCartTextError"
+              >
+                <span class="svg-wrapper product-form-icon--error">
+                  {{- 'icon-error.svg' | inline_asset_content -}}
+                </span>
+              </span>
+              {% content_for 'block',
+                type: 'accelerated-checkout',
+                id: 'accelerated-checkout',
+                can_add_to_cart: can_add_to_cart
+              %}
+            </div>
+          {%- endform -%}
+        </product-form-component>
+      {%- else -%}
+        <div class="product-form-buttons">
+          <button
+            type="submit"
+            name="add"
+            class="button"
+            disabled
           >
-            <span class="svg-wrapper product-form-icon--error">
-              {{- 'icon-error.svg' | inline_asset_content -}}
-            </span>
-          </span>
-          {% content_for 'block',
-            type: 'accelerated-checkout',
-            id: 'accelerated-checkout',
-            can_add_to_cart: can_add_to_cart
-          %}
+            {{ 'blocks.sold_out' | t }}
+          </button>
         </div>
-      {%- endform -%}
-    </product-form-component>
-  {%- else -%}
-    <div class="product-form-buttons">
-      <button
-        type="submit"
-        name="add"
-        class="button"
-        disabled
-      >
-        {{ 'blocks.sold_out' | t }}
-      </button>
-    </div>
-  {%- endif -%}
-</span>
+      {%- endif -%}
+    </span>
+{% endunless %}
 
 {% if block.settings.show_pickup_availability %}
   <script
@@ -214,6 +217,7 @@
 
   .product-form-buttons {
     display: flex;
+    flex-direction: column;
     flex-wrap: wrap;
     gap: calc(var(--gap-sm) / 2);
 
