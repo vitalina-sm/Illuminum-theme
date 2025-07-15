@@ -1,0 +1,96 @@
+@import '_vars';
+
+@mixin heading-1 {
+  font-family: $second-family;
+  font-weight: 400;
+  font-size: 96px;
+  line-height: 141%;
+  color: #000;
+}
+
+@mixin heading-2 {
+  font-family: $second-family;
+  font-weight: 400;
+  font-size: 64px;
+  line-height: 127%;
+  color: #000;
+}
+
+@mixin heading-3 {
+  font-family: $second-family;
+  font-weight: 400;
+  font-size: 40px;
+  line-height: 125%;
+  color: #000;
+}
+
+@mixin heading-5 {
+  font-family: $second-family;
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 143%;
+  color: #000;
+}
+
+@mixin menu-link {
+  font-family: $font-family;
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 140%;
+  color: #000;
+}
+
+@mixin link-item {
+  font-family: $font-family !important;
+  font-weight: 400 !important;
+  font-size: 16px !important;
+  line-height: 138% !important;
+  text-transform: uppercase !important;
+  color: #000;
+  transition: all 0.2s ease-in-out;
+
+  a {
+    text-decoration: none;
+  }
+}
+
+@mixin link-item-hovered {
+  @include link-item;
+  &:hover {
+    text-decoration: underline;
+    text-underline-offset: 3px;
+  }
+}
+
+@mixin regular-text ($color: $text-color-gray) {
+  font-family: $font-family;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 138%;
+  color: $color;
+}
+
+@mixin caption-1 {
+  font-family: $font-family;
+  font-weight: 400;
+  font-size: 10px;
+  line-height: 140%;
+  color: #000;
+}
+
+@mixin caption-2 {
+  font-family: $font-family;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 143%;
+  text-transform: uppercase;
+  color: #000;
+}
+
+@mixin caption-3 {
+  font-family: $font-family;
+  font-weight: 700;
+  font-size: 12px;
+  line-height: 142%;
+  color: #000;
+}

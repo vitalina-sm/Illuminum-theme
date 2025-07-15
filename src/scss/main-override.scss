@@ -1,16 +1,12 @@
 @import '_vars';
+@import '_mixins';
 
 h1,
 .h1.h1,
 .text-block.h1 > *,
 .heading-1,
 .heading-1 * {
-  font-family: $second-family;
-  font-weight: 400;
-  font-size: 96px;
-  line-height: 141%;
-  color: #000;
-  margin: 0;
+  @include heading-1;
 }
 
 h2,
@@ -18,12 +14,7 @@ h2,
 .text-block.h2 > *,
 .heading-2,
 .heading-2 * {
-  font-family: $second-family;
-  font-weight: 400;
-  line-height: 126%;
-  font-size: 64px;
-  color: #000;
-  margin: 0;
+  @include heading-2;
 }
 
 h3,
@@ -32,12 +23,7 @@ h3,
 .text-block.h3 > *,
 .heading-3,
 .heading-3 * {
-  font-family: $second-family;
-  font-weight: 400;
-  font-size: 40px;
-  line-height: 127%;
-  color: #000;
-  margin: 0;
+  @include heading-3;
 }
 
 h5,
@@ -45,85 +31,42 @@ h5,
 .text-block.h5 > *,
 .heading-5,
 .heading-5 * {
-  font-family: $second-family;
-  font-weight: 600;
-  font-size: 14px;
-  line-height: 140%;
-  color: #000;
-  margin: 0;
+  @include heading-5;
 }
 
 .menu-link,
 .menu-link * {
-  font-family: $font-family;
-  font-weight: 500;
-  font-size: 20px;
-  line-height: 140%;
-  color: #000;
-  margin: 0;
+  @include menu-link;
 }
 
 .link-item,
-.link-item *,
-.link-item-hovered,
-.link-item-hovered * {
-  font-family: $font-family !important;
-  font-weight: 400 !important;;
-  font-size: 16px!important;;
-  line-height: 140%!important;;
-  text-transform: uppercase!important;;
-  color: #000!important;;
-  margin: 0;
-  transition: all 0.2s ease-in-out;
+.link-item * {
+  @include link-item;
 }
 
 .link-item-hovered,
 .link-item-hovered * {
-  &:hover {
-    text-decoration: underline;
-    text-underline-offset: 3px;
-  }
+  @include link-item-hovered;
 }
 
 .regular-text,
 .regular-text * {
-  font-family: $font-family;
-  font-weight: 400;
-  font-size: 16px;
-  line-height: 140%;
-  color: #000;
-  margin: 0;
+  @include regular-text;
 }
 
 .caption-1,
 .caption-1 * {
-  font-family: $font-family;
-  font-weight: 400;
-  font-size: 10px;
-  line-height: 140%;
-  color: #000;
-  margin: 0;
+  @include caption-1;
 }
 
 .caption-2,
 .caption-2 * {
-  font-family: $font-family;
-  font-weight: 500;
-  font-size: 14px;
-  line-height: 140%;
-  text-transform: uppercase;
-  color: #000;
-  margin: 0;
+  @include caption-2;
 }
 
 .caption-3,
 .caption-3 * {
-  font-family: $font-family;
-  font-weight: 700;
-  font-size: 12px;
-  line-height: 140%;
-  color: #000;
-  margin: 0;
+  @include caption-3;
 }
 
 .for-desktop {
@@ -137,3 +80,103 @@ h5,
     display: none !important;
   }
 }
+
+/* Privacy policy pages style */
+
+rte-formatter {
+  padding-block: 0 !important;
+}
+
+.shopify-policy__container {
+  max-width: 100ch!important;
+}
+
+.rte {
+  padding-block: 15vh;
+  max-width: 100ch!important;
+
+  :is(h4, h5, h6) {
+    @include regular-text ($color: #000);
+  }
+
+  :is(p, ul, ol, li) {
+    @include regular-text ($color: #000);
+  }
+
+  :is(ul) {
+    padding: 0 0 0 18px;
+
+    @media screen and (width >= 750px) {
+      padding: 0 0 0 27px;
+    }
+  }
+
+  p {
+    margin: 0;
+  }
+
+  a {
+    color: #000;
+  }
+}
+
+[data-template="page.informational-page"] {
+  :is(h1) {
+    @include heading-3;
+    text-transform: uppercase;
+
+    @media screen and (width >= 750px) {
+      @include heading-2;
+    }
+  }
+
+  :is(h1):first-child {
+    margin: 0 0 30px 0;
+
+    @media screen and (width >= 750px) {
+      margin: 0 0 35px 0;
+    }
+  }
+
+  :is(h2) {
+    margin: 15px 0;
+    text-transform: uppercase;
+    @include heading-5;
+  }
+
+  :is(h3) {
+    @include regular-text ($color: #000);
+  }
+}
+
+.shopify-policy__title {
+  display: none;
+}
+
+.shopify-policy__body {
+  :is(h1, h2) {
+    @include heading-3;
+    text-transform: uppercase;
+
+    @media screen and (width >= 750px) {
+      @include heading-2;
+    }
+  }
+
+  :is(h1, h2):first-child {
+    margin: 0 0 30px 0;
+
+    @media screen and (width >= 750px) {
+      margin: 0 0 35px 0;
+    }
+  }
+
+  :is(h3) {
+    margin: 15px 0;
+    text-transform: uppercase;
+    @include heading-5;
+  }
+}
+
+/* END Privacy policy pages style */
+

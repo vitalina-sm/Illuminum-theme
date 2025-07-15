@@ -39,7 +39,7 @@
   <div class="il-email-signup__heading {% if heading_font_style != 'unset' %}{{ heading_font_style }}{% endif %}">
     {{ block.settings.heading }}
   </div>
-  <div class="il-email-signup__description {% if block.settings.description_font_style != 'unset' %}{{ block.settings.description_font_style }}{% endif %}">
+  <div class="il-email-signup__description {% if block.settings.description_font_style != 'unset' %}{{ description_font_style }}{% endif %}">
     {{ block.settings.description }}
   </div>
   {%- form 'customer', class: 'email-signup__form spacing-style' %}

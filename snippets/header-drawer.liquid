@@ -43,7 +43,7 @@
       on:click="/toggle"
     >
       <span class="svg-wrapper header-drawer-icon header-drawer-icon--open">
-        {{- 'icon-menu.svg' | inline_asset_content -}}
+        menu
       </span>
       <span class="svg-wrapper header-drawer-icon header-drawer-icon--close">
         {{- 'icon-close.svg' | inline_asset_content -}}
@@ -619,19 +619,28 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: var(--padding-lg);
+    {% comment %}padding: var(--padding-lg);{% endcomment %}
+    padding: 0;
   }
 
   .header__icon--summary .header-drawer-icon {
-    margin: auto;
+    {% comment %}margin: auto;
     width: var(--icon-size-xs);
-    height: var(--icon-size-xs);
+    height: var(--icon-size-xs);{% endcomment %}
+    font-family: var(--font-family);
+    font-weight: 600;
+    font-size: 20px;
+    line-height: 140%;
+    color: var(--text-color-black);
+    height: 100%;
+    width: 100%;
+    padding: 0;
   }
 
   .header__drawer {
     display: flex;
     min-height: 60px;
-    align-items: center;
+    align-items: start;
 
     @media screen and (width >= 850px) {
       min-height: 0;

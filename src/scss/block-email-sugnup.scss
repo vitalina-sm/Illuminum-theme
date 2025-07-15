@@ -1,3 +1,5 @@
+@import '_vars';
+
 .email-signup-block {
   @media screen and (min-width: 850.9px) {
     width: 100%;
@@ -197,6 +199,9 @@
     margin-bottom: 25px;
     max-width: 488px;
   }*/
+  .il-email-signup__description {
+    color: $text-color-gray;
+  }
 
   .il-email-signup__input-group {
     button {
@@ -221,6 +226,10 @@
 
   .il-email-signup__privacy-text {
     margin-top: 10px;
+
+    :is(a) {
+      text-decoration: none;
+    }
 
    /* * {
       font-family: var(--font-family);
@@ -258,6 +267,11 @@
     max-width: 470px;
 
     &__heading {
+      font-family: "Inter", sans-serif;
+      font-weight: 700;
+      font-size: 14px;
+      line-height: 140%;
+      color: #0c0c0c;
       margin-bottom: 10px;
     }
 
@@ -270,7 +284,9 @@
     }
 
     &__privacy-text {
-      margin-top: 10px;
+      p, a {
+        color: $text-color-gray !important;
+      }
     }
   }
 }

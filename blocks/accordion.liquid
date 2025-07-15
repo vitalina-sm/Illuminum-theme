@@ -21,6 +21,9 @@
   .accordion {
     flex: 1;
     width: 100%;
+    display: flex;
+    flex-direction: column;
+    row-gap: 25px;
   }
   {% comment %}@container style(--border-width: 0) or style(--border-style: none) {
     .accordion--dividers:not([class*='color-']) accordion-custom:first-child .details {
@@ -36,9 +39,9 @@
     border-block-start: var(--style-border-width) solid var(--color-border);
   }{% endcomment %}
 
-  .accordion--dividers .details-content {
+  {% comment %}.accordion--dividers .details-content {
     padding-block-end: var(--padding-sm);
-  }
+  }{% endcomment %}
 
   .accordion--caret .icon-plus,
   .accordion--plus .icon-caret {
