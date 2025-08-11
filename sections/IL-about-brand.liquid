@@ -1,0 +1,118 @@
+{% liquid
+  assign section_class = 'il-about-brand--' | append: section.id
+%}
+
+<div class="{{ section_class }} il-about-brand grid-container">
+ <div class="il-about-brand__left col-4">
+  <h2 class="il-about-brand__title heading-2">{{ section.settings.title_left }}</h2>
+  <div class="il-about-brand__image-container image-container">
+    <img class="il-about-brand__image image"
+         src="{{ section.settings.image_left | img_url: 'master'  }}"
+         alt="{{ section.settings.image_left.alt | escape }}">
+  </div>
+ </div>
+ <div class="il-about-brand__right col-8 grid-container">
+  <div class="il-about-brand__image-container image-container col-12">
+    <img class="il-about-brand__image image"
+         src="{{ section.settings.image_right | img_url: 'master'  }}"
+         alt="{{ section.settings.image_right.alt | escape }}">
+  </div>
+  <p class="il-about-brand__title heading-3 col-9">{{ section.settings.title_right }}</p>
+ </div>
+</div>
+
+{% render 'il-x-margins', parent_class: section_class, settings: section.settings %}
+
+{% schema %}
+{
+  "name": "IL About Brand",
+  "tag": "section",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Content Left"
+    },
+    {
+      "type": "image_picker",
+      "id": "image_left",
+      "label": "Image"
+    },
+    {
+      "type": "textarea",
+      "id": "title_left",
+      "label": "Title",
+      "default": "THE NEW ART OF SELF-EXPRESSION",
+      "info": "Insert &nbsp; to make two words non-breaking"
+    },
+    {
+      "type": "header",
+      "content": "Content Right"
+    },
+    {
+      "type": "image_picker",
+      "id": "image_right",
+      "label": "Image"
+    },
+    {
+      "type": "textarea",
+      "id": "title_right",
+      "label": "Title",
+      "default": "Founded in 2011, Illuminum is a British fine fragrance collection that views scent as an open-ended adventure in&nbsp;self-expression",
+      "info": "Insert &nbsp; to make two words non-breaking"
+    },
+    {
+      "type": "header",
+      "content": "Margin"
+    },
+    {
+      "type": "checkbox",
+      "id": "enable_margin_desktop",
+      "label": "Enable on desktop",
+      "default": false
+    },
+    {
+      "type": "number",
+      "id": "margin_top_desktop",
+      "info": "px",
+      "label": "Top",
+      "default": 0,
+      "visible_if": "{{ section.settings.enable_margin_desktop }}"
+    },
+    {
+      "type": "number",
+      "id": "margin_bottom_desktop",
+      "info": "px",
+      "label": "Bottom",
+      "default": 0,
+      "visible_if": "{{ section.settings.enable_margin_desktop }}"
+    },
+    {
+      "type": "checkbox",
+      "id": "enable_margin_mobile",
+      "label": "Enable on mobile",
+      "default": false
+    },
+    {
+      "type": "number",
+      "id": "margin_top_mobile",
+      "info": "px",
+      "label": "Top",
+      "default": 0,
+      "visible_if": "{{ section.settings.enable_margin_mobile }}"
+    },
+    {
+      "type": "number",
+      "id": "margin_bottom_mobile",
+      "info": "px",
+      "label": "Bottom",
+      "default": 0,
+      "visible_if": "{{ section.settings.enable_margin_mobile }}"
+    }
+  ],
+  "presets": [
+    {
+      "name": "IL About Brand"
+    }
+  ]
+}
+{% endschema %}

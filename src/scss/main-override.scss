@@ -26,6 +26,15 @@ h3,
   @include heading-3;
 }
 
+h4,
+.h4,
+.h4.h4,
+.text-block.h4 > *,
+.heading-4,
+.heading-4 * {
+  @include heading-4;
+}
+
 h5,
 .h5.h5,
 .text-block.h5 > *,
@@ -69,6 +78,21 @@ h5,
   @include caption-3;
 }
 
+.text-medium-20,
+.text-medium-20 * {
+  @include text-medium-20;
+}
+
+.text-light,
+.text-light * {
+  @include text-light;
+}
+
+.text-light-2,
+.text-light-2 * {
+  @include text-light-2;
+}
+
 .for-desktop {
   @media screen and (max-width: 767px) {
     display: none !important;
@@ -79,6 +103,12 @@ h5,
   @media screen and (min-width: 768px) {
     display: none !important;
   }
+}
+
+.hidden {
+  opacity: 0;
+  height: 0;
+  visibility: hidden;
 }
 
 /* Privacy policy pages style */

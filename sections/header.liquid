@@ -236,7 +236,9 @@
           style="{{ style | strip }}"
         {%- endif -%}
       >
-        <div class="header__columns">
+        <div class="header__columns"
+        		 style="{% if template.name == 'product' %}background: #fff;
+        		 {% else %}background: transparent;{% endif %}">
           {{ content }}
         </div>
       </div>
@@ -359,6 +361,7 @@
     /* Use -1 instead of 0 so intersection observer can track sticky state */
     top: -1px;
     z-index: var(--layer-sticky);
+    height: 0;
   }
 
   .header[data-sticky-state] {

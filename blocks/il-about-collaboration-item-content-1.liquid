@@ -1,0 +1,71 @@
+{% comment %}
+  This global theme block, 'IL Collab Content 1', is designed for use within the `IL-about-collaboration.liquid`
+  section as a nested block.
+  It displays a combination of an image and text in a grid layout,
+  with configurable content sequence (image-text or text-image) and customizable bottom margin.
+  The block is intended to present collaborative content, such as descriptions of partnerships or creative projects,
+  with a responsive grid structure that adapts to the selected sequence.
+{% endcomment %}
+
+{% liquid
+	assign image = block.settings.image
+	assign text = block.settings.text | newline_to_br
+	assign content_sequence = block.settings.content_sequence | replace: '_', '-'
+	assign margin_bottom = block.settings.margin_bottom | append: 'px'
+%}
+
+<div class="item-content-1 grid-container {{ content_sequence }}"
+		 style="margin-bottom: {{ margin_bottom }}">
+	<div class="item-content-1__image-container image-container col-9">
+		<img class="item-content-1__image image"
+				 src="{{ image | img_url: "master" }}"
+				 alt="{{ image.alt }}">
+	</div>
+	<p class="item-content-1__text text-light-2 col-3">{{ text }}</p>
+</div>
+
+{% schema %}
+{
+  "name": "IL Collab Content 1",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Image"
+    },
+    {
+      "type": "textarea",
+      "id": "text",
+      "label": "Text",
+      "default": "Illuminum London proudly straddle the worlds of art and fragrance, pushing the boundaries of how we experience scent and altering our pre-conceived perceptions of smell itself. Having collaborated with many artists, designers and architects over the years, it seems only natural they should now be working with chefs and exploring that vital link between food and fragrance. Illuminum invited innovative chefs Jackson Boxer, Yuki Gomi and Tom Wolfe to create three distinctive fragrances that explored the interfaces of this connection, playing with our notions of what we think our nose knows."
+    },
+    {
+      "type": "select",
+      "id": "content_sequence",
+      "label": "Content sequence",
+      "options": [
+        {
+          "value": "image_text",
+          "label": "Image – Text"
+        },
+        {
+          "value": "text_image",
+          "label": "Text – Image"
+        }
+			],
+        "default": "image_text"
+		},
+		{
+			"type": "number",
+			"id": "margin_bottom",
+			"label": "Margin bottom",
+			"default": 0
+		}
+  ],
+  "presets": [
+    {
+			"name": "IL Collab Content 1"
+		}
+  ]
+}
+{% endschema %}

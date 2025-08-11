@@ -1,0 +1,36 @@
+{% comment %}
+
+{% endcomment %}
+
+{% liquid
+	assign margin_bottom = block.settings.margin_bottom | append: 'px'
+%}
+
+<div class="item-content-2 grid-container {{ content_sequence }}"
+		 style="margin-bottom: {{ margin_bottom }}">
+	{% content_for 'blocks' %}
+</div>
+
+{% schema %}
+{
+  "name": "IL Collab Content 2",
+  "settings": [
+    {
+      "type": "number",
+      "id": "margin_bottom",
+      "label": "Margin bottom",
+      "default": 0
+    }
+  ],
+  "blocks": [
+		{ "type": "il-collab-item-content-2-person" },
+		{ "type": "il-collab-item-content-2-image" },
+		{ "type": "il-collab-item-content-2-text" }
+	],
+  "presets": [
+    {
+			"name": "IL Collab Content 2"
+		}
+  ]
+}
+{% endschema %}

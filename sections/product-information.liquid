@@ -92,6 +92,13 @@
 {% stylesheet %}
   .product-information {
     gap: var(--gap) 0;
+    padding-block-start: 0;
+    padding-top: 227px;
+
+    @media screen and (width < 750px) {
+      padding-block-start: 0;
+     	padding-top: 167px;
+    }
   }
 
   /* Base grid layout */

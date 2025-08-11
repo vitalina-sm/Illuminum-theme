@@ -1,0 +1,55 @@
+{% comment %}
+  This global theme block is used in the `IL-about-collaboration.liquid` section.
+  It represents a first-level block that displays a collection name as a tab button on the left side of the section.
+  The block also supports nested theme or app blocks, configured via block settings,
+  to render dynamic content on the right side of the section.
+  Use the following blocks for nesting:
+  - il-about-collaboration-item-content-1.liquid (IL Collab Content 1)
+  - il-about-collaboration-item-content-2.liquid (IL Collab Content 2)
+  --- il-collab-item-content-2-person.liquid
+  --- il-collab-item-content-2-image.liquid
+  --- il-collab-item-content-2-text.liquid
+{% endcomment %}
+
+{% liquid
+	assign collection_title = block.settings.collection_title | newline_to_br
+%}
+
+<div class="il-collaboration-item grid-container">
+	<div class="collection-tabs__item-button-container">
+		<div class="collection-tabs__item-button col-4">
+			<button class="collection-tabs__button link-item link-item-hovered" data-tab-button="{{ block.id }}">
+				{{ collection_title }}
+			</button>
+		</div>
+	</div>
+	<div class="collection-tabs__item-content-container">
+		<div class="collection-tabs__item-content item-content" data-tab-content="{{ block.id }}">
+			<p class="collection-tabs__title heading-3">{{ collection_title }}</p>
+			{% content_for 'blocks' %}
+		</div>
+	</div>
+
+</div>
+
+{% schema %}
+{
+  "name": "IL Collaboration Item",
+  "settings": [
+    {
+      "type": "textarea",
+      "id": "collection_title",
+      "label": "Collection name"
+    }
+  ],
+  "blocks": [
+		{ "type": "il-about-collaboration-item-content-1" },
+		{ "type": "il-about-collaboration-item-content-2" }
+	],
+  "presets": [
+    {
+			"name": "IL Collaboration Item"
+		}
+  ]
+}
+{% endschema %}

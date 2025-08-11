@@ -1,0 +1,166 @@
+{% liquid
+  assign section_class = 'il-principles--' | append: section.id
+  assign title = section.settings.title
+%}
+
+<div class="{{ section_class }} il-principles" id="ILPrinciples">
+	{% if title != blank %}
+		<h2 class="il-principles__title heading-2">{{ section.settings.title }}</h2>
+	{% endif %}
+
+  {% for block in section.blocks %}
+    {% case block.type %}
+   	{% when 'content_banner' %}
+
+			{% capture content-text %}
+				{% liquid
+					assign banner_title = block.settings.banner_title
+					assign banner_text = block.settings.banner_text
+				%}
+				<div class="il-principles__banner-content col-6 grid-container">
+					{% if banner_title != blank %}
+						<h3 class="il-principles__banner-title heading-6 col-12">{{ banner_title }}</h3>
+					{% endif %}
+					{% if banner_text != blank %}
+						<p class="il-principles__banner-text regular-text col-4">{{ banner_text }}</p>
+					{% endif %}
+				</div>
+			{% endcapture %}
+
+			{% capture content-image %}
+				{% liquid
+					assign banner_image = block.settings.banner_image
+					assign raise_image_up = block.settings.raise_image_up
+					assign raise_image_up_percent = block.settings.raise_image_up_percent
+				%}
+				{% if banner_image != blank %}
+				{% if raise_image_up %}
+				<style>
+					.{{ block.id }} {
+						transform: translateY(calc(50px + {{ raise_image_up_percent }}% * -1 ));
+					}
+				</style>
+				{% endif %}
+
+				<div class="il-principles__banner-image-container image-container {{ block.id }} col-6">
+					<img class="image"
+							 src="{{ banner_image | img_url: 'master' }}"
+							 alt="{{ banner_image.alt | escape }}">
+					</div>
+				{% endif %}
+			{% endcapture %}
+
+   		<div class="il-principles__banner grid-container {{ block.settings.content_sequence | replace: '_', '-' }}">
+				{% if block.settings.content_sequence == 'text_image' %}
+					{{ content-text }}
+					{{ content-image }}
+				{% else %}
+					{{ content-image }}
+					{{ content-text }}
+				{% endif %}
+			</div>
+
+    {% when 'image_banner' %}
+			<div class="image-container">
+				<img class="image" src="{{ block.settings.image | img_url: 'master' }}" alt="{{ block.settings.image.alt | escape }}">
+			</div>
+    {% endcase %}
+  {% endfor %}
+</div>
+
+{% render 'il-x-margins', parent_class: section_class, settings: section.settings %}
+
+{% schema %}
+{
+  "name": "IL About Principles",
+  "tag": "section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Title",
+      "default": "Illuminum: Where Perfume Becomes Expression"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "content_banner",
+      "name": "Banner with content",
+      "settings": [
+        {
+          "type": "header",
+          "content": "Banner content"
+        },
+        {
+          "type": "select",
+          "id": "content_sequence",
+          "label": "Content sequence",
+          "options": [
+            {
+              "value": "text_image",
+              "label": "Text – Image"
+            },
+            {
+              "value": "image_text",
+              "label": "Image – Text"
+            },
+          ],
+          "default": "text_image"
+        },
+        {
+          "type": "text",
+          "id": "banner_title",
+          "label": "Title",
+          "default": "Where Scent Meets Imagination"
+        },
+        {
+          "type": "text",
+          "id": "banner_text",
+          "label": "Text",
+          "default": "Fluid, transcendent, playful and inspirational, Illuminum opens a window on a new horizon of human possibility at the point where scent interacts with creativity. We’ve taken our passion for perfume into exciting areas of shared experience, including the worlds of art and culture"
+        },
+        {
+          "type": "image_picker",
+          "id": "banner_image",
+          "label": "Image"
+        },
+        {
+          "type": "checkbox",
+          "id": "raise_image_up",
+          "label": "Raise image up",
+          "default": false
+        },
+				{
+          "type": "number",
+          "id": "raise_image_up_percent",
+          "info": "%",
+          "label": "Number of pixels to raise the image up",
+          "default": 0,
+					"visible_if": "{{ block.settings.raise_image_up }}"
+        }
+      ]
+    },
+    {
+      "type": "image_banner",
+      "name": "Image",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "header",
+          "content": "Image"
+        },
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "IL About Principles"
+    }
+  ]
+}
+{% endschema %}

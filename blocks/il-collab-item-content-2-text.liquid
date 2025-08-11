@@ -1,0 +1,29 @@
+{% comment %}
+
+{% endcomment %}
+
+{% liquid
+	assign text = block.settings.text
+%}
+
+<p class="item-content-1__text text-light-2">{{ text }}</p>
+
+{% schema %}
+{
+  "name": "IL Content 2 Text",
+	"class": "il-collab-text col-3",
+  "settings": [
+    {
+      "type": "textarea",
+      "id": "text",
+      "label": "Text",
+      "default": "‘Founder of the Brunswick House restaurant and bar in London’s Vauxhall, Jackson Boxer brings his individuality to bear on every facet of the guest experience. Here, within a unique architectural emporium, the antiques themselves are for sale as part of a spirited homage to good taste.’"
+    }
+  ],
+  "presets": [
+    {
+      "name": "IL Content 2 Text"
+    }
+  ]
+}
+{% endschema %}

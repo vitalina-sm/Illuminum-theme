@@ -1,0 +1,40 @@
+{% comment %}
+
+{% endcomment %}
+
+{% liquid
+	assign text = block.settings.text | newline_to_br
+	assign image = block.settings.image | default: text
+%}
+
+<div class="il-collab-person__image-container image-container">
+	<img class="il-collab-person__image image"
+			 src="{{ image | img_url: "master" }}"
+			 alt="{{ image.alt }}">
+</div>
+<p class="il-collab-person__text heading-5">{{ text }}</p>
+
+{% schema %}
+{
+  "name": "IL Content 2 Person",
+	"class": "il-collab-person col-3",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Photo"
+    },
+    {
+      "type": "textarea",
+      "id": "text",
+      "label": "Name",
+      "default": "BRUNSWICK HOUSE"
+    }
+  ],
+  "presets": [
+    {
+      "name": "IL Content 2 Person"
+    }
+  ]
+}
+{% endschema %}

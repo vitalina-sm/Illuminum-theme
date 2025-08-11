@@ -1,0 +1,130 @@
+{% liquid
+  assign section_class = 'il-team--' | append: section.id
+  assign title = section.settings.title
+%}
+
+<div class="{{ section_class }} il-team grid-container">
+	{% if title != blank %}
+		<h2 class="il-team__title heading-2 col-8">{{ section.settings.title }}</h2>
+	{% endif %}
+
+  <div class="il-team__members col-8">
+    {% for block in section.blocks %}
+    {% case block.type %}
+   	{% when 'team_member' %}
+      <div class="il-team__member member">
+        <div class="member__image-container image-container">
+				  <img class="member__image image"
+				       src="{{ block.settings.member_photo | img_url: 'master' }}"
+				       alt="{{ block.settings.member_photo.alt | escape }}">
+			  </div>
+			  <div class="member__information">
+			    <p class="member__role caption-2">{{ block.settings.member_role }}</p>
+			    <p class="member__fio heading-4">{{ block.settings.member_fio }}</p>
+			    <p class="member__description text-light">{{ block.settings.member_description }}</p>
+        </div>
+      </div>
+  	{% endcase %}
+  {% endfor %}
+  </div>
+</div>
+
+{% render 'il-x-margins', parent_class: section_class, settings: section.settings %}
+
+{% schema %}
+{
+  "name": "IL About Team",
+  "tag": "section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Title",
+      "default": "The Team Behind Illuminum"
+    },
+		{
+      "type": "header",
+      "content": "Margin"
+    },
+    {
+      "type": "checkbox",
+      "id": "enable_margin_desktop",
+      "label": "Enable on desktop",
+      "default": false
+    },
+    {
+      "type": "number",
+      "id": "margin_top_desktop",
+      "info": "px",
+      "label": "Top",
+      "default": 0,
+      "visible_if": "{{ section.settings.enable_margin_desktop }}"
+    },
+    {
+      "type": "number",
+      "id": "margin_bottom_desktop",
+      "info": "px",
+      "label": "Bottom",
+      "default": 0,
+      "visible_if": "{{ section.settings.enable_margin_desktop }}"
+    },
+    {
+      "type": "checkbox",
+      "id": "enable_margin_mobile",
+      "label": "Enable on mobile",
+      "default": false
+    },
+    {
+      "type": "number",
+      "id": "margin_top_mobile",
+      "info": "px",
+      "label": "Top",
+      "default": 0,
+      "visible_if": "{{ section.settings.enable_margin_mobile }}"
+    },
+    {
+      "type": "number",
+      "id": "margin_bottom_mobile",
+      "info": "px",
+      "label": "Bottom",
+      "default": 0,
+      "visible_if": "{{ section.settings.enable_margin_mobile }}"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "team_member",
+      "name": "Team member",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "member_photo",
+          "label": "Photo"
+        },
+        {
+          "type": "text",
+          "id": "member_role",
+          "label": "Role",
+          "default": "Perfumer, Founder of Illuminum"
+        },
+        {
+          "type": "text",
+          "id": "member_fio",
+          "label": "FIO",
+          "default": "Michael Boadi"
+        },
+        {
+          "type": "textarea",
+          "id": "member_description",
+          "label": "Description"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "IL About Team"
+    }
+  ]
+}
+{% endschema %}

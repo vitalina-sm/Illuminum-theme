@@ -1,0 +1,134 @@
+{{ 'il-about.css' | asset_url | stylesheet_tag }}
+<link rel="preload" href="{{ section.settings.image | img_url: 'master'  }}" as="image">
+
+{% liquid
+  assign section_class = 'il-about-hero--' | append: section.id
+%}
+
+<div class="{{ section_class }} il-about-hero">
+  <div class="il-about-hero__content">
+    <div class="il-about-hero__image-container image-container">
+      <img class="il-about-hero__image image"
+           src="{{ section.settings.image | img_url: 'master' }}"
+           alt="{{ section.settings.image.alt | escape }}">
+    </div>
+    <div class="il-about-hero__text-container">
+      <h1 class="il-about-hero__title heading-3">{{ section.settings.title }}</h1>
+      <p class="il-about-hero__subtext text-medium-20">
+        {{ section.settings.subtext | richtext }}
+      </p>
+    </div>
+  </div>
+  <div class="il-about-hero__scrolling-to">
+    {% for block in section.blocks %}
+      <div class="il-about-hero__scrolling-to-item">
+        <a class="title link-item link-item-hovered" href="#{{ block.settings.element_id }}">
+           {{ block.settings.title }}
+        </a>
+      </div>
+    {% endfor %}
+  </div>
+</div>
+
+{% render 'il-x-margins', parent_class: section_class, settings: section.settings %}
+
+{% schema %}
+{
+  "name": "IL About Hero",
+  "tag": "section",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Content"
+    },
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Image"
+    },
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Title",
+      "default": "ILLUMINUM BRINGS ART TO THE WORLD OF PERFUME"
+    },
+    {
+      "type": "textarea",
+      "id": "subtext",
+      "label": "Subtext",
+      "default": "We create fragrances that inspire minds and stimulate emotions"
+    },
+    {
+      "type": "header",
+      "content": "Margin"
+    },
+    {
+      "type": "checkbox",
+      "id": "enable_margin_desktop",
+      "label": "Enable on desktop",
+      "default": false
+    },
+    {
+      "type": "number",
+      "id": "margin_top_desktop",
+      "info": "px",
+      "label": "Top",
+      "default": 0,
+      "visible_if": "{{ section.settings.enable_margin_desktop }}"
+    },
+    {
+      "type": "number",
+      "id": "margin_bottom_desktop",
+      "info": "px",
+      "label": "Bottom",
+      "default": 0,
+      "visible_if": "{{ section.settings.enable_margin_desktop }}"
+    },
+    {
+      "type": "checkbox",
+      "id": "enable_margin_mobile",
+      "label": "Enable on mobile",
+      "default": false
+    },
+    {
+      "type": "number",
+      "id": "margin_top_mobile",
+      "info": "px",
+      "label": "Top",
+      "default": 0,
+      "visible_if": "{{ section.settings.enable_margin_mobile }}"
+    },
+    {
+      "type": "number",
+      "id": "margin_bottom_mobile",
+      "info": "px",
+      "label": "Bottom",
+      "default": 0,
+      "visible_if": "{{ section.settings.enable_margin_mobile }}"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "scrolling-to-section",
+      "name": "Scrolling to section",
+      "settings": [
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title"
+        },
+        {
+          "type": "text",
+          "id": "element_id",
+          "label": "Element ID"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "IL About Hero"
+    }
+  ]
+}
+{% endschema %}
