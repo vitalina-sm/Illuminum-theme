@@ -5,7 +5,8 @@
   assign subtitle = section.settings.subtitle
 %}
 
-<il-collaboration>
+<div id="ILCollaboration" style="display: flex; margin: 0 auto; justify-content: center;">
+	<il-collaboration>
 	<div class="{{ section_class }} il-collaboration grid-container">
 		<div class="il-collaboration__top-content col-4">
 			{% if title != blank %}
@@ -46,6 +47,7 @@
 		{% content_for 'blocks' %}
 	</div>
 </il-collaboration>
+</div>
 
 {% render 'il-x-margins', parent_class: section_class, settings: section.settings %}
 

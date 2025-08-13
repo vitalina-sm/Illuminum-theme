@@ -3,7 +3,8 @@
   assign title = section.settings.title
 %}
 
-<div class="{{ section_class }} il-team grid-container">
+<div id="ILTeam" style="display: flex; margin: 0 auto; justify-content: center;">
+	<div class="{{ section_class }} il-team grid-container">
 	{% if title != blank %}
 		<h2 class="il-team__title heading-2 col-8">{{ section.settings.title }}</h2>
 	{% endif %}
@@ -27,6 +28,7 @@
   	{% endcase %}
   {% endfor %}
   </div>
+</div>
 </div>
 
 {% render 'il-x-margins', parent_class: section_class, settings: section.settings %}

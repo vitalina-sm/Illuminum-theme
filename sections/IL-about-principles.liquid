@@ -2,8 +2,8 @@
   assign section_class = 'il-principles--' | append: section.id
   assign title = section.settings.title
 %}
-
-<div class="{{ section_class }} il-principles" id="ILPrinciples">
+<div id="ILPrinciples" style="display: flex; margin: 0 auto; justify-content: center;">
+	<div class="{{ section_class }} il-principles" >
 	{% if title != blank %}
 		<h2 class="il-principles__title heading-2">{{ section.settings.title }}</h2>
 	{% endif %}
@@ -67,6 +67,7 @@
     {% endcase %}
   {% endfor %}
 </div>
+</div>
 
 {% render 'il-x-margins', parent_class: section_class, settings: section.settings %}
 
@@ -80,6 +81,54 @@
       "id": "title",
       "label": "Title",
       "default": "Illuminum: Where Perfume Becomes Expression"
+    },
+    {
+      "type": "header",
+      "content": "Margin"
+    },
+    {
+      "type": "checkbox",
+      "id": "enable_margin_desktop",
+      "label": "Enable on desktop",
+      "default": false
+    },
+    {
+      "type": "number",
+      "id": "margin_top_desktop",
+      "info": "px",
+      "label": "Top",
+      "default": 0,
+      "visible_if": "{{ section.settings.enable_margin_desktop }}"
+    },
+    {
+      "type": "number",
+      "id": "margin_bottom_desktop",
+      "info": "px",
+      "label": "Bottom",
+      "default": 0,
+      "visible_if": "{{ section.settings.enable_margin_desktop }}"
+    },
+    {
+      "type": "checkbox",
+      "id": "enable_margin_mobile",
+      "label": "Enable on mobile",
+      "default": false
+    },
+    {
+      "type": "number",
+      "id": "margin_top_mobile",
+      "info": "px",
+      "label": "Top",
+      "default": 0,
+      "visible_if": "{{ section.settings.enable_margin_mobile }}"
+    },
+    {
+      "type": "number",
+      "id": "margin_bottom_mobile",
+      "info": "px",
+      "label": "Bottom",
+      "default": 0,
+      "visible_if": "{{ section.settings.enable_margin_mobile }}"
     }
   ],
   "blocks": [

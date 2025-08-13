@@ -131,6 +131,8 @@
 }
 
 .il-principles {
+  display: flex;
+  flex-direction: column;
 
   & > div:not(:last-child) {
     margin-bottom: 50px;
@@ -337,6 +339,101 @@ il-collaboration {
           margin: 15px 0 0 0;
         }
       }
+    }
+  }
+}
+
+.il-collection {
+  &__title {
+    margin: 0 0 10px 0;
+    text-align: center;
+  }
+
+  &__subtitle {
+    margin: 0;
+    text-align: center;
+  }
+
+  &__text-container {
+    margin: 0 0 150px 0;
+  }
+
+  &__content {
+    display: flex;
+  }
+
+  &__info-box {
+    display: flex;
+    justify-content: space-between;
+    align-items: start;
+    position: relative;
+    z-index: 9;
+  }
+  
+  &__left {
+    width: calc(50% - 30px);
+  }
+  
+  &__right {
+    width: calc(50% + 30px);
+    overflow: hidden;
+    padding: 0 0 0 30px;
+  }
+
+  &__name {
+    display: flex;
+  }
+
+  &__link {
+    padding: 10px;
+    margin: -10px 0 0 -10px;
+  }
+
+  .il-product-carousel {
+    &__wrapper {
+      gap: 3px;
+    }
+
+    &__item {
+      max-width: 440px;
+    }
+  }
+
+  .product-card {
+    position: relative;
+
+    &__image-container {
+      max-width: 440px;
+      max-height: 496px;
+    }
+
+    &__info-container {
+      margin: 15px 0 0 0;
+    }
+
+    &__title {
+      font-family: $second-family;
+      font-weight: 400;
+      font-size: 32px;
+      color: $text-color-black;
+      margin: 0 0 10px 0;
+    }
+
+    &__price {
+      font-family: $font-family;
+      font-weight: 400;
+      font-size: 16px;
+      color: $text-color-black;
+    }
+
+    &__url {
+      position: absolute;
+      top: 0;
+      left: 0;
+      cursor: pointer;
+      height: 100%;
+      width: 100%;
+      z-index: 8;
     }
   }
 }

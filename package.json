@@ -22,7 +22,7 @@
     "sass": "^1.63.6",
     "sass-loader": "^13.3.3",
     "style-loader": "^3.3.3",
-    "swiper": "^11.2.8",
+    "swiper": "^11.2.3",
     "terser-webpack-plugin": "^5.3.14",
     "webpack": "^5.99.9",
     "webpack-cli": "^5.1.4",

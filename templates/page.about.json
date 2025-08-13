@@ -23,14 +23,14 @@
           "type": "scrolling-to-section",
           "settings": {
             "title": "Team",
-            "element_id": ""
+            "element_id": "ILTeam"
           }
         },
         "scrolling_to_section_LPYYTC": {
           "type": "scrolling-to-section",
           "settings": {
             "title": "Collaboration",
-            "element_id": ""
+            "element_id": "ILCollaboration"
           }
         }
       },
@@ -73,9 +73,9 @@
       "name": "IL Image",
       "settings": {
         "image": "shopify://shop_images/wallpaper_picture.jpg",
-        "enable_margin_desktop": true,
+        "enable_margin_desktop": false,
         "margin_top_desktop": 0,
-        "margin_bottom_desktop": 300,
+        "margin_bottom_desktop": 0,
         "enable_margin_mobile": false,
         "margin_top_mobile": 0,
         "margin_bottom_mobile": 0
@@ -132,7 +132,13 @@
       ],
       "name": "IL About Principles",
       "settings": {
-        "title": "Illuminum: Where Perfume Becomes Expression"
+        "title": "Illuminum: Where Perfume Becomes Expression",
+        "enable_margin_desktop": true,
+        "margin_top_desktop": 300,
+        "margin_bottom_desktop": 0,
+        "enable_margin_mobile": false,
+        "margin_top_mobile": 0,
+        "margin_bottom_mobile": 0
       }
     },
     "il_about_team_8Bgtjb": {
@@ -205,8 +211,8 @@
       "settings": {
         "title": "The Team Behind Illuminum",
         "enable_margin_desktop": true,
-        "margin_top_desktop": 0,
-        "margin_bottom_desktop": 300,
+        "margin_top_desktop": 150,
+        "margin_bottom_desktop": 0,
         "enable_margin_mobile": false,
         "margin_top_mobile": 0,
         "margin_bottom_mobile": 0
@@ -594,8 +600,8 @@
       "settings": {
         "title": "The Art of Collaboration",
         "subtitle": "Exploring the creative intersections of scent, design, and culture",
-        "enable_margin_desktop": false,
-        "margin_top_desktop": 0,
+        "enable_margin_desktop": true,
+        "margin_top_desktop": 300,
         "margin_bottom_desktop": 0,
         "enable_margin_mobile": false,
         "margin_top_mobile": 0,
@@ -658,6 +664,30 @@
         "margin_top_mobile": 49,
         "margin_bottom_mobile": 75
       }
+    },
+    "il_product_carousel_hjPdWb": {
+      "type": "IL-product-carousel",
+      "name": "IL Product Carousel",
+      "settings": {
+        "title": "Dive into the World\nof Illuminum",
+        "subtitle": "Unveil the artful fusion of nature and creativity in every scent.",
+        "image": "shopify://shop_images/coll-1.jpg",
+        "collection_title": "Core\nRange",
+        "button_link": "shopify://collections/frontpage",
+        "button_text": "VIEW THE CATALOG",
+        "product_list": [
+          "brunswick-house",
+          "brunswick-house-2",
+          "white-gardenia-petals",
+          "tom-wolfe-22"
+        ],
+        "enable_margin_desktop": true,
+        "margin_top_desktop": 0,
+        "margin_bottom_desktop": 300,
+        "enable_margin_mobile": false,
+        "margin_top_mobile": 0,
+        "margin_bottom_mobile": 0
+      }
     }
   },
   "order": [
@@ -667,6 +697,7 @@
     "il_about_principles_mTjt96",
     "il_about_team_8Bgtjb",
     "il_about_collaboration_rQLtc6",
-    "il_subscriptions_fQUHdK"
+    "il_subscriptions_fQUHdK",
+    "il_product_carousel_hjPdWb"
   ]
 }
