@@ -105,6 +105,40 @@ h5,
   }
 }
 
+// Class generation for mobile-only (visible on mobile, hidden on desktop)
+.mobile-only {
+  display: block !important; // Base style for mobile
+
+  &--sm {
+    @include hide-on-desktop(sm); // Hide on screens ≥576px
+  }
+
+  &--md {
+    @include hide-on-desktop(md); // Hide on screens ≥768px
+  }
+
+  &--lg {
+    @include hide-on-desktop(lg); // Hide on screens ≥992px
+  }
+}
+
+// Class generation for desktop-only (visible on desktop, hidden on mobile)
+.desktop-only {
+  display: block !important; // Base style for desktop
+
+  &--sm {
+    @include hide-on-mobile(sm); // Hide on screens <576px
+  }
+
+  &--md {
+    @include hide-on-mobile(md); // Hide on screens <768px
+  }
+
+  &--lg {
+    @include hide-on-mobile(lg); // Hide on screens <992px
+  }
+}
+
 .hidden {
   opacity: 0;
   height: 0;

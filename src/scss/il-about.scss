@@ -9,6 +9,11 @@
   max-width: 1440px;
   margin: 0 auto;
 
+  @include media-max(lg) {
+    display: flex;
+    flex-direction: column;
+  }
+
   .col-1 {
     grid-column: span 1;
   }
@@ -65,6 +70,10 @@
     position: relative;
     width: 100%;
     height: 100%;
+
+    @include media-max(lg) {
+      height: 103.8vh;
+    }
   }
 
   &__text-container {
@@ -77,6 +86,14 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+
+    @media screen and (max-width: 1024px) {
+      height: auto;
+      top: unset;
+      bottom: 0;
+      text-align: center;
+      padding: 0 20px 70px 20px;
+    }
   }
 
   &__title {
@@ -96,17 +113,40 @@
     max-width: 942px;
     margin: 0 auto;
 
+    @media screen and (max-width: 1024px) {
+      flex-direction: column;
+      padding-top: 30px;
+      row-gap: 15px;
+    }
+
     &-item {
       a {
         padding: 15px;
         display: flex;
+
+        @media screen and (max-width: 1024px) {
+          justify-content: center;
+        }
       }
+    }
+  }
+}
+
+.shopify-design-mode .il-about-hero {
+  &__content {
+    @include media-max(lg) {
+      height: 786px;
     }
   }
 }
 
 .il-about-brand {
   padding: 0 30px;
+
+  @include media-max(lg) {
+    row-gap: 30px;
+    padding: 0 20px;
+  }
 
   &__left {
     display: flex;
@@ -118,15 +158,33 @@
 
   &__title {
     margin: 0;
+
+    @include media-max(xxl) {
+      @include heading-3;
+    }
   }
 
   &__right {
     row-gap: 30px;
 
-    .il-about-brand__title {
-      margin: 0;
-      color: $text-color-gray;
+    @include media-max(lg) {
+      row-gap: 25px;
     }
+
+    .il-about-brand__title {
+      margin-top: 15px;
+    }
+  }
+
+  &__text {
+    margin: 0;
+    color: $text-color-gray;
+  }
+}
+
+.il-image__image-container {
+  @include media-max(sm) {
+    height: 45.8vh !important;
   }
 }
 
@@ -136,31 +194,48 @@
 
   & > div:not(:last-child) {
     margin-bottom: 50px;
+
+    @include media-max(lg) {
+      margin-bottom: 60px;
+    }
   }
 
   &__title {
-    margin: 0 0 75px 0;
+    margin: 0 20px 75px 20px;
     text-align: center;
+
+    @include media-max(lg) {
+      @include heading-3;
+      text-align: start;
+      margin-bottom: 40px;
+    }
   }
 
   &__banner {
-    &.image-text {
-      .il-principles__banner-content {
-        order: 2;
-      }
-      .il-principles__banner-image-container {
-        order: 1;
-      }
-    }
-
     &.text-image {
       .il-principles__banner-content {
         margin-left: 30px;
+
+        @include media-max(lg) {
+          margin: 0 20px;
+          order: 2;
+        }
+      }
+
+      .il-principles__banner-image-container {
+         @include media-max(lg) {
+           margin-bottom: 15px;
+          order: 1;
+        }
       }
 
       .il-principles__banner-title {
         margin: 0 0 20px 0;
         text-align: start;
+
+        @include media-max(lg) {
+          margin: 0 0 10px 0;
+        }
       }
     }
 
@@ -168,18 +243,56 @@
       .il-principles__banner-title {
         margin: 0 0 35px 0;
         text-align: start;
+
+        @include media-max(lg) {
+          margin: 0 20px 15px 20px;
+        }
+      }
+
+      .il-principles__banner-content {
+        order: 2;
+
+        @include media-max(lg) {
+          margin: 10px 20px 0;
+        }
+      }
+
+      .il-principles__banner-image-container {
+        order: 1;
+      }
+    }
+
+    &-title {
+      @include media-max(lg) {
+        @include heading-4;
+        max-width: 256px;
       }
     }
 
     &-text {
       text-align: start;
       margin: 0;
+
+      @include media-max(lg) {
+        max-width: 280px;
+      }
+    }
+  }
+
+  &__banner-single {
+    @include media-max(lg) {
+      height: 23.8vh;
+      margin: 0 20px;
     }
   }
 }
 
 .il-team {
   margin: 0 auto;
+
+  @include media-max(lg) {
+    margin: 0 20px;
+  }
 
   &__title,
   &__members {
@@ -191,6 +304,11 @@
     max-width: 489px;
     width: 100%;
     text-align: center;
+
+    @include media-max(lg) {
+      @include heading-3;
+      margin: 0 auto 40px;
+    }
   }
 
   &__members {
@@ -199,6 +317,13 @@
     grid-auto-rows: max-content;
     column-gap: 30px;
     row-gap: 50px;
+
+    @include media-max(lg) {
+      display: flex;
+      flex-direction: column;
+      row-gap: 35px;
+    }
+
 
     .member {
       display: flex;
@@ -210,14 +335,24 @@
         justify-content: start;
         align-items: center;
         padding: 25px 49px 0;
+
+        @include media-max(lg) {
+          padding: 20px 0 0 0;
+        }
       }
 
       &__image-container {
         height: 440px;
+
+        @include media-max(lg) {
+          height: auto;
+          aspect-ratio: 1/1;
+        }
       }
 
       &__role {
         margin: 0 0 7px 0;
+        text-transform: uppercase;
       }
 
       &__fio {
@@ -239,18 +374,35 @@ il-collaboration {
   .il-collaboration {
     padding: 0 30px;
 
+    @include media-max(lg) {
+      padding: 0 20px;
+    }
+
     &__top-content {
       margin: 0 0 107px 0;
+
+      @include media-max(lg) {
+        margin: 0 0 40px 0;
+      }
     }
 
     &__title {
       margin: 0 0 10px 0;
       text-align: center;
+
+      @include media-max(lg) {
+        @include heading-4;
+        text-align: start;
+      }
     }
 
     &__subtitle {
       margin: 0;
       text-align: center;
+
+      @include media-max(lg) {
+        text-align: start;
+      }
     }
 
     &__bottom-content {
@@ -269,6 +421,9 @@ il-collaboration {
 
       /* Left element with the collection tabs */
       &__item-button {
+        width: 100%;
+        display: flex;
+
         .collection-tabs {
           &__button {
             background: none;
@@ -347,19 +502,33 @@ il-collaboration {
   &__title {
     margin: 0 0 10px 0;
     text-align: center;
+
+    @include media-max(lg) {
+      @include heading-3;
+      text-align: start;
+    }
   }
 
   &__subtitle {
     margin: 0;
     text-align: center;
+
+    @include media-max(lg) {
+      text-align: start;
+    }
   }
 
   &__text-container {
     margin: 0 0 150px 0;
+
+    @include media-max(lg) {
+      margin: 0 20px 15px 20px;
+    }
   }
 
   &__content {
     display: flex;
+    width: 100%;
   }
 
   &__info-box {
@@ -378,6 +547,11 @@ il-collaboration {
     width: calc(50% + 30px);
     overflow: hidden;
     padding: 0 0 0 30px;
+
+    @include media-max(lg) {
+      width: 100%;
+      padding: 0 0 0 20px;
+    }
   }
 
   &__name {
@@ -390,6 +564,9 @@ il-collaboration {
   }
 
   .il-product-carousel {
+    display: flex;
+    width: 100%;
+
     &__wrapper {
       gap: 3px;
     }
@@ -401,10 +578,16 @@ il-collaboration {
 
   .product-card {
     position: relative;
+    display: flex;
+    flex-direction: column;
 
     &__image-container {
-      max-width: 440px;
-      max-height: 496px;
+      min-width: 100%;
+      height: 496px;
+
+      @include media-max(lg) {
+        height: 362px;
+      }
     }
 
     &__info-container {

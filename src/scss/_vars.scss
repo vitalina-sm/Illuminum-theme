@@ -11,3 +11,14 @@ $gray-fill: #eaeaea;
 $font-family: "Inter", sans-serif;
 $second-family: "Outfit", sans-serif;
 $third-family: "Roboto", sans-serif;
+
+
+/*>>> BREAKPOINTS <<<*/
+
+$breakpoints: (
+  xxl: 1400px,
+  xl: 1200px,
+  lg: 992px,
+  md: 768px,
+  sm: 576px
+);

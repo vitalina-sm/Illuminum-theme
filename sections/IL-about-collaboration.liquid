@@ -6,47 +6,48 @@
 %}
 
 <div id="ILCollaboration" style="display: flex; margin: 0 auto; justify-content: center;">
-	<il-collaboration>
-	<div class="{{ section_class }} il-collaboration grid-container">
-		<div class="il-collaboration__top-content col-4">
-			{% if title != blank %}
-				<h2 class="il-collaboration__title heading-3">{{ section.settings.title }}</h2>
-			{% endif %}
-			{% if subtitle != blank %}
-				<p class="il-collaboration__subtitle text-light">{{ section.settings.subtitle }}</p>
-			{% endif %}
-		</div>
-		<div class="il-collaboration__bottom-content col-12 grid-container hidden">
-			<div class="il-collaboration__collection-tabs collection-tabs col-4"
-					 data-js-insert="collection-tabs">
-				{% comment %}
-					# Example of layout that will be inserted by js
-					<div class="collection-tabs__item-button">
-						<button class="collection-tabs__button link-item" data-tab-button="{{ block.id }}">{{ block.settings.collection_title }}</button>
-					</div>
-				{% endcomment %}
+	<il-collaboration class="desktop-only--lg">
+		<div class="{{ section_class }} il-collaboration grid-container">
+			<div class="il-collaboration__top-content col-4">
+				{% if title != blank %}
+					<h2 class="il-collaboration__title heading-3">{{ section.settings.title }}</h2>
+				{% endif %}
+				{% if subtitle != blank %}
+					<p class="il-collaboration__subtitle text-light">{{ section.settings.subtitle }}</p>
+				{% endif %}
 			</div>
-			<div class="il-collaboration__collection-tabs collection-content col-8"
-			     data-js-insert="collection-content">
-				{% comment %}
-					# Example of layout that will be inserted by js
-					<div class="item-content-1 grid-container {{ content_sequence }}"
-							 style="margin-bottom: {{ margin_bottom }}">
-						<div class="item-content-1__image-container image-container col-9">
-							<img class="item-content-1__image image"
-									 src="{{ image | img_url: "master" }}"
-									 alt="{{ image.alt }}">
+			<div class="il-collaboration__bottom-content col-12 grid-container hidden">
+				<div class="il-collaboration__collection-tabs collection-tabs col-4"
+						 data-js-insert="collection-tabs">
+					{% comment %}
+						# Example of layout that will be inserted by js
+						<div class="collection-tabs__item-button">
+							<button class="collection-tabs__button link-item" data-tab-button="{{ block.id }}">{{ block.settings.collection_title }}</button>
 						</div>
-						<p class="item-content-1__text text-light-2 col-3">{{ text }}</p>
-					</div>
-				{% endcomment %}
+					{% endcomment %}
+				</div>
+				<div class="il-collaboration__collection-tabs collection-content col-8"
+						 data-js-insert="collection-content">
+					{% comment %}
+						# Example of layout that will be inserted by js
+						<div class="item-content-1 grid-container {{ content_sequence }}"
+								 style="margin-bottom: {{ margin_bottom }}">
+							<div class="item-content-1__image-container image-container col-9">
+								<img class="item-content-1__image image"
+										 src="{{ image | img_url: "master" }}"
+										 alt="{{ image.alt }}">
+							</div>
+							<p class="item-content-1__text text-light-2 col-3">{{ text }}</p>
+						</div>
+					{% endcomment %}
+				</div>
 			</div>
 		</div>
-	</div>
-	<div class="layout-for-js">
-		{% content_for 'blocks' %}
-	</div>
-</il-collaboration>
+		<div class="layout-for-js">
+			{% content_for 'blocks' %}
+		</div>
+	</il-collaboration>
+
 </div>
 
 {% render 'il-x-margins', parent_class: section_class, settings: section.settings %}

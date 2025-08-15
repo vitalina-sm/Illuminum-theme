@@ -63,8 +63,8 @@
         "enable_margin_desktop": true,
         "margin_top_desktop": 0,
         "margin_bottom_desktop": 300,
-        "enable_margin_mobile": false,
-        "margin_top_mobile": 0,
+        "enable_margin_mobile": true,
+        "margin_top_mobile": 135,
         "margin_bottom_mobile": 0
       }
     },
@@ -76,8 +76,8 @@
         "enable_margin_desktop": false,
         "margin_top_desktop": 0,
         "margin_bottom_desktop": 0,
-        "enable_margin_mobile": false,
-        "margin_top_mobile": 0,
+        "enable_margin_mobile": true,
+        "margin_top_mobile": 185,
         "margin_bottom_mobile": 0
       }
     },
@@ -136,8 +136,8 @@
         "enable_margin_desktop": true,
         "margin_top_desktop": 300,
         "margin_bottom_desktop": 0,
-        "enable_margin_mobile": false,
-        "margin_top_mobile": 0,
+        "enable_margin_mobile": true,
+        "margin_top_mobile": 125,
         "margin_bottom_mobile": 0
       }
     },
@@ -213,8 +213,8 @@
         "enable_margin_desktop": true,
         "margin_top_desktop": 150,
         "margin_bottom_desktop": 0,
-        "enable_margin_mobile": false,
-        "margin_top_mobile": 0,
+        "enable_margin_mobile": true,
+        "margin_top_mobile": 150,
         "margin_bottom_mobile": 0
       }
     },
@@ -449,7 +449,7 @@
           "type": "il-about-collaboration-item",
           "name": "IL Collaboration Item",
           "settings": {
-            "collection_title": "SYNAESTHETIC ART BY PHILIPPA STANTON,\nCAMELLIA STAFFORD AND AMY KEY"
+            "collection_title": "SYNAESTHETIC ART BY PHILIPPA STANTON, CAMELLIA&nbsp;STAFFORD AND AMY KEY"
           },
           "blocks": {
             "il_about_collaboration_item_content_1_GDxQE4": {
@@ -603,8 +603,8 @@
         "enable_margin_desktop": true,
         "margin_top_desktop": 300,
         "margin_bottom_desktop": 0,
-        "enable_margin_mobile": false,
-        "margin_top_mobile": 0,
+        "enable_margin_mobile": true,
+        "margin_top_mobile": 150,
         "margin_bottom_mobile": 0
       }
     },

@@ -9,8 +9,6 @@ class ILCollaboration extends HTMLElement {
     activateFirstElems() {
         const firstTabElement = this.querySelectorAll('.layout-for-js .collection-tabs__button')?.[0];
         const firstContentElement = this.querySelectorAll('.layout-for-js .collection-tabs__item-content')?.[0];
-        console.log('firstTabElement: ', firstTabElement)
-        console.log('firstContentElement: ', firstContentElement)
         firstTabElement?.classList.add('active');
         firstContentElement?.classList.add('active');
     }

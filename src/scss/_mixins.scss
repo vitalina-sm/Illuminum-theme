@@ -1,5 +1,53 @@
 @import '_vars';
 
+// Mixin for hiding on desktop (min-width)
+@mixin hide-on-desktop($breakpoint) {
+  $value: map-get($breakpoints, $breakpoint);
+  @if $value {
+    @media screen and (min-width: $value) {
+      display: none !important;
+    }
+  } @else {
+    @error "Breakpoint '#{$breakpoint}' not found in $breakpoints";
+  }
+}
+
+// Mixin for hiding on mobile (max-width)
+@mixin hide-on-mobile($breakpoint) {
+  $value: map-get($breakpoints, $breakpoint);
+  @if $value {
+    @media screen and (max-width: $value - 0.02px) {
+      display: none !important;
+    }
+  } @else {
+    @error "Breakpoint '#{$breakpoint}' not found in $breakpoints";
+  }
+}
+
+// Mixin for max-width media queries (with -0.02px)
+@mixin media-max($breakpoint) {
+  $value: map-get($breakpoints, $breakpoint);
+  @if $value {
+    @media screen and (max-width: $value - 0.02px) { // Example, 991.98px for lg
+      @content;
+    }
+  } @else {
+    @error "Breakpoint '#{$breakpoint}' not found in $breakpoints";
+  }
+}
+
+// Mixin for min-width media queries (exact value from breakpoints)
+@mixin media-min($breakpoint) {
+  $value: map-get($breakpoints, $breakpoint);
+  @if $value {
+    @media screen and (min-width: $value) {
+      @content;
+    }
+  } @else {
+    @error "Breakpoint '#{$breakpoint}' not found in $breakpoints";
+  }
+}
+
 @mixin heading-1 {
   font-family: $second-family;
   font-weight: 400;

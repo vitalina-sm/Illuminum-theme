@@ -4,7 +4,7 @@
 
 <div class="{{ section_class }} il-about-brand grid-container">
  <div class="il-about-brand__left col-4">
-  <h2 class="il-about-brand__title heading-2">{{ section.settings.title_left }}</h2>
+  <h2 class="il-about-brand__title heading-2 desktop-only desktop-only--lg">{{ section.settings.title_left }}</h2>
   <div class="il-about-brand__image-container image-container">
     <img class="il-about-brand__image image"
          src="{{ section.settings.image_left | img_url: 'master'  }}"
@@ -17,7 +17,8 @@
          src="{{ section.settings.image_right | img_url: 'master'  }}"
          alt="{{ section.settings.image_right.alt | escape }}">
   </div>
-  <p class="il-about-brand__title heading-3 col-9">{{ section.settings.title_right }}</p>
+  <h2 class="il-about-brand__title heading-3 mobile-only--lg">{{ section.settings.title_left }}</h2>
+  <p class="il-about-brand__text heading-3 col-9">{{ section.settings.title_right }}</p>
  </div>
 </div>
 

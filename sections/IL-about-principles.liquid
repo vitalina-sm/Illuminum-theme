@@ -12,6 +12,8 @@
     {% case block.type %}
    	{% when 'content_banner' %}
 
+   	{% assign content_sequence = block.settings.content_sequence | replace: '_', '-' %}
+
 			{% capture content-text %}
 				{% liquid
 					assign banner_title = block.settings.banner_title
@@ -19,7 +21,9 @@
 				%}
 				<div class="il-principles__banner-content col-6 grid-container">
 					{% if banner_title != blank %}
-						<h3 class="il-principles__banner-title heading-6 col-12">{{ banner_title }}</h3>
+						<h3 class="il-principles__banner-title heading-6 col-12{% if content_sequence == 'image-text' %} desktop-only--lg{% endif %}">
+							{{ banner_title }}
+						</h3>
 					{% endif %}
 					{% if banner_text != blank %}
 						<p class="il-principles__banner-text regular-text col-4">{{ banner_text }}</p>
@@ -36,12 +40,19 @@
 				{% if banner_image != blank %}
 				{% if raise_image_up %}
 				<style>
-					.{{ block.id }} {
-						transform: translateY(calc(50px + {{ raise_image_up_percent }}% * -1 ));
-					}
+				  @media screen and (min-width: 992px) {
+						.{{ block.id }} {
+							transform: translateY(calc(50px + {{ raise_image_up_percent }}% * -1 ));
+						}
+				  }
 				</style>
 				{% endif %}
 
+				{% if banner_title != blank and content_sequence == 'image-text' %}
+						<h3 class="il-principles__banner-title heading-6 col-12 mobile-only--lg">
+							{{ banner_title }}
+						</h3>
+				{% endif %}
 				<div class="il-principles__banner-image-container image-container {{ block.id }} col-6">
 					<img class="image"
 							 src="{{ banner_image | img_url: 'master' }}"
@@ -50,8 +61,8 @@
 				{% endif %}
 			{% endcapture %}
 
-   		<div class="il-principles__banner grid-container {{ block.settings.content_sequence | replace: '_', '-' }}">
-				{% if block.settings.content_sequence == 'text_image' %}
+   		<div class="il-principles__banner grid-container {{ content_sequence }}">
+				{% if content_sequence == 'text-image' %}
 					{{ content-text }}
 					{{ content-image }}
 				{% else %}
@@ -61,9 +72,12 @@
 			</div>
 
     {% when 'image_banner' %}
+    <div class="il-principles__banner-single image">
 			<div class="image-container">
-				<img class="image" src="{{ block.settings.image | img_url: 'master' }}" alt="{{ block.settings.image.alt | escape }}">
-			</div>
+					<img class="image" src="{{ block.settings.image | img_url: 'master' }}" alt="{{ block.settings.image.alt | escape }}">
+				</div>
+		</div>
+
     {% endcase %}
   {% endfor %}
 </div>

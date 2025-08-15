@@ -6,112 +6,43 @@
     <div class="il-slider__images">
       <div class="swiper-container">
         <div class="swiper-wrapper">
-          <div class="swiper-slide">
-            <div class="il-slider__image">
-              <img src="https://cdn.shopify.com/s/files/1/0921/1445/2824/files/hero-1_d96b2cf0-f135-4f6a-8782-dcb064716c00.jpg?v=1751004702" alt=""/>
-              <img class="mobile" src="https://cdn.shopify.com/s/files/1/0921/1445/2824/files/hero-mobile.jpg?v=1750428089" alt=""/>
-            </div>
-            <div class="content">
-              <div class="text-wrapper">
-                <p class="product-edition">95 PERCENT</p>
-                <p class="product-name">Tom Wolfe #234</p>
-              </div>
-              <div class="product-card">
-                <div class="product-card__image">
-                  <img src="https://cdn.shopify.com/s/files/1/0921/1445/2824/files/pr-1.jpg?v=1751004865" alt=""/>
-                </div>
-                <div class="product-card__info">
-                  <div class="product-card__product-info">
-                    <p class="product-edition">95 PERCENT</p>
-                    <p class="product-name">Tom Wolfe #234</p>
-                  </div>
-                  <div class="product-card__size text"> size 50ml</div>
-                  <div class="product-card__price text">50$</div>
-                </div>
-                <a href="/products/white-gardenia-petals" class="product-card__link"></a>
-              </div>
-            </div>
-          </div>
-          <div class="swiper-slide">
-            <div class="il-slider__image">
-              <img src="https://cdn.shopify.com/s/files/1/0921/1445/2824/files/hero-2.jpg?v=1751004703" alt=""/>
-              <img class="mobile" src="https://cdn.shopify.com/s/files/1/0921/1445/2824/files/hero-mobile.jpg?v=1750428089" alt=""/>
-            </div>
-            <div class="content">
-              <div class="text-wrapper">
-                <p class="product-edition">95 PERCENT</p>
-                <p class="product-name">Brunswick House</p>
-              </div>
-              <div class="product-card">
-                <div class="product-card__image">
-                  <img src="https://cdn.shopify.com/s/files/1/0921/1445/2824/files/pr-2.jpg?v=1751004865" alt=""/>
-                </div>
-                <div class="product-card__info">
-                  <div class="product-card__product-info">
-                    <p class="product-edition">95 PERCENT</p>
-                    <p class="product-name">Brunswick House </p>
-                  </div>
-                  <div class="product-card__size text"> size 50ml</div>
-                  <div class="product-card__price text">50$</div>
-                </div>
-                <a href="/products/white-gardenia-petals" class="product-card__link"></a>
-              </div>
-            </div>
-          </div>
-          <div class="swiper-slide">
-            <div class="il-slider__image">
-              <img src="https://cdn.shopify.com/s/files/1/0921/1445/2824/files/hero-3.jpg?v=1751004703" alt=""/>
-              <img class="mobile" src="https://cdn.shopify.com/s/files/1/0921/1445/2824/files/hero-mobile.jpg?v=1750428089" alt=""/>
-            </div>
-            <div class="content">
-              <div class="text-wrapper">
-                <p class="product-edition">95 PERCENT</p>
-                <p class="product-name">Yuki</p>
-              </div>
-              <div class="product-card">
-                <div class="product-card__image">
-                  <img src="https://cdn.shopify.com/s/files/1/0921/1445/2824/files/pr-3.jpg?v=1751004865" alt=""/>
-                </div>
-                <div class="product-card__info">
-                  <div class="product-card__product-info">
-                    <p class="product-edition">95 PERCENT</p>
-                    <p class="product-name">Yuki</p>
-                  </div>
-                  <div class="product-card__size text"> size 50ml</div>
-                  <div class="product-card__price text">50$</div>
-                </div>
-                <a href="/products/white-gardenia-petals" class="product-card__link"></a>
-              </div>
-            </div>
-          </div>
-          <div class="swiper-slide">
-            <div class="il-slider__image">
-              <img src="https://cdn.shopify.com/s/files/1/0921/1445/2824/files/hero-new.jpg?v=1750318710" alt=""/>
-              <img class="mobile"src="https://cdn.shopify.com/s/files/1/0921/1445/2824/files/hero-mobile.jpg?v=1750428089" alt=""/>
-            </div>
-            <div class="content">
-              <div class="text-wrapper">
-                <p class="product-edition">4 ILLUMINUM CORE RANGE</p>
-                <p class="product-name">Black Rose</p>
-              </div>
-              <div class="product-card">
-                <div class="product-card__image">
-                  <img src="https://cdn.shopify.com/s/files/1/0921/1445/2824/files/illuminum-london-fragrance-perfume-Black_Rose_Illuminum_Product1_0038-600x600_5ec3a01c-d41c-4b57-8bfa-160cfacc2baa.jpg?v=1750251728" alt=""/>
-                </div>
-                <div class="product-card__info">
-                  <div class="product-card__product-info">
-                    <p class="product-edition">4 ILLUMINUM CORE RANGE</p>
-                    <p class="product-name">Black Rose</p>
-                  </div>
-                  <div class="product-card__size text"> size 50ml</div>
-                  <div class="product-card__price text">50$</div>
-                </div>
-                <a href="/products/white-gardenia-petals" class="product-card__link"></a>
-              </div>
-            </div>
-          </div>
+					{% for block in section.blocks %}
+						{% if block.type == 'slide' %}
+							{% liquid
+								 assign back_image = block.settings.image
+								 assign back_image_mobile = block.settings.image_mobile
+								 assign product = block.settings.product
+								 assign product_fragrance = product.metafields.custom.fragrance | upcase
+							%}
+							<div class="swiper-slide">
+								<div class="il-slider__image">
+									<img src="{{ back_image | img_url: "master" }}" alt="{{ back_image.alt | default: product.title }}"/>
+									<img class="mobile" src="{{ back_image_mobile | img_url: "master" }}" alt="{{ back_image_mobile.alt | default: product.title }}"/>
+								</div>
+								<div class="content">
+									<div class="text-wrapper">
+										<p class="product-edition">{{ product_fragrance }}</p>
+										<p class="product-name">{{ product.title }}</p>
+									</div>
+									<div class="product-card">
+										<div class="product-card__image">
+											<img src="{{ product.featured_image | img_url: "master" }}" alt="{{ product.featured_image.alt | default: product.title }}"/>
+										</div>
+										<div class="product-card__info">
+											<div class="product-card__product-info">
+												<p class="product-edition">{{ product_fragrance }}</p>
+												<p class="product-name">{{ product.title }}</p>
+											</div>
+											<div class="product-card__size text">{{ product.options_by_name['Size'].name | downcase }} {{ product.variants[0].options[0] | downcase }}</div>
+											<div class="product-card__price text">{{ product.price | money_without_trailing_zeros }}</div>
+										</div>
+										<a href="/products/white-gardenia-petals" class="product-card__link"></a>
+									</div>
+								</div>
+							</div>
+						{% endif %}
+					{% endfor %}
         </div>
-
         <div class="swiper-pagination"></div>
       </div>
     </div>
@@ -129,7 +60,29 @@
   },
   "blocks": [
     {
-      "type": "_il-slide"
+      "type": "slide",
+      "name": "Slide",
+      "settings": [
+        {
+          "type": "header",
+          "content": "Images"
+        },
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image Desktop"
+        },
+        {
+          "type": "image_picker",
+          "id": "image_mobile",
+          "label": "Image Mobile"
+        },
+        {
+          "type": "product",
+          "id": "product",
+          "label": "Product"
+        }
+      ]
     }
   ],
   "presets": [

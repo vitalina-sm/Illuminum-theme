@@ -20,16 +20,20 @@ class ILProductCarousel extends HTMLElement {
     createSlider () {
         this.swiper = new Swiper(`#ProductCarousel--${this.sectionId}`, {
             modules: [Mousewheel, FreeMode],
-            spaceBetween: 30,
-            slidesPerView: 1,
-            slidesOffsetBefore: 0, // Отступ перед первым слайдом
-            slidesOffsetAfter: 0,  // Отступ после последнего слайда
+            spaceBetween: 20,
+            slidesPerView: 1.5,
             centeredSlides: false,
             allowTouchMove: true,
+            freeMode: true,
             mousewheel: {
                 forceToAxis: true, // прокрутка только по одной оси
-                sensitivity: 1,    // чувствительность
-            }
+            },
+            breakpoints: {
+                992: {
+                    slidesPerView: 'auto',
+                    spaceBetween: 30,
+                }
+            },
         });
         console.log('this.swiper: ', this.swiper)
         return this.swiper;

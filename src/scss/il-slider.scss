@@ -1,3 +1,5 @@
+@import '_vars';
+
 .il-slider {
   color: #fff;
   height: 100%;
@@ -217,15 +219,15 @@
       }
 
       .product-name {
-        font-family: var(--second-family);
+        font-family: $second-family;
         font-weight: 400;
-        font-size: 20px;
+        font-size: 48px;
         line-height: 141%;
         color: #0c0c0c;
         margin: 0;
 
         @media (max-width: 767.98px) {
-          font-size: 48px;
+          font-size: 20px;
         }
       }
     }
