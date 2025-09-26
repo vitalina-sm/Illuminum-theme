@@ -63,9 +63,8 @@ document.addEventListener('DOMContentLoaded', () => {
                 }
             },
             touchStart: function (event) {
-                console.log('touchStart');
-                event.preventDefault();
-                event.stopPropagation();
+               /* event.preventDefault();
+                event.stopPropagation();*/
             }
         },
     }

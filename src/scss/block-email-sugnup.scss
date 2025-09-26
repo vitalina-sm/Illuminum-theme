@@ -18,15 +18,19 @@
   background-color: transparent;
 }
 
-.email-signup__input-group:not(:has(.email-signup__button--integrated)) {
-  gap: var(--gap-xs);
+.password-dialog__content {
+  .email-signup__input-group {
+    @media screen and (min-width: 850.9px) {
+      row-gap: 10px;
+    }
+  }
 }
 
-.email-signup__input-group:not(:has(.email-signup__button--arrow)) {
+/*.email-signup__input-group:not(:has(.email-signup__button--arrow)) {
   @media screen and (min-width: 850.9px) {
     grid-template-columns: 1fr;
   }
-}
+}*/
 
 .email-signup__input {
   width: 100%;
@@ -47,7 +51,7 @@
 
 .email-signup__input,
 .email-signup__button--text {
-  padding: var(--padding-lg) var(--padding-3xl);
+  padding: 18px;
 }
 
 .email-signup__input-group .email-signup__input--underline {
@@ -175,7 +179,6 @@
 .email-signup__message {
   display: flex;
   align-items: center;
-  gap: var(--gap-xs);
   margin-top: 6px;
 }
 
@@ -249,9 +252,9 @@
     margin-top: 80px;
     margin-bottom: 40px;
 
-    @media screen and (min-width: 850.9px) {
+   /* @media screen and (min-width: 850.9px) {
       display: none;
-    }
+    }*/
   }
 
   .il-logo__image-wrapper img {

@@ -5,49 +5,66 @@
   assign subtitle = section.settings.subtitle
 %}
 
-<div id="ILCollaboration" style="display: flex; margin: 0 auto; justify-content: center;">
-	<il-collaboration class="desktop-only--lg">
-		<div class="{{ section_class }} il-collaboration grid-container">
-			<div class="il-collaboration__top-content col-4">
-				{% if title != blank %}
-					<h2 class="il-collaboration__title heading-3">{{ section.settings.title }}</h2>
-				{% endif %}
-				{% if subtitle != blank %}
-					<p class="il-collaboration__subtitle text-light">{{ section.settings.subtitle }}</p>
-				{% endif %}
-			</div>
-			<div class="il-collaboration__bottom-content col-12 grid-container hidden">
-				<div class="il-collaboration__collection-tabs collection-tabs col-4"
-						 data-js-insert="collection-tabs">
-					{% comment %}
-						# Example of layout that will be inserted by js
-						<div class="collection-tabs__item-button">
-							<button class="collection-tabs__button link-item" data-tab-button="{{ block.id }}">{{ block.settings.collection_title }}</button>
-						</div>
-					{% endcomment %}
-				</div>
-				<div class="il-collaboration__collection-tabs collection-content col-8"
-						 data-js-insert="collection-content">
-					{% comment %}
-						# Example of layout that will be inserted by js
-						<div class="item-content-1 grid-container {{ content_sequence }}"
-								 style="margin-bottom: {{ margin_bottom }}">
-							<div class="item-content-1__image-container image-container col-9">
-								<img class="item-content-1__image image"
-										 src="{{ image | img_url: "master" }}"
-										 alt="{{ image.alt }}">
-							</div>
-							<p class="item-content-1__text text-light-2 col-3">{{ text }}</p>
-						</div>
-					{% endcomment %}
-				</div>
-			</div>
-		</div>
-		<div class="layout-for-js">
-			{% content_for 'blocks' %}
-		</div>
-	</il-collaboration>
+{% capture blocks_content %}
+	{% content_for 'blocks' %}
+{% endcapture %}
 
+<div id="ILCollaboration" style="display: flex; margin: 0 auto; justify-content: center;">
+	<div class="il-collaboration {{ section_class }}">
+		<div class="il-collaboration__heading-container">
+			{% if title != blank %}
+				<h2 class="il-collaboration__title heading-3">{{ section.settings.title }}</h2>
+			{% endif %}
+			{% if subtitle != blank %}
+				<p class="il-collaboration__subtitle text-light">{{ section.settings.subtitle }}</p>
+			{% endif %}
+		</div>
+		<il-collab-content class="il-collaboration__content--desktop desktop-only--lg">
+			<div class="il-collaboration__full-content col-12 grid-container hidden">
+				<div class="il-collaboration__collection-tabs collection-tabs col-4"
+					 data-js-insert="collection-tabs">
+					{% comment %}
+						# Example of layout that will be inserted by js
+						<div class="item-tab__button-container col-4">
+							<button class="item-tab__button link-item link-item-hovered active" data-tab-button="ASlV6amdSK0svU3dmK__il_about_collaboration_item_GNpkkA">
+								ILLUMINUM 95%
+							</button>
+						</div>
+						<div class="item-tab__button-container col-4">
+							<button class="item-tab__button link-item link-item-hovered" data-tab-button="AZWplZGIvWXQ5MTRvU__il_about_collaboration_item_8y9Czr">
+								PERFUME X ARCHITECTURE <br>
+								BY ANTONINO CARDILLO
+							</button>
+						</div>
+						...
+					{% endcomment %}
+				</div>
+					<div class="il-collaboration__collection-tabs collection-content col-8"
+						 data-js-insert="collection-content">
+						{% comment %}
+							# Example of layout that will be inserted by js
+							<div class="item-tab__content item-content" data-tab-content="AZWplZGIvWXQ5MTRvU__il_about_collaboration_item_8y9Czr">
+								<p class="item-content__title heading-3">PERFUME X ARCHITECTURE <br>BY ANTONINO CARDILLO</p>
+								<div id="shopify-block-Ady94ckdWZjJXVU9LQ__il_about_collaboration_item_content_1_GVJjFW" class="shopify-block">
+									<div class="item-content-1 grid-container image-text">
+										<div class="item-content-1__image-container image-container col-9">
+											<img class="item-content-1__image image" src="//illuminum.london/cdn/shop/files/pr-3_ccafb0ea-cb5e-4bc2-a11e-6ec614f83a8a.jpg?v=1754643526" alt="">
+										</div>
+										<p class="item-content-1__text text-light-2 col-3">Illuminum London proudly straddle the worlds of art and fragrance, pushing the boundaries of how we experience scent and altering our pre-conceived perceptions of smell itself. Having collaborated with many artists, designers and architects over the years, it seems only natural they should now be working with chefs and exploring that vital link between food and fragrance. Illuminum invited innovative chefs Jackson Boxer, Yuki Gomi and Tom Wolfe to create three distinctive fragrances that explored the interfaces of this connection, playing with our notions of what we think our nose knows.</p>
+									</div>
+								</div>
+							</div>
+						{% endcomment %}
+					</div>
+				</div>
+			<div class="layout-for-js">
+				{{ blocks_content }}
+			</div>
+		</il-collab-content>
+		<il-collab-content-mob class="il-collaboration__content--mobile mobile-only--lg">
+			{{ blocks_content }}
+		</il-collab-content-mob>
+	</div>
 </div>
 
 {% render 'il-x-margins', parent_class: section_class, settings: section.settings %}

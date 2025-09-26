@@ -1,78 +1,41 @@
-class ILCollaboration extends HTMLElement {
-    constructor() {
-        super();
-        this.activateFirstElems()
-        this.insertHTML();
-        this.addButtonListeners();
-    }
+import { ILCollabContent } from './il-collab-content';
+import { IlCollabContentMob } from './il-collab-content-mob';
+import { breakpoints } from '../utils/variables';
 
-    activateFirstElems() {
-        const firstTabElement = this.querySelectorAll('.layout-for-js .collection-tabs__button')?.[0];
-        const firstContentElement = this.querySelectorAll('.layout-for-js .collection-tabs__item-content')?.[0];
-        firstTabElement?.classList.add('active');
-        firstContentElement?.classList.add('active');
-    }
+// Constants for custom element names
+const DESKTOP_ELEMENT = 'il-collab-content';
+const MOBILE_ELEMENT = 'il-collab-content-mob';
 
-    insertHTML() {
-        const items = this.querySelectorAll('.layout-for-js .il-collaboration-item');
-        const tabsElement = this.querySelector('[data-js-insert="collection-tabs"]');
-        const contentElement = this.querySelector('[data-js-insert="collection-content"]');
-        const mainContainer = this.querySelector('.il-collaboration__bottom-content');
-        let tabsHTML = '',
-            tabsContentHTML = '';
+// Optional debug flag (set to true for development)
+const DEBUG = false
 
-        items.forEach(item => {
-            const buttonHTML = item.querySelector('.collection-tabs__item-button-container')?.innerHTML;
-            const contentHTML = item.querySelector('.collection-tabs__item-content-container')?.innerHTML;
-            tabsHTML += buttonHTML;
-            tabsContentHTML += contentHTML;
-        })
+/**
+ * Registers the appropriate custom element (desktop or mobile) based on the viewport width.
+ * Uses matchMedia to check if the viewport is >= lg breakpoint (992px) and defines
+ * either il-collab-content (desktop) or il-collab-content-mob (mobile).
+ */
+const handleCustomElements = () => {
+    const isDesktop = window.matchMedia(`(min-width: ${breakpoints.lg}px)`).matches;
 
-        if (tabsHTML !== '') {
-            tabsElement.innerHTML = tabsHTML;
-        } else {
-            console.log('No tabs for collaboration section');
+    if (isDesktop) {
+        if (!customElements.get(DESKTOP_ELEMENT)) {
+            customElements.define(DESKTOP_ELEMENT, ILCollabContent);
+            DEBUG && console.log(`Registered ${DESKTOP_ELEMENT}`);
         }
-
-        if (tabsContentHTML !== '') {
-            contentElement.innerHTML = tabsContentHTML;
-        } else {
-            console.log('No content for collaboration section');
+    } else {
+        if (!customElements.get(MOBILE_ELEMENT)) {
+            customElements.define(MOBILE_ELEMENT, IlCollabContentMob);
+            DEBUG && console.log(`Registered ${MOBILE_ELEMENT}`);
         }
-
-        mainContainer.classList.remove('hidden');
     }
+};
 
-    addButtonListeners() {
-        const buttons = this.querySelectorAll('.il-collaboration .collection-tabs__button');
+handleCustomElements();
 
-        if (buttons.length === 0) return;
-
-        buttons.forEach(button => {
-            button.addEventListener('click', (e) => {
-                const activeButtonElement = e.target;
-                const activeContentElement = this.querySelector(`.il-collaboration [data-tab-content="${activeButtonElement.dataset.tabButton}"]`);
-
-                const buttonsAll = this.querySelectorAll('.il-collaboration .collection-tabs__button');
-                const contentAll = this.querySelectorAll('.il-collaboration .collection-tabs__item-content');
-
-                buttonsAll.forEach(button => {
-                    button?.classList.remove('active');
-                })
-
-                contentAll.forEach(content => {
-                    content?.classList.remove('active');
-                })
-
-                activeButtonElement?.classList.add('active');
-                activeContentElement?.classList.add('active');
-            })
-        })
-
-    }
-
-}
-
-if (!customElements.get('il-collaboration')) {
-    customElements.define('il-collaboration', ILCollaboration);
+const mediaQuery = window.matchMedia(`(min-width: ${breakpoints.lg}px)`);
+if (mediaQuery.addEventListener) {
+    mediaQuery.addEventListener('change', handleCustomElements, { passive: true });
+} else {
+    // Fallback for older browsers
+    mediaQuery.addListener(handleCustomElements);
 }

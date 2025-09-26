@@ -1,0 +1,17 @@
+{% doc %}
+	Renders a part of code for _il-header-menu block that display group of second part links
+	Accepts:
+	- links: @array - The array of 2nd level links.
+	- class: @string - An additional class
+{% enddoc %}
+
+<ul class="il-menu__group-list{% if class != blank %} {{ class }}{% endif %}">
+	{% for sublink in links %}
+		<li class="il-menu__group-item">
+			<a href="{{ sublink.url }}"
+			   class="il-menu__group-link link-item link-item-hovered">
+				{{ sublink.title }}
+			</a>
+		</li>
+	{% endfor %}
+</ul>

@@ -4,32 +4,31 @@
   The block also supports nested theme or app blocks, configured via block settings,
   to render dynamic content on the right side of the section.
   Use the following blocks for nesting:
-  - il-about-collaboration-item-content-1.liquid (IL Collab Content 1)
-  - il-about-collaboration-item-content-2.liquid (IL Collab Content 2)
-  --- il-collab-item-content-2-person.liquid
-  --- il-collab-item-content-2-image.liquid
-  --- il-collab-item-content-2-text.liquid
+  - il-about-collaboration-item-content-1.liquid (IL Collab Content 1) https://prnt.sc/gjYADme92S35
+  - il-about-collaboration-item-content-2.liquid (IL Collab Content 2) https://prnt.sc/2JjUnPBhTNNR
+  --- il-collab-item-content-2-person.liquid https://prnt.sc/-QnubM4t2XbS
+  --- il-collab-item-content-2-image.liquid https://prnt.sc/WchidUEjp0LM
+  --- il-collab-item-content-2-text.liquid https://prnt.sc/JeVZLf7DgPoh
 {% endcomment %}
 
 {% liquid
 	assign collection_title = block.settings.collection_title | newline_to_br
 %}
 
-<div class="il-collaboration-item grid-container">
-	<div class="collection-tabs__item-button-container">
-		<div class="collection-tabs__item-button col-4">
-			<button class="collection-tabs__button link-item link-item-hovered" data-tab-button="{{ block.id }}">
+<div class="il-collaboration__item-tab item-tab grid-container">
+	<div class="item-tab__button-container-outer">
+		<div class="item-tab__button-container col-4">
+			<button class="item-tab__button link-item link-item-hovered" data-tab-button="{{ block.id }}">
 				{{ collection_title }}
 			</button>
 		</div>
 	</div>
-	<div class="collection-tabs__item-content-container">
-		<div class="collection-tabs__item-content item-content" data-tab-content="{{ block.id }}">
-			<p class="collection-tabs__title heading-3">{{ collection_title }}</p>
+	<div class="item-tab__content-container-outer">
+		<div class="item-tab__content item-content" data-tab-content="{{ block.id }}">
+			<p class="item-content__title heading-3">{{ collection_title }}</p>
 			{% content_for 'blocks' %}
 		</div>
 	</div>
-
 </div>
 
 {% schema %}
@@ -40,7 +39,7 @@
       "type": "textarea",
       "id": "collection_title",
       "label": "Collection name",
-			"info": "Non-breaking space - &nbsp;"
+	  "info": "Non-breaking space - &nbsp;"
     }
   ],
   "blocks": [

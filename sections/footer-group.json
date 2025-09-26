@@ -154,7 +154,7 @@
                     "heading_font_style": "heading_5",
                     "description": "Receive personalized email updates, launch annoucement, and exclusive access based on your interests.",
                     "description_font_style": "regular_text",
-                    "privacy_text": "<p>This site is protected by reCAPTCHA and the <a href=\"/policies/privacy-policy\" title=\"Privacy Policy\">Google Privacy Policy</a> and <a href=\"/policies/privacy-policy\" title=\"Privacy Policy\">Terms of Service</a> apply.</p>",
+                    "privacy_text": "<p>This site is protected by hCAPTHA and its <a href=\"https://www.hcaptcha.com/privacy\" target=\"_blank\" title=\"https://www.hcaptcha.com/privacy\">Privacy Policy</a> and <a href=\"https://www.hcaptcha.com/terms\" target=\"_blank\" title=\"https://www.hcaptcha.com/terms\">Terms of Service</a> apply.</p>",
                     "privacy_text_font_style": "caption_1",
                     "width": "fill",
                     "custom_width": 100,
@@ -302,6 +302,7 @@
         "group_KNFc4y": {
           "type": "group",
           "name": "Logo",
+          "disabled": true,
           "settings": {
             "link": "shopify://collections/frontpage",
             "open_in_new_tab": false,
@@ -343,6 +344,7 @@
               "name": "t:names.logo",
               "settings": {
                 "inverse": false,
+                "hide_on_mobile": true,
                 "font": "heading",
                 "unit": "pixel",
                 "percent_width": 10,

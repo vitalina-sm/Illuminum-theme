@@ -22,6 +22,7 @@
     @media screen and (max-width: 767px) {
       display: flex;
       flex-direction: column;
+      row-gap: 10px;
     }
   }
 
@@ -63,7 +64,7 @@
   }
 
   .il-email-signup {
-    max-width: 470px;
+    max-width: 500px;
 
     &__heading {
       margin-bottom: 15px;

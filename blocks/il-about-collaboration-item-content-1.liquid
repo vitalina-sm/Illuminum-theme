@@ -14,8 +14,15 @@
 	assign margin_bottom = block.settings.margin_bottom | append: 'px'
 %}
 
-<div class="item-content-1 grid-container {{ content_sequence }}"
-		 style="margin-bottom: {{ margin_bottom }}">
+<style>
+	@media screen and (min-width: 992px) {
+        #shopify-block-{{ block.id }} > .item-content-1 {
+        	margin-bottom: {{ margin_bottom }}
+    	}
+    }
+</style>
+
+<div class="item-content-1 grid-container {{ content_sequence }}">
 	<div class="item-content-1__image-container image-container col-9">
 		<img class="item-content-1__image image"
 				 src="{{ image | img_url: "master" }}"
@@ -58,8 +65,9 @@
 		{
 			"type": "number",
 			"id": "margin_bottom",
-			"label": "Margin bottom",
-			"default": 0
+			"label": "Margin bottom (desktop)",
+			"default": 0,
+		  	"info": "Default: 30 - between similar blocks, 75 - for the last one."
 		}
   ],
   "presets": [

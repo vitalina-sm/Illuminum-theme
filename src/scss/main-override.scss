@@ -244,3 +244,11 @@ rte-formatter {
 
 /* END Privacy policy pages style */
 
+header-component {
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  z-index: 999;
+}
+

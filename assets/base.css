@@ -896,9 +896,9 @@ summary::-webkit-details-marker {
   list-style: none;
 }
 
-@media screen and (width >= 750px) {
+@media screen and (width >= 992px) {
   .product-grid {
-    grid-template-columns: var(--product-grid-columns-desktop);
+    grid-template-columns: repeat(3, 1fr);
   }
 }
 

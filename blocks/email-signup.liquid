@@ -8,6 +8,7 @@
   assign heading = block.settings.heading
   assign description = block.settings.description
   assign privacy_text = block.settings.privacy_text
+  assign custom_width = block.settings.custom_width
 
   if block.settings.inverse and settings.logo_inverse
     assign image = settings.logo_inverse
@@ -29,6 +30,13 @@
     -}}
   {% endcapture %}
 {%- endif -%}
+
+<style>
+	.il-email-signup {
+		width: 100%;
+		max-width: {{ custom_width }}%;
+	}
+</style>
 
 <div
   class="email-signup-block il-email-signup"
@@ -72,7 +80,7 @@
         {% endif %}
       >
       <button
-        class="email-signup__button {% if block.settings.integrated_button or block.settings.border_style == 'underline' %}email-signup__button--integrated{% endif %} email-signup__button--{{ block.settings.display_type }} {{ block.settings.button_type_preset }} {{ block.settings.style_class }} {{ block.settings.style_class }}--{{ block.id }} {% if block.settings.inherit_color_scheme == false %}color-{{ block.settings.color_scheme }}{% endif %}"
+        class="email-signup__button link-item {% if block.settings.integrated_button or block.settings.border_style == 'underline' %}email-signup__button--integrated{% endif %} email-signup__button--{{ block.settings.display_type }} {{ block.settings.button_type_preset }} {{ block.settings.style_class }} {{ block.settings.style_class }}--{{ block.id }} {% if block.settings.inherit_color_scheme == false %}color-{{ block.settings.color_scheme }}{% endif %}"
         {% if block.settings.display_type != 'text' %}
           aria-label="{{ 'actions.sign_up' | t }}"
         {% endif %}

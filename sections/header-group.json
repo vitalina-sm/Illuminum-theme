@@ -55,6 +55,17 @@
             "drawer_dividers": false
           },
           "blocks": {}
+        },
+        "il-header-menu": {
+          "type": "_il-header-menu",
+          "static": true,
+          "settings": {
+            "button_label": "menu",
+            "menu": "main-menu",
+            "image_1": "shopify://shop_images/1.jpg",
+            "image_2": "shopify://shop_images/2.jpg"
+          },
+          "blocks": {}
         }
       },
       "settings": {
@@ -71,7 +82,7 @@
         "localization_row": "top",
         "section_width": "full-width",
         "section_height": "standard",
-        "enable_sticky_header": "always",
+        "enable_sticky_header": "never",
         "divider_width": 0,
         "divider_size": "page-width",
         "border_width": 0,

@@ -19,7 +19,10 @@ import { onDocumentReady, changeMetaThemeColor } from '@theme/utilities';
  */
 
 class HeaderComponent extends Component {
-  requiredRefs = ['headerDrawerContainer', 'headerMenu', 'headerRowTop'];
+    /* Uncomment to reset the HeaderComponent dependencies to its default state
+    requiredRefs = ['headerDrawerContainer', 'HeaderComponent', 'headerRowTop'];*/
+
+    requiredRefs = ['headerIlMenu', 'headerRowTop'];
 
   /**
    * Width of window when header drawer was hidden
@@ -185,18 +188,18 @@ class HeaderComponent extends Component {
   /**
    * Disables page scroll when hovering or touching the header
    */
-  #disablePageScroll = () => {
+  /*#disablePageScroll = () => {
     document.addEventListener('wheel', this.#preventScroll, { passive: false });
     document.addEventListener('touchmove', this.#preventScroll, { passive: false });
-  };
+  };*/
 
   /**
    * Enables page scroll when leaving the header
    */
-  #enablePageScroll = () => {
+  /*#enablePageScroll = () => {
     document.removeEventListener('wheel', this.#preventScroll, { passive: false });
     document.removeEventListener('touchmove', this.#preventScroll, { passive: false });
-  };
+  };*/
 
   connectedCallback() {
     super.connectedCallback();
@@ -213,18 +216,18 @@ class HeaderComponent extends Component {
     }
 
     // Add scroll lock listeners
-    this.addEventListener('mouseenter', this.#disablePageScroll);
-    this.addEventListener('mouseleave', this.#enablePageScroll);
+   /* this.addEventListener('mouseenter', this.#disablePageScroll);
+    this.addEventListener('mouseleave', this.#enablePageScroll);*/
 
     // Handle touch events for mobile devices
-    let touchTimeout;
+    /*let touchTimeout;
     this.addEventListener('touchstart', () => {
       clearTimeout(touchTimeout);
       this.#disablePageScroll();
     });
     this.addEventListener('touchend', () => {
       touchTimeout = setTimeout(this.#enablePageScroll, 100);
-    });
+    });*/
   }
 
   disconnectedCallback() {
@@ -233,10 +236,10 @@ class HeaderComponent extends Component {
     this.#intersectionObserver?.disconnect();
     this.removeEventListener('overflowMinimum', this.#handleOverflowMinimum);
     document.removeEventListener('scroll', this.#handleWindowScroll);
-    this.removeEventListener('mouseenter', this.#disablePageScroll);
+    /*this.removeEventListener('mouseenter', this.#disablePageScroll);
     this.removeEventListener('mouseleave', this.#enablePageScroll);
     this.removeEventListener('touchstart', this.#disablePageScroll);
-    this.removeEventListener('touchend', this.#enablePageScroll);
+    this.removeEventListener('touchend', this.#enablePageScroll);*/
     document.body.style.setProperty('--header-height', '0px');
   }
 }

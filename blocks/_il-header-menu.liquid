@@ -1,0 +1,97 @@
+{% doc %}
+	Renders a custom header menu block.
+{% enddoc %}
+
+<style>
+	#shopify-block-{{ block.id }} {
+		display: flex;
+	}
+</style>
+
+{% liquid
+	assign button_label = block.settings.button_label
+	assign menu = block.settings.menu
+	assign socialMedia_menu = linklists['social-media']
+	assign image_1 = block.settings.image_1
+	assign image_2 = block.settings.image_2
+%}
+
+<il-menu class="il-menu" ref="headerIlMenu">
+	<button class="il-menu__button">
+		<span class="il-menu__label">{{ button_label }}</span>
+	</button>
+	<div class="il-menu__content">
+		<div class="il-menu__content-inner">
+			<button class="il-menu__button">
+				<span class="il-menu__icon">{% render 'icon', icon: 'cross' %}</span>
+				<span class="il-menu__label">{{ button_label }}</span>
+			</button>
+
+			<div class="il-menu__content-wrapper">
+				{% if menu != blank %}
+					<div class="il-menu__groups">
+						{% for link in menu.links %}
+							<ul class="il-menu__group">
+								<li class="il-menu__group-title heading-5">{{ link.title }}</li>
+								{% assign class = link.title | downcase | append: '-parent' %}
+								{% render 'il-sublink-group', links: link.links, class: class %}
+
+								{% if forloop.first %}
+									{% render 'il-sublink-group', links: socialMedia_menu.links, class: 'social-media' %}
+								{% endif %}
+							</ul>
+						{% endfor %}
+					</div>
+				{% endif %}
+				<div class="il-menu__images">
+					<div class="il-menu__image-wrapper">
+						<img src="{{ image_1 | img_url: 'master' }}" alt="{{ image_1 }}">
+					</div>
+					<div class="il-menu__image-wrapper">
+						<img src="{{ image_2 | img_url: 'master' }}" alt="{{ image_2 }}">
+					</div>
+				</div>
+				<div class="il-menu__social-media-wrapper mobile-only--md">
+					{% render 'il-sublink-group', links: socialMedia_menu.links, class: 'social-media' %}
+				</div>
+			</div>
+		</div>
+	</div>
+</il-menu>
+
+{% schema %}
+{
+  "name": "IL Menu",
+  "tag": "section",
+  "class": "section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "button_label",
+      "label": "Burger Label",
+      "default": "menu"
+    },
+    {
+      "type": "link_list",
+      "id": "menu",
+      "label": "Menu"
+    },
+    {
+      "type": "image_picker",
+      "id": "image_1",
+      "label": "Image 1"
+    },
+    {
+      "type": "image_picker",
+      "id": "image_2",
+      "label": "Image 2"
+    }
+  ],
+  "presets": [
+    {
+      "name": "IL Menu",
+      "category": "Custom"
+    }
+  ]
+}
+{% endschema %}

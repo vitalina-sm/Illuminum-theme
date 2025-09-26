@@ -2,6 +2,7 @@
 
 {% liquid
   assign image = settings.logo
+  assign hide_on_mobile = block.settings.hide_on_mobile
 
   if block.settings.inverse and settings.logo_inverse
     assign image = settings.logo_inverse
@@ -28,6 +29,7 @@
   class="
     logo-block
     spacing-style
+    {% if hide_on_mobile %} desktop-only--sm{% endif %}
   "
   style="
     {% if block.settings.unit == 'percent' %}
@@ -80,6 +82,12 @@
       "default": false,
       "visible_if": "{{ settings.logo_inverse }}"
     },
+    {
+	  "type": "checkbox",
+	  "id": "hide_on_mobile",
+	  "label": "Hide on mobile",
+	  "default": true
+	},
     {
       "type": "select",
       "id": "font",

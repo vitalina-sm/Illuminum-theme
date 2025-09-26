@@ -1,10 +1,10 @@
 
 
 {% liquid
-  assign order = 'logo,menu,localization,search,mobile_search,actions'
+  assign order = 'logo,menu_custom,localization,search,mobile_search,actions'
 
   if shop.customer_accounts_enabled
-    assign order = 'mobile_search,logo,menu,localization,search,actions'
+    assign order = 'mobile_search,logo,menu_custom,localization,search,actions'
   endif
 
   assign rows = 'top,bottom' | split: ','
@@ -49,6 +49,10 @@
 
   capture menu
     content_for 'block', type: '_header-menu', id: 'header-menu'
+  endcapture
+
+  capture menu_custom
+    content_for 'block', type: '_il-header-menu', id: 'il-header-menu'
   endcapture
 
   capture mobile_menu
@@ -154,7 +158,16 @@
   if collapse_header_paddings_class
     assign class = class | append: ' ' | append: collapse_header_paddings_class
   endif
+
+  if template.name == "index"
+  	assign class = class | append: ' ' | append: 'header--index-page'
+  endif
 %}
+
+{% if order contains 'menu_custom' %}
+{{ 'il-header-menu.css' | asset_url | stylesheet_tag }}
+<script src="{{ 'il-menu.js' | asset_url }}" type="module" defer></script>
+{% endif %}
 
 <script type="application/ld+json">
   {
@@ -217,9 +230,8 @@
         row: row,
         order: order,
         settings: section.settings,
-        first: first,
         logo: logo,
-        menu: menu,
+        menu: menu_custom,
         actions: actions,
         localization: localization_markup,
         search: search,

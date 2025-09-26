@@ -1,11 +1,16 @@
+@import "vars";
+@import "mixins";
+
 .il-footer-utilities {
   display: flex;
   justify-content: space-between;
   align-items: center;
   width: 100%;
   padding-top: 100px;
+  flex-wrap: wrap;
+  gap: 20px;
 
-  @media screen and (max-width: 768px) {
+  @include media-max(md) {
     flex-direction: column;
     align-items: start;
     text-align: start;
@@ -13,7 +18,7 @@
   }
 
   .footer-utilities__group-copyright {
-    @media screen and (max-width: 768px) {
+    @include media-max(md) {
       margin-bottom: 30px;
       order: 2;
     }
@@ -34,7 +39,7 @@
     align-items: center;
     column-gap: 50px;
 
-    @media screen and (max-width: 768px) {
+    @include media-max(md) {
       flex-direction: column;
       align-items: start;
       text-align: start;
@@ -65,7 +70,7 @@
     line-height: 140%;
     color: #0c0c0c;
 
-    @media screen and (max-width: 768px) {
+    @include media-max(md) {
       order: 3;
     }
   }

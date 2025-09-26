@@ -1,23 +1,23 @@
 
 
-{% capture children %}
+{% comment %}{% capture children %}
   {% unless block.settings.product == blank %}
     {% render 'product-card-badges', product: block.settings.product %}
     {%  if settings.quick_add or settings.mobile_quick_add %}
       {% render 'quick-add', product: block.settings.product, section_id: section.id %}
     {% endif %}
   {% endunless %}
-{% endcapture %}
+{% endcapture %}{% endcomment %}
 
 {% render 'card-gallery', children: children %}
 
 {% # Title and price for the zoomed out grid view %}
-<div class="product-grid-view-zoom-out--details">
+<div class="product-grid__info">
   {% if block.settings.product == blank %}
-    <h3 class="h4 product-grid-view-zoom-out--title">{{ 'content.product_card_placeholder' | t }}</h3>
+    <h3 class="h4 product-grid__title">{{ 'content.product_card_placeholder' | t }}</h3>
   {% else %}
-    <h3 class="h4 product-grid-view-zoom-out--title">{{ block.settings.product.title }}</h3>
-    <div class="h6">
+    <h3 class="h4 product-grid__title">{{ block.settings.product.title }}</h3>
+    <div class="h6 product-grid__price-container">
       <product-price data-product-id="{{ block.settings.product.id }}">
         {% render 'price', product_resource: block.settings.product, show_unit_price: false %}
       </product-price>

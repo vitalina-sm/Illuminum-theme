@@ -402,7 +402,7 @@
             "heading_font_style": "heading_3",
             "description": "Receive personalized email updates, launch annoucement, and exclusive access based on your interests.",
             "description_font_style": "regular_text",
-            "privacy_text": "<p>This site is protected by reCAPTCHA and the <a href=\"/policies/privacy-policy\" title=\"Privacy Policy\">Google Privacy Policy</a> and <a href=\"/policies/privacy-policy\" title=\"Privacy Policy\">Terms of Service</a> apply.</p>",
+            "privacy_text": "<p>This site is protected by hCAPTHA and its <a href=\"https://www.hcaptcha.com/privacy\" target=\"_blank\" title=\"https://www.hcaptcha.com/privacy\">Privacy Policy</a> and <a href=\"https://www.hcaptcha.com/terms\" target=\"_blank\" title=\"https://www.hcaptcha.com/terms\">Terms of Service</a> apply.</p>",
             "privacy_text_font_style": "caption_1",
             "width": "custom",
             "custom_width": 9,

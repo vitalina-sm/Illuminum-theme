@@ -35,7 +35,6 @@ class ILProductCarousel extends HTMLElement {
                 }
             },
         });
-        console.log('this.swiper: ', this.swiper)
         return this.swiper;
     }
 }
