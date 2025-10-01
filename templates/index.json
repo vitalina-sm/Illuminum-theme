@@ -17,7 +17,7 @@
           "settings": {
             "image": "shopify://shop_images/hero-1_d96b2cf0-f135-4f6a-8782-dcb064716c00.jpg",
             "image_mobile": "shopify://shop_images/brand-1.jpg",
-            "product": "white-gardenia-petals"
+            "product": "black-oud-234"
           }
         },
         "slide_Lbxrcn": {
@@ -25,7 +25,7 @@
           "settings": {
             "image": "shopify://shop_images/hero-2.jpg",
             "image_mobile": "shopify://shop_images/hero-2.jpg",
-            "product": "white-gardenia-petals"
+            "product": "black-rose-234"
           }
         },
         "slide_pdc43m": {
@@ -33,7 +33,7 @@
           "settings": {
             "image": "shopify://shop_images/hero-3.jpg",
             "image_mobile": "shopify://shop_images/hero-3.jpg",
-            "product": "white-gardenia-petals"
+            "product": "gingerpear-234"
           }
         },
         "slide_74B6UV": {
@@ -41,7 +41,7 @@
           "settings": {
             "image": "shopify://shop_images/hero-4.jpg",
             "image_mobile": "shopify://shop_images/hero-mobile.jpg",
-            "product": "white-gardenia-petals"
+            "product": "roseoud-234"
           }
         }
       },

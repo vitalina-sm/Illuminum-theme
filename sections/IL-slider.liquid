@@ -36,7 +36,7 @@
 											<div class="product-card__size text">{{ product.options_by_name['Size'].name | downcase }} {{ product.variants[0].options[0] | downcase }}</div>
 											<div class="product-card__price text">{{ product.price | money_without_trailing_zeros }}</div>
 										</div>
-										<a href="/products/white-gardenia-petals" class="product-card__link"></a>
+										<a href="{{ product.url }}" class="product-card__link"></a>
 									</div>
 								</div>
 							</div>

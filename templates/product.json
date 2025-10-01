@@ -71,7 +71,7 @@
               "type": "il-text",
               "name": "IL Text",
               "settings": {
-                "heading": "<p><strong>{{ closest.product.vendor }}</strong> <strong>{{ closest.product.metafields.custom.fragrance.value }}</strong></p>",
+                "heading": "<p><strong>{{ closest.product.metafields.custom.fragrance.value }}</strong></p>",
                 "heading_font_style": "caption_3",
                 "alignment": "left",
                 "enable_margin_desktop": true,
@@ -355,24 +355,21 @@
           "type": "IL-interactive-content",
           "settings": {
             "title": "Top notes",
-            "subtext": "Fennel, Bergamot",
-            "image": "shopify://shop_images/bergamot.png"
+            "subtext": "Fennel, Bergamot"
           }
         },
         "il_interactive_content_yLwy7N": {
           "type": "IL-interactive-content",
           "settings": {
             "title": "Middle",
-            "subtext": "Fennel, Bergamot",
-            "image": "shopify://shop_images/productphoto-1.jpg"
+            "subtext": "Fennel, Bergamot"
           }
         },
         "il_interactive_content_Khrzii": {
           "type": "IL-interactive-content",
           "settings": {
             "title": "Base",
-            "subtext": "Fennel, Bergamot",
-            "image": "shopify://shop_images/hero-mobile.jpg"
+            "subtext": "Fennel, Bergamot"
           }
         }
       },

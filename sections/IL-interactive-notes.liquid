@@ -3,6 +3,9 @@
 
 {% liquid
   assign section_class = 'il-interactive--' | append: section.id
+  assign notes_texts_array = product.metafields.custom.notes_text.value
+  assign notes_images_array = product.metafields.custom.notes_images.value
+  assign block_ids = ''
 %}
 
 <div class="section">
@@ -10,29 +13,52 @@
     <div class="il-interactive__text-container">
       <div class="il-interactive__text-container-inner">
         {% for block in section.blocks %}
+        {% assign block_ids = block_ids | append: block.id %}
           <div class="il-interactive__text-content {% if forloop.first %}active{% endif %}" data-block-id="{{ block.id }}">
             <p class="il-interactive__title">{{ block.settings.title }}</p>
-            <p class="il-interactive__subtext">{{ block.settings.subtext }}</p>
+            <p class="il-interactive__subtext">{{ notes_texts_array[forloop.index0] }}</p>
           </div>
         {% endfor %}
       </div>
     </div>
-    <div class="il-interactive__image-container">
-      {% for block in section.blocks %}
-        <img class="il-interactive__image {% if forloop.first %}active{% endif %}" src="{{ block.settings.image | img_url: 'master' }}" alt="{{ block.settings.image.alt | escape }}" data-block-id="{{ block.id }}">
-      {% endfor %}
-    </div>
+    {% if notes_images_array %}
+    	<div class="il-interactive__image-container">
+      	{% for block in section.blocks %}
+			{% assign index = forloop.index0 %}
+			{% assign image = '' %}
+
+			{% for imageLoop in notes_images_array %}
+				{% if index == forloop.index0 %}
+					{% assign image = imageLoop %}
+				{% endif %}
+			{% endfor %}
+			<img class="il-interactive__image {% if forloop.first %}active{% endif %}"
+				 src="{{ image | img_url: 'master' }}"
+				 alt="{{ image.alt | escape }}"
+				 data-block-id="{{ block.id }}"
+			>
+     	{% endfor %}
+    	</div>
+	{% endif %}
   </il-interactive-notes>
   <il-interactive-notes-slider class="{{ section_class }} il-interactive for-mobile">
     <div class="swiper-container">
       <div class="swiper-wrapper">
         {% for block in section.blocks %}
+        	{% assign index = forloop.index0 %}
+			{% assign image_mob = '' %}
+
+			{% for imageLoop in notes_images_array %}
+				{% if index == forloop.index0 %}
+					{% assign image_mob = imageLoop %}
+				{% endif %}
+			{% endfor %}
           <div class="swiper-slide">
             <div class="il-interactive__swiper-slide-inner">
               <div class="il-interactive__image-container">
                   <img class="il-interactive__image"
-                       src="{{ block.settings.image | img_url: 'master' }}"
-                       alt="{{ block.settings.image.alt | escape }}"
+                       src="{{ image_mob | img_url: 'master' }}"
+                       alt="{{ image_mob.alt | escape }}"
                        data-block-id="{{ block.id }}">
                 </div>
               <div class="swiper-pagination"></div>
