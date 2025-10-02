@@ -233,6 +233,7 @@
               "name": "IL Collab Content 1",
               "settings": {
                 "image": "shopify://shop_images/coll-1.jpg",
+                "enable_square_ratio": true,
                 "text": "Illuminum London proudly straddle the worlds of art and fragrance, pushing the boundaries of how we experience scent and altering our pre-conceived perceptions of smell itself. Having collaborated with many artists, designers and architects over the years, it seems only natural they should now be working with chefs and exploring that vital link between food and fragrance. Illuminum invited innovative chefs Jackson Boxer, Yuki Gomi and Tom Wolfe to create three distinctive fragrances that explored the interfaces of this connection, playing with our notions of what we think our nose knows.",
                 "content_sequence": "image_text",
                 "margin_bottom": 30
@@ -244,6 +245,7 @@
               "name": "IL Collab Content 1",
               "settings": {
                 "image": "shopify://shop_images/coll-2.jpg",
+                "enable_square_ratio": true,
                 "text": "Illuminum say: ‘Outside the world of perfume, it is chefs who use their sense of smell on a daily basis to spark or guide their imagination. For Illuminum, this cross-disciplinary collaboration with three thoughtful practitioners, each with a clear view of the role and potential of scent, is a unique opportunity to transcend the borders of experience, expectation and practice in order to fashion the new.’\n\nFormulated in partnership with expert perfumers, the three new scents demonstrate the brand’s ethos of carrying a passion for perfume into fulfilling realms of shared experience, including the worlds of art and culture. For Illuminum, fragrance is an art form in its own right.",
                 "content_sequence": "text_image",
                 "margin_bottom": 75
@@ -387,8 +389,33 @@
               "type": "il-about-collaboration-item-content-1",
               "name": "IL Collab Content 1",
               "settings": {
-                "image": "shopify://shop_images/pr-3_ccafb0ea-cb5e-4bc2-a11e-6ec614f83a8a.jpg",
-                "text": "Illuminum London proudly straddle the worlds of art and fragrance, pushing the boundaries of how we experience scent and altering our pre-conceived perceptions of smell itself. Having collaborated with many artists, designers and architects over the years, it seems only natural they should now be working with chefs and exploring that vital link between food and fragrance. Illuminum invited innovative chefs Jackson Boxer, Yuki Gomi and Tom Wolfe to create three distinctive fragrances that explored the interfaces of this connection, playing with our notions of what we think our nose knows.",
+                "image": "shopify://shop_images/1_81f0718e-aeda-4206-9224-5f7e4c391240.jpg",
+                "enable_square_ratio": false,
+                "text": "Italian architect Antonino Cardillo has created a multi-sensory space for experiencing and buying  fragrance by coating a room inside an old London building with volcanic ash.",
+                "content_sequence": "image_text",
+                "margin_bottom": 30
+              },
+              "blocks": {}
+            },
+            "il_about_collaboration_item_content_1_JbGx4k": {
+              "type": "il-about-collaboration-item-content-1",
+              "name": "IL Collab Content 1",
+              "settings": {
+                "image": "shopify://shop_images/2_9b1c0a7d-4209-4a02-8270-56ad656a3916.jpg",
+                "enable_square_ratio": false,
+                "text": "Antonino Cardillo was invited  by British fragrance company  Illuminum to redesign its  London store, which occupies  a 28-square-metre room  inside a Georgian building  on Dover Street. Described  by the architect as an  “Appollonian and Dionysian  grotto”, the single room has  been coated with a rough f inished plaster made using  ash from Italy’s Vesuvius  volcano and putty lime.\n\nBehind a portal on  a Georgian street in London,  lives a small grey grotto. Its  rugged walls, imprinted with  gestures of the mason’s trowel  reveal the eroticism which  was conveyed in the act of  construction by the ancients.\n\nThe pozzolanic ash echoes  the volcanic topography  from where it was quarried.  As ‘chambers of light’  the three tall openings  facing the street orchestrate  the light and shadow. Onto  a rough wall: the backdrop  for a sweeping semi-circle of  thirty-seven irregular glass  forms each suspended by  a black thread. Enclosed  are colours. Invisible colours  revealed only by the nose.",
+                "content_sequence": "text_image",
+                "margin_bottom": 30
+              },
+              "blocks": {}
+            },
+            "il_about_collaboration_item_content_1_xjm3Mt": {
+              "type": "il-about-collaboration-item-content-1",
+              "name": "IL Collab Content 1",
+              "settings": {
+                "image": "shopify://shop_images/3.jpg",
+                "enable_square_ratio": true,
+                "text": "“This mineral dust was widely  used in ancient Roman  for building the largest  constructions of the late ancient era,” said Cardillo.  “The most famous one is the  dome of the Pantheon in  Rome.”",
                 "content_sequence": "image_text",
                 "margin_bottom": 0
               },
@@ -396,7 +423,9 @@
             }
           },
           "block_order": [
-            "il_about_collaboration_item_content_1_GVJjFW"
+            "il_about_collaboration_item_content_1_GVJjFW",
+            "il_about_collaboration_item_content_1_JbGx4k",
+            "il_about_collaboration_item_content_1_xjm3Mt"
           ]
         },
         "il_about_collaboration_item_xn9W93": {
@@ -410,16 +439,67 @@
               "type": "il-about-collaboration-item-content-1",
               "name": "IL Collab Content 1",
               "settings": {
-                "image": "shopify://shop_images/coll-person-3.jpg",
-                "text": "Illuminum London proudly straddle the worlds of art and fragrance, pushing the boundaries of how we experience scent and altering our pre-conceived perceptions of smell itself. Having collaborated with many artists, designers and architects over the years, it seems only natural they should now be working with chefs and exploring that vital link between food and fragrance. Illuminum invited innovative chefs Jackson Boxer, Yuki Gomi and Tom Wolfe to create three distinctive fragrances that explored the interfaces of this connection, playing with our notions of what we think our nose knows.",
+                "image": "shopify://shop_images/about-2-1.jpg",
+                "enable_square_ratio": false,
+                "text": "British Vogue: What happens at a scent dinner? Beauty and health director Nicola Moulton sniffs  for her supper.\n\n “It’s a translation from one human  sense, smell, into another, taste,” says  Burr, as we take our seats for dinner.  “And the reason it’s so fascinating is  that 95 per cent of what we think we’re  tasting is actually smell anyway.” The  food for the evening is being prepared  by the talented young head chef Harry  Hensman - but not until we’ve tried to  guess the “notes” in the first course.\n\n I always imagine that, should the desire to take a sip of my favourite perfume (Chanel No. 19)  get the better of me, it would taste exactly like gin and tonic. Crisp, clean, sort of green-ish. And  delicious. Chandler Burr, the one-time New York Times scent critic, has had a similar thought, and  his far-from-idle musings have resulted in a new phenomenon that has become quite the thing in  the perfume world: the scent dinner. Last week, he held one in Venice for Tom Ford. Some months  ago, he held one in Miami for Armani. There was a Clinique one in London last year, and last  night he was back in London for the young and exciting perfume company Illuminum, which has  a “fragrance lounge” on Dover Street. The idea is as simple as it is intriguing: you take a perfume,  select some of its most interesting notes, and ask a talented chef to create edible interpretations of  the smells.",
                 "content_sequence": "image_text",
-                "margin_bottom": 0
+                "margin_bottom": 30
               },
               "blocks": {}
+            },
+            "il_about_collaboration_item_content_2_Rm6CNz": {
+              "type": "il-about-collaboration-item-content-2",
+              "name": "IL Collab Content 2",
+              "settings": {
+                "margin_bottom": 0
+              },
+              "blocks": {
+                "il_collab_item_content_2_person_jzp6gm": {
+                  "type": "il-collab-item-content-2-person",
+                  "name": "IL Content 2 Person",
+                  "settings": {
+                    "image": "shopify://shop_images/about-2-2.jpg",
+                    "text": ""
+                  },
+                  "blocks": {}
+                },
+                "il_collab_item_content_2_text_X6J9AT": {
+                  "type": "il-collab-item-content-2-text",
+                  "name": "IL Content 2 Text",
+                  "settings": {
+                    "text": "London-based chef and Director of Harry’s Kitchen,  established over 20 years ago. The company  is famous for their fresh & tailored approach to  catering: from a deluxe curated cinema food and  wine experiences, to a corporate canapé and  cocktail party at the National gallery for 500  guests."
+                  },
+                  "blocks": {}
+                },
+                "il_collab_item_content_2_person_QWfFTU": {
+                  "type": "il-collab-item-content-2-person",
+                  "name": "IL Content 2 Person",
+                  "settings": {
+                    "image": "shopify://shop_images/about-2-3.jpg",
+                    "text": ""
+                  },
+                  "blocks": {}
+                },
+                "il_collab_item_content_2_text_tP6G6e": {
+                  "type": "il-collab-item-content-2-text",
+                  "name": "IL Content 2 Text",
+                  "settings": {
+                    "text": "Chandler Burr is the former New York Times scent  critic, writing the Times’ Scent Notes column. He  is author of two non-fiction books, The Emperor of  Scent and The Perfect Scent. The latter began as an  article Burr wrote for The New Yorker called “The  Scent of the Nile.”"
+                  },
+                  "blocks": {}
+                }
+              },
+              "block_order": [
+                "il_collab_item_content_2_person_jzp6gm",
+                "il_collab_item_content_2_text_X6J9AT",
+                "il_collab_item_content_2_person_QWfFTU",
+                "il_collab_item_content_2_text_tP6G6e"
+              ]
             }
           },
           "block_order": [
-            "il_about_collaboration_item_content_1_WTigEn"
+            "il_about_collaboration_item_content_1_WTigEn",
+            "il_about_collaboration_item_content_2_Rm6CNz"
           ]
         },
         "il_about_collaboration_item_aGbpUq": {
@@ -433,16 +513,56 @@
               "type": "il-about-collaboration-item-content-1",
               "name": "IL Collab Content 1",
               "settings": {
-                "image": "shopify://shop_images/coll-person-3.jpg",
-                "text": "Illuminum London proudly straddle the worlds of art and fragrance, pushing the boundaries of how we experience scent and altering our pre-conceived perceptions of smell itself. Having collaborated with many artists, designers and architects over the years, it seems only natural they should now be working with chefs and exploring that vital link between food and fragrance. Illuminum invited innovative chefs Jackson Boxer, Yuki Gomi and Tom Wolfe to create three distinctive fragrances that explored the interfaces of this connection, playing with our notions of what we think our nose knows.",
+                "image": "shopify://shop_images/about-3-1.jpg",
+                "enable_square_ratio": true,
+                "text": "Have you ever wondered what the senses might look like? Imagine that a sound, touch, smell or  taste may be visualised. Following our gallery installation theme ‘Colour as a Narrative’, Illuminum  team explored a unique phenomenon called Synaesthesia, whereby two or more of the five senses  that are normally experienced separately are being interconnected.",
                 "content_sequence": "image_text",
-                "margin_bottom": 0
+                "margin_bottom": 30
+              },
+              "blocks": {}
+            },
+            "il_about_collaboration_item_content_1_UHWzGU": {
+              "type": "il-about-collaboration-item-content-1",
+              "name": "IL Collab Content 1",
+              "settings": {
+                "image": "shopify://shop_images/about-3-2.jpg",
+                "enable_square_ratio": false,
+                "text": "A renowned occurrence  in psychology, though only  few of us have the ability to  experience the phenomenon.  A synaesthetic person can  often picture sounds, smells,  f lavours or tactile feelings as  they experience them. The  kind of sense visualisation  process induces visions of vivid  colours, arrays of shapes and  textures. Merging of the senses  enhances affected person’s  inner imagination resulting  in the appearance of artistic  impressions.\n\n We are immensely fascinated  by this extraordinary way of  experiencing the surrounding  world. Intrigued by the idea of  hyper sensation and the ability  to connect senses, we hosted  the event with Philippa Stanton.",
+                "content_sequence": "text_image",
+                "margin_bottom": 30
+              },
+              "blocks": {}
+            },
+            "il_about_collaboration_item_content_1_NfPmwV": {
+              "type": "il-about-collaboration-item-content-1",
+              "name": "IL Collab Content 1",
+              "settings": {
+                "image": "shopify://shop_images/about-3-3.jpg",
+                "enable_square_ratio": false,
+                "text": "5ftinf is Philippa’s largely popular  self-expression project, where she  lets her imagination flow in daily  still life table top shots. She finds  and organises simple objects, like  cups of tea, flowers, twigs and  other pretty treasures in harmonic  patterns reflecting her feelings.",
+                "content_sequence": "image_text",
+                "margin_bottom": 30
+              },
+              "blocks": {}
+            },
+            "il_about_collaboration_item_content_1_UyWjHT": {
+              "type": "il-about-collaboration-item-content-1",
+              "name": "IL Collab Content 1",
+              "settings": {
+                "image": "shopify://shop_images/about-3-4_b52c0646-7e1f-451b-a82a-05b9a970681e.jpg",
+                "enable_square_ratio": false,
+                "text": "Held in the gallery, our workshop  offered an insight into the multi sensorium perception guided  by Philippa who has a first  hand understanding as she is a  synaesthete herself. Her abstract  paintings represent her individual  synaesthetic impressions of  f lowers, food, drinks and  people’s voices. The workshop  invited participants to think deep  about how things feel, sound,  smell and look, inspiring them to  connect with deepest senses and  spark their inner imagination.",
+                "content_sequence": "text_image",
+                "margin_bottom": 30
               },
               "blocks": {}
             }
           },
           "block_order": [
-            "il_about_collaboration_item_content_1_qPb9WF"
+            "il_about_collaboration_item_content_1_qPb9WF",
+            "il_about_collaboration_item_content_1_UHWzGU",
+            "il_about_collaboration_item_content_1_NfPmwV",
+            "il_about_collaboration_item_content_1_UyWjHT"
           ]
         },
         "il_about_collaboration_item_H44EBY": {
@@ -456,8 +576,33 @@
               "type": "il-about-collaboration-item-content-1",
               "name": "IL Collab Content 1",
               "settings": {
-                "image": "shopify://shop_images/coll-person-3.jpg",
-                "text": "Illuminum London proudly straddle the worlds of art and fragrance, pushing the boundaries of how we experience scent and altering our pre-conceived perceptions of smell itself. Having collaborated with many artists, designers and architects over the years, it seems only natural they should now be working with chefs and exploring that vital link between food and fragrance. Illuminum invited innovative chefs Jackson Boxer, Yuki Gomi and Tom Wolfe to create three distinctive fragrances that explored the interfaces of this connection, playing with our notions of what we think our nose knows.",
+                "image": "shopify://shop_images/about-4-1.jpg",
+                "enable_square_ratio": true,
+                "text": "Have you ever wondered what the senses might look like? Imagine that a sound, touch, smell or  taste may be visualised. Following our gallery installation theme ‘Colour as a Narrative’, Illuminum  team explored a unique phenomenon called Synaesthesia, whereby two or more of the five senses  that are normally experienced separately are being interconnected.",
+                "content_sequence": "image_text",
+                "margin_bottom": 30
+              },
+              "blocks": {}
+            },
+            "il_about_collaboration_item_content_1_rjiPzd": {
+              "type": "il-about-collaboration-item-content-1",
+              "name": "IL Collab Content 1",
+              "settings": {
+                "image": "shopify://shop_images/about-4-2.jpg",
+                "enable_square_ratio": true,
+                "text": "As a synaesthetic artist, Philippa Stanton sees or  identifies sounds, tastes and scents in colours,  textures and forms, a perceptive shift that allows her  to create unique portraits of voices, foods, drinks  and other subjects.",
+                "content_sequence": "text_image",
+                "margin_bottom": 30
+              },
+              "blocks": {}
+            },
+            "il_about_collaboration_item_content_1_Nkacf9": {
+              "type": "il-about-collaboration-item-content-1",
+              "name": "IL Collab Content 1",
+              "settings": {
+                "image": "shopify://shop_images/about-4-3.jpg",
+                "enable_square_ratio": true,
+                "text": "Amy Key is the author of Luxe (Salt, 2013) and  Instead of Stars (tall-lighthouse, 2009). Her poems  have appeared in magazines including POETRY,  The Poetry Review and Riposte, and in anthologies  including Best British Poetry 2015 (forthcoming from  Salt), Poetry Please: Love Poems (Faber & Faber,  2015) and The Poetry of Sex (Penguin, 2014).",
                 "content_sequence": "image_text",
                 "margin_bottom": 0
               },
@@ -465,7 +610,9 @@
             }
           },
           "block_order": [
-            "il_about_collaboration_item_content_1_GDxQE4"
+            "il_about_collaboration_item_content_1_GDxQE4",
+            "il_about_collaboration_item_content_1_rjiPzd",
+            "il_about_collaboration_item_content_1_Nkacf9"
           ]
         },
         "il_about_collaboration_item_FV8deG": {
@@ -479,8 +626,33 @@
               "type": "il-about-collaboration-item-content-1",
               "name": "IL Collab Content 1",
               "settings": {
-                "image": "shopify://shop_images/coll-person-3.jpg",
-                "text": "Illuminum London proudly straddle the worlds of art and fragrance, pushing the boundaries of how we experience scent and altering our pre-conceived perceptions of smell itself. Having collaborated with many artists, designers and architects over the years, it seems only natural they should now be working with chefs and exploring that vital link between food and fragrance. Illuminum invited innovative chefs Jackson Boxer, Yuki Gomi and Tom Wolfe to create three distinctive fragrances that explored the interfaces of this connection, playing with our notions of what we think our nose knows.",
+                "image": "shopify://shop_images/about-5-1.jpg",
+                "enable_square_ratio": false,
+                "text": "Masters of fine fragrance, Illuminum have teamed up with celebrated artist, Remi Rough to  transform their Dover St space in Mayfair into an interactive space, to celebrate the launch of their  limited edition, midwinter scent – White Oud – we can’t wait to see (and smell) it!",
+                "content_sequence": "image_text",
+                "margin_bottom": 30
+              },
+              "blocks": {}
+            },
+            "il_about_collaboration_item_content_1_DPwERM": {
+              "type": "il-about-collaboration-item-content-1",
+              "name": "IL Collab Content 1",
+              "settings": {
+                "image": "shopify://shop_images/about-5-2.jpg",
+                "enable_square_ratio": false,
+                "text": "‘My inspiration for the Illuminum interior artwork is the Oud itself,  the ‘heartwood’ of the Aquaria and Gyrinops evergreen trees.  Intense, dark raw material, much like the essence of my painting.  Everything has a heart and my artwork will try and place a  beating heart within the space itself.’",
+                "content_sequence": "text_image",
+                "margin_bottom": 30
+              },
+              "blocks": {}
+            },
+            "il_about_collaboration_item_content_1_Npdhxx": {
+              "type": "il-about-collaboration-item-content-1",
+              "name": "IL Collab Content 1",
+              "settings": {
+                "image": "shopify://shop_images/about-5-3.jpg",
+                "enable_square_ratio": false,
+                "text": "Launching 11th December, the pop-up will be open to the public in December and January, and  we’re told that Rough will be using the whole space as his canvas.",
                 "content_sequence": "image_text",
                 "margin_bottom": 0
               },
@@ -488,7 +660,9 @@
             }
           },
           "block_order": [
-            "il_about_collaboration_item_content_1_JbmnWf"
+            "il_about_collaboration_item_content_1_JbmnWf",
+            "il_about_collaboration_item_content_1_DPwERM",
+            "il_about_collaboration_item_content_1_Npdhxx"
           ]
         },
         "il_about_collaboration_item_EGUYqD": {
@@ -502,39 +676,69 @@
               "type": "il-about-collaboration-item-content-1",
               "name": "IL Collab Content 1",
               "settings": {
-                "image": "shopify://shop_images/coll-person-3.jpg",
-                "text": "Illuminum London proudly straddle the worlds of art and fragrance, pushing the boundaries of how we experience scent and altering our pre-conceived perceptions of smell itself. Having collaborated with many artists, designers and architects over the years, it seems only natural they should now be working with chefs and exploring that vital link between food and fragrance. Illuminum invited innovative chefs Jackson Boxer, Yuki Gomi and Tom Wolfe to create three distinctive fragrances that explored the interfaces of this connection, playing with our notions of what we think our nose knows.",
+                "image": "shopify://shop_images/about-6-1.jpg",
+                "enable_square_ratio": false,
+                "text": "The Scent of Curiosity is a collaboration between two prestigious labels Keiko Nishiyama and  Illuminum London. The week-long exhibition was staged to announce the collaboration of Keiko  Nishiyama’s SS16 Collection and the unique fragrance collection of Illuminum London. The artistry  of Orié Inoué combined fashion and fragrance to present us with an enchanting experience.",
                 "content_sequence": "image_text",
-                "margin_bottom": 0
+                "margin_bottom": 30
               },
               "blocks": {}
-            }
-          },
-          "block_order": [
-            "il_about_collaboration_item_content_1_zbyaqx"
-          ]
-        },
-        "il_about_collaboration_item_ihDQ9x": {
-          "type": "il-about-collaboration-item",
-          "name": "IL Collaboration Item",
-          "settings": {
-            "collection_title": "MARCUS JANSEN"
-          },
-          "blocks": {
-            "il_about_collaboration_item_content_1_wHy3d3": {
+            },
+            "il_about_collaboration_item_content_1_3eehcE": {
               "type": "il-about-collaboration-item-content-1",
               "name": "IL Collab Content 1",
               "settings": {
-                "image": "shopify://shop_images/coll-person-3.jpg",
-                "text": "Illuminum London proudly straddle the worlds of art and fragrance, pushing the boundaries of how we experience scent and altering our pre-conceived perceptions of smell itself. Having collaborated with many artists, designers and architects over the years, it seems only natural they should now be working with chefs and exploring that vital link between food and fragrance. Illuminum invited innovative chefs Jackson Boxer, Yuki Gomi and Tom Wolfe to create three distinctive fragrances that explored the interfaces of this connection, playing with our notions of what we think our nose knows.",
+                "image": "shopify://shop_images/about-6-2.jpg",
+                "enable_square_ratio": false,
+                "text": "Established in 2014 by Keiko Nishiyama, the brand is based in  Tokyo and London. She works, with highly ornate textiles and  draping, which combines elements of Europe and Tokyo.",
+                "content_sequence": "text_image",
+                "margin_bottom": 30
+              },
+              "blocks": {}
+            },
+            "il_about_collaboration_item_content_1_WTtpf4": {
+              "type": "il-about-collaboration-item-content-1",
+              "name": "IL Collab Content 1",
+              "settings": {
+                "image": "shopify://shop_images/about-6-3.jpg",
+                "enable_square_ratio": false,
+                "text": "Keiko is an MA graduate from the London College of Fashion  and presented her collection at London and Paris Fashion  weeks. Production is located in Japan where a local company  processes her digital prints onto the garments, made from  Belgian, French, and Italian fabrics. Finishing touches are added  in her London studio.",
                 "content_sequence": "image_text",
-                "margin_bottom": 0
+                "margin_bottom": 30
+              },
+              "blocks": {}
+            },
+            "il_about_collaboration_item_content_1_Jbgq7C": {
+              "type": "il-about-collaboration-item-content-1",
+              "name": "IL Collab Content 1",
+              "settings": {
+                "image": "shopify://shop_images/about-6-4.jpg",
+                "enable_square_ratio": false,
+                "text": "",
+                "content_sequence": "image_text",
+                "margin_bottom": 30
+              },
+              "blocks": {}
+            },
+            "il_about_collaboration_item_content_1_AeRBWM": {
+              "type": "il-about-collaboration-item-content-1",
+              "name": "IL Collab Content 1",
+              "settings": {
+                "image": "shopify://shop_images/about-6-5.jpg",
+                "enable_square_ratio": false,
+                "text": "",
+                "content_sequence": "image_text",
+                "margin_bottom": 30
               },
               "blocks": {}
             }
           },
           "block_order": [
-            "il_about_collaboration_item_content_1_wHy3d3"
+            "il_about_collaboration_item_content_1_zbyaqx",
+            "il_about_collaboration_item_content_1_3eehcE",
+            "il_about_collaboration_item_content_1_WTtpf4",
+            "il_about_collaboration_item_content_1_Jbgq7C",
+            "il_about_collaboration_item_content_1_AeRBWM"
           ]
         },
         "il_about_collaboration_item_qPazrE": {
@@ -549,6 +753,7 @@
               "name": "IL Collab Content 1",
               "settings": {
                 "image": "shopify://shop_images/coll-person-3.jpg",
+                "enable_square_ratio": true,
                 "text": "Illuminum London proudly straddle the worlds of art and fragrance, pushing the boundaries of how we experience scent and altering our pre-conceived perceptions of smell itself. Having collaborated with many artists, designers and architects over the years, it seems only natural they should now be working with chefs and exploring that vital link between food and fragrance. Illuminum invited innovative chefs Jackson Boxer, Yuki Gomi and Tom Wolfe to create three distinctive fragrances that explored the interfaces of this connection, playing with our notions of what we think our nose knows.",
                 "content_sequence": "image_text",
                 "margin_bottom": 0
@@ -572,6 +777,7 @@
               "name": "IL Collab Content 1",
               "settings": {
                 "image": "shopify://shop_images/coll-person-3.jpg",
+                "enable_square_ratio": true,
                 "text": "Illuminum London proudly straddle the worlds of art and fragrance, pushing the boundaries of how we experience scent and altering our pre-conceived perceptions of smell itself. Having collaborated with many artists, designers and architects over the years, it seems only natural they should now be working with chefs and exploring that vital link between food and fragrance. Illuminum invited innovative chefs Jackson Boxer, Yuki Gomi and Tom Wolfe to create three distinctive fragrances that explored the interfaces of this connection, playing with our notions of what we think our nose knows.",
                 "content_sequence": "image_text",
                 "margin_bottom": 0
@@ -592,7 +798,6 @@
         "il_about_collaboration_item_H44EBY",
         "il_about_collaboration_item_FV8deG",
         "il_about_collaboration_item_EGUYqD",
-        "il_about_collaboration_item_ihDQ9x",
         "il_about_collaboration_item_qPazrE",
         "il_about_collaboration_item_EmmPzq"
       ],

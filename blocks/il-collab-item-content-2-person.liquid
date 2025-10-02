@@ -12,7 +12,9 @@
 			 src="{{ image | img_url: "master" }}"
 			 alt="{{ image.alt }}">
 </div>
-<p class="il-collab-person__text heading-5">{{ text }}</p>
+{% if text != blank %}
+	<p class="il-collab-person__text heading-5">{{ text }}</p>
+{% endif %}
 
 {% schema %}
 {

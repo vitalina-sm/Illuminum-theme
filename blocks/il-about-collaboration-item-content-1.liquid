@@ -12,6 +12,7 @@
 	assign text = block.settings.text | newline_to_br
 	assign content_sequence = block.settings.content_sequence | replace: '_', '-'
 	assign margin_bottom = block.settings.margin_bottom | append: 'px'
+	assign enable_square_ratio = block.settings.enable_square_ratio
 %}
 
 <style>
@@ -23,7 +24,7 @@
 </style>
 
 <div class="item-content-1 grid-container {{ content_sequence }}">
-	<div class="item-content-1__image-container image-container col-9">
+	<div class="item-content-1__image-container image-container col-9 {% if enable_square_ratio %}square-ratio{% endif %}">
 		<img class="item-content-1__image image"
 				 src="{{ image | img_url: "master" }}"
 				 alt="{{ image.alt }}">
@@ -39,6 +40,13 @@
       "type": "image_picker",
       "id": "image",
       "label": "Image"
+    },
+    {
+      "type": "checkbox",
+      "id": "enable_square_ratio",
+      "label": "Enable square ratio",
+      "info": "The image will have squared cropping ratio",
+      "default": true
     },
     {
       "type": "textarea",
@@ -66,7 +74,7 @@
 			"type": "number",
 			"id": "margin_bottom",
 			"label": "Margin bottom (desktop)",
-			"default": 0,
+			"default": 30,
 		  	"info": "Default: 30 - between similar blocks, 75 - for the last one."
 		}
   ],

@@ -474,8 +474,11 @@
       /* Content block TYPE 1 (Image - Text) */
       .item-content-1 {
         .image-container {
-          aspect-ratio: 1 / 1;
           height: auto;
+
+          &.square-ratio {
+            aspect-ratio: 1 / 1;
+          }
         }
 
         &.text-image {
