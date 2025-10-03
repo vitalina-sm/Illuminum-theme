@@ -744,6 +744,7 @@
         "il_about_collaboration_item_qPazrE": {
           "type": "il-about-collaboration-item",
           "name": "IL Collaboration Item",
+          "disabled": true,
           "settings": {
             "collection_title": "VERON ENNIS"
           },
@@ -768,6 +769,7 @@
         "il_about_collaboration_item_EmmPzq": {
           "type": "il-about-collaboration-item",
           "name": "IL Collaboration Item",
+          "disabled": true,
           "settings": {
             "collection_title": "CAROLINE SCHRODER"
           },
