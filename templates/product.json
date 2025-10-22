@@ -297,7 +297,7 @@
               "type": "il-text",
               "name": "IL Text",
               "settings": {
-                "heading": "<p><a href=\"mailto:illuminum@mail.com\" title=\"illuminum@mail.com\">NEED HELP? ILLUMINUM@MAIL.COM</a></p>",
+                "heading": "<p><a href=\"mailto:illuminum@mail.com\" title=\"info@illuminum.london\">NEED HELP? ILLUMINUM@MAIL.COM</a></p>",
                 "heading_font_style": "link_item",
                 "alignment": "left",
                 "enable_margin_desktop": true,

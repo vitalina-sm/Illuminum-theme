@@ -107,7 +107,7 @@
                     mode: 'unscaled'
                   %}
                 {% else %}
-                  <span class="variant-option__button-label__text">{{ product_option.name | escape -}} {{ product_option_value | escape }}</span>
+                  <span class="variant-option__button-label__text">{{ product_option.name | escape | append: ' ' -}}{{ product_option_value | escape }}</span>
                 {% endif %}
                 {% comment %}{% render 'strikethrough-variant', product_option: product_option_value %}{% endcomment %}
               </label>
