@@ -1,6 +1,33 @@
 {{ 'il-slider.css' | asset_url | stylesheet_tag }}
 <script src="{{ 'il-slider-galary.js' | asset_url }}" type="module" defer></script>
 
+{% comment %} Preload media for first slide {% endcomment %}
+{% assign first_block = section.blocks.first %}
+{% if first_block.type == 'slide' %}
+	{% assign first_media_type = first_block.settings.media_type %}
+	
+	{% if first_media_type == 'image' %}
+		{% if first_block.settings.image != blank %}
+			<link rel="preload" href="{{ first_block.settings.image | img_url: 'master' }}" as="image">
+		{% endif %}
+		
+		{% if first_block.settings.image_mobile != blank %}
+			<link rel="preload" href="{{ first_block.settings.image_mobile | img_url: 'master' }}" as="image">
+		{% endif %}
+	{% elsif first_media_type == 'video' %}
+		{% assign first_video = first_block.settings.video %}
+		{% assign first_video_mobile = first_block.settings.video_mobile %}
+		
+		{% if first_video != blank and first_video.sources != blank and first_video.sources[0] != blank %}
+			<link rel="preload" href="{{ first_video.sources[0].url }}" as="video">
+		{% endif %}
+		
+		{% if first_video_mobile != blank and first_video_mobile.sources != blank and first_video_mobile.sources[0] != blank %}
+			<link rel="preload" href="{{ first_video_mobile.sources[0].url }}" as="video">
+		{% endif %}
+	{% endif %}
+{% endif %}
+
 <section class="il-slider">
   <div class="il-slider__flex">
     <div class="il-slider__images">
@@ -9,15 +36,59 @@
 					{% for block in section.blocks %}
 						{% if block.type == 'slide' %}
 							{% liquid
-								 assign back_image = block.settings.image
-								 assign back_image_mobile = block.settings.image_mobile
 								 assign product = block.settings.product
 								 assign product_fragrance = product.metafields.custom.fragrance | upcase
+								 
+								 assign media_type = block.settings.media_type | default: 'image'
+								 
+								 if media_type == 'image'
+									 assign back_image = block.settings.image
+									 assign back_image_mobile = block.settings.image_mobile
+								 elsif media_type == 'video'
+									 assign video = block.settings.video
+									 assign video_mobile = block.settings.video_mobile
+									 assign video_has_mob = false
+									 
+									 if block.settings.video_mobile != blank
+										 assign video_has_mob = true
+									 else
+										 assign video_mobile = video
+									 endif
+								 endif
 							%}
 							<div class="swiper-slide">
 								<div class="il-slider__image">
-									<img src="{{ back_image | img_url: "master" }}" alt="{{ back_image.alt | default: product.title }}"/>
-									<img class="mobile" src="{{ back_image_mobile | img_url: "master" }}" alt="{{ back_image_mobile.alt | default: product.title }}"/>
+									{% if media_type == 'image' %}
+										<img src="{{ back_image | img_url: "master" }}" alt="{{ back_image.alt | default: product.title }}"/>
+										<img class="mobile" src="{{ back_image_mobile | img_url: "master" }}" alt="{{ back_image_mobile.alt | default: product.title }}"/>
+									{% elsif media_type == 'video' %}
+										{% if video_has_mob %}
+											<div class="video-container mobile">
+												{{ video_mobile | video_tag:
+													image_size: 'master',
+													playsinline: true,
+													muted: true,
+													autoplay: true,
+													loop: true,
+													controls: false,
+													preload: 'auto',
+													class: 'lazy'
+												}}
+											</div>
+										{% endif %}
+										<div class="video-container">
+											{{ video | video_tag:
+												image_size: 'master',
+												playsinline: true,
+												muted: true,
+												autoplay: true,
+												loop: true,
+												controls: false,
+												preload: 'auto',
+												class: 'lazy'
+											}}
+										</div>
+									{% endif %}
 								</div>
 								<div class="content">
 									<div class="text-wrapper">
@@ -65,6 +136,27 @@
       "settings": [
         {
           "type": "header",
+          "content": "Media settings"
+        },
+        {
+          "type": "radio",
+          "id": "media_type",
+          "label": "Media type",
+          "options": [
+            {
+              "value": "image",
+              "label": "Image"
+            },
+            {
+              "value": "video",
+              "label": "Video"
+            }
+          ],
+          "default": "image",
+          "info": "Select the type of media to display for this slide"
+        },
+        {
+          "type": "header",
           "content": "Images"
         },
         {
@@ -76,6 +168,24 @@
           "type": "image_picker",
           "id": "image_mobile",
           "label": "Image Mobile"
+        },
+        {
+          "type": "header",
+          "content": "Videos"
+        },
+        {
+          "id": "video",
+          "type": "video",
+          "label": "Video Desktop"
+        },
+        {
+          "id": "video_mobile",
+          "type": "video",
+          "label": "Video Mobile"
+        },
+        {
+          "type": "header",
+          "content": "Product"
         },
         {
           "type": "product",

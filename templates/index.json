@@ -15,33 +15,117 @@
         "slide_bB3eGP": {
           "type": "slide",
           "settings": {
+            "media_type": "video",
             "image": "shopify://shop_images/hero-1_d96b2cf0-f135-4f6a-8782-dcb064716c00.jpg",
             "image_mobile": "shopify://shop_images/brand-1.jpg",
+            "video": "shopify://files/videos/BlackOud video home page.mp4",
+            "video_mobile": "shopify://files/videos/BlackOud Mobile.mp4",
             "product": "black-oud-234"
           }
         },
         "slide_Lbxrcn": {
           "type": "slide",
           "settings": {
+            "media_type": "video",
             "image": "shopify://shop_images/hero-2.jpg",
             "image_mobile": "shopify://shop_images/hero-2.jpg",
+            "video": "shopify://files/videos/BlackRose.mp4",
+            "video_mobile": "shopify://files/videos/BlackRose Mobile.mp4",
             "product": "black-rose-234"
           }
         },
         "slide_pdc43m": {
           "type": "slide",
           "settings": {
+            "media_type": "video",
             "image": "shopify://shop_images/hero-3.jpg",
             "image_mobile": "shopify://shop_images/hero-3.jpg",
+            "video": "shopify://files/videos/GingerPear.mp4",
+            "video_mobile": "shopify://files/videos/GingerPear Mobile.mp4",
             "product": "gingerpear-234"
           }
         },
         "slide_74B6UV": {
           "type": "slide",
           "settings": {
+            "media_type": "video",
             "image": "shopify://shop_images/hero-4.jpg",
             "image_mobile": "shopify://shop_images/hero-mobile.jpg",
+            "video": "shopify://files/videos/PiperLeather.mp4",
+            "video_mobile": "shopify://files/videos/PiperLeather Mobile.mp4",
+            "product": "piperleather-234"
+          }
+        },
+        "slide_DTVejy": {
+          "type": "slide",
+          "settings": {
+            "media_type": "video",
+            "video": "shopify://files/videos/RoseOud.mp4",
+            "video_mobile": "shopify://files/videos/RoseOud Mobile.mp4",
             "product": "roseoud-234"
+          }
+        },
+        "slide_pVVWVn": {
+          "type": "slide",
+          "settings": {
+            "media_type": "video",
+            "video": "shopify://files/videos/TaifRose.mp4",
+            "video_mobile": "shopify://files/videos/TaifRose Mobile.mp4",
+            "product": "taifrose-234"
+          }
+        },
+        "slide_ULMM4C": {
+          "type": "slide",
+          "settings": {
+            "media_type": "video",
+            "video": "shopify://files/videos/TribalBlackTea.mp4",
+            "video_mobile": "shopify://files/videos/TribalBlackTea Mobile.mp4",
+            "product": "tribalblacktea-234"
+          }
+        },
+        "slide_A8RPxP": {
+          "type": "slide",
+          "settings": {
+            "media_type": "video",
+            "video": "shopify://files/videos/WhiteGardeniaPetals.mp4",
+            "video_mobile": "shopify://files/videos/WhiteGardeniaPetals Mobile.mp4",
+            "product": "whitegardeniapetals"
+          }
+        },
+        "slide_UiKTmP": {
+          "type": "slide",
+          "settings": {
+            "media_type": "video",
+            "video": "shopify://files/videos/WhiteMusk.mp4",
+            "video_mobile": "shopify://files/videos/WhiteMusk Mobile.mp4",
+            "product": "whitemusk"
+          }
+        },
+        "slide_WYXnXE": {
+          "type": "slide",
+          "settings": {
+            "media_type": "video",
+            "video": "shopify://files/videos/WhiteonWhite.mp4",
+            "video_mobile": "shopify://files/videos/WhiteOnWhite Mobile.mp4",
+            "product": "white-on-white"
+          }
+        },
+        "slide_e8WMLa": {
+          "type": "slide",
+          "settings": {
+            "media_type": "video",
+            "video": "shopify://files/videos/WhiteOud.mp4",
+            "video_mobile": "shopify://files/videos/WhiteOud Mobile.mp4",
+            "product": "whiteoud"
+          }
+        },
+        "slide_DpyXBd": {
+          "type": "slide",
+          "settings": {
+            "media_type": "video",
+            "video": "shopify://files/videos/WildTobacco.mp4",
+            "video_mobile": "shopify://files/videos/WildTobacco Mobile.mp4",
+            "product": "whitetobacco"
           }
         }
       },
@@ -49,7 +133,15 @@
         "slide_bB3eGP",
         "slide_Lbxrcn",
         "slide_pdc43m",
-        "slide_74B6UV"
+        "slide_74B6UV",
+        "slide_DTVejy",
+        "slide_pVVWVn",
+        "slide_ULMM4C",
+        "slide_A8RPxP",
+        "slide_UiKTmP",
+        "slide_WYXnXE",
+        "slide_e8WMLa",
+        "slide_DpyXBd"
       ],
       "name": "IL-Slider",
       "settings": {}

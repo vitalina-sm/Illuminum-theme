@@ -1,5 +1,5 @@
 import Swiper from 'swiper';
-import { Mousewheel, Pagination, FreeMode } from 'swiper/modules';
+import { Mousewheel, Pagination } from 'swiper/modules';
 import 'swiper/css';
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -28,13 +28,11 @@ document.addEventListener('DOMContentLoaded', () => {
         speed: 400,
         effect: 'slide',
         transitionTimingFunction: 'ease-out(0.4, 0, 0.2, 1)',
-        touchRatio: 1.2,
+        touchRatio: 1,
+        resistance: true,
+        resistanceRatio: 0.85,
         freeMode: {
-            enabled: true,
-            sticky: true,
-            momentum: true,
-            momentumRatio: 0.8,
-            momentumVelocityRatio: 0.9,
+            enabled: false,
         },
         lazy: {
             loadPrevNext: true,
@@ -43,7 +41,11 @@ document.addEventListener('DOMContentLoaded', () => {
         mousewheel: {
             forceToAxis: true,
             eventsTarget: '.il-slider__images .swiper-container',
-            enabled: true
+            enabled: true,
+            sensitivity: 1.2,
+            releaseOnEdges: true,
+            thresholdDelta: 30,
+            thresholdTime: 300,
         },
         pagination: {
             el: '.swiper-pagination',
@@ -51,7 +53,7 @@ document.addEventListener('DOMContentLoaded', () => {
             bulletClass: 'swiper-pagination-bullet',
             bulletActiveClass: 'swiper-pagination-bullet-active',
         },
-        modules: [Mousewheel, Pagination, FreeMode],
+        modules: [Mousewheel, Pagination],
         on: {
             slideChange: function () {
                 isLastSlide = this.activeIndex === this.slides.length - 1;
