@@ -39,6 +39,12 @@
 								 assign product = block.settings.product
 								 assign product_fragrance = product.metafields.custom.fragrance | upcase
 								 
+								 if block.settings.product_image != blank
+									 assign product_image = block.settings.product_image
+								 else
+									 assign product_image = product.featured_image
+								 endif
+								 
 								 assign media_type = block.settings.media_type | default: 'image'
 								 
 								 if media_type == 'image'
@@ -97,7 +103,7 @@
 									</div>
 									<div class="product-card">
 										<div class="product-card__image">
-											<img src="{{ product.featured_image | img_url: "master" }}" alt="{{ product.featured_image.alt | default: product.title }}"/>
+											<img src="{{ product_image | img_url: "master" }}" alt="{{ product_image.alt | default: product.title }}"/>
 										</div>
 										<div class="product-card__info">
 											<div class="product-card__product-info">
@@ -191,6 +197,12 @@
           "type": "product",
           "id": "product",
           "label": "Product"
+        },
+        {
+          "type": "image_picker",
+          "id": "product_image",
+          "label": "Product Image",
+          "info": "If not set, product's featured image will be used"
         }
       ]
     }

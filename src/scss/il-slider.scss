@@ -191,6 +191,9 @@
   }
 
   .product-card {
+    display: flex;
+    flex-direction: column;
+    background-color: #fff;
     width: 306px;
     height: 357px;
     overflow: hidden;
@@ -199,6 +202,7 @@
     @media (max-width: 767.98px) {
       width: 200px;
       height: 250px;
+      flex-direction: row;
     }
 
     @media screen and (max-width: 750px) {
@@ -208,13 +212,14 @@
     }
 
     &__image {
-      width: 100%;
       height: 100%;
       overflow: hidden;
       display: flex;
+      margin: 52px 16px 0;
 
       @media screen and (max-width: 750px) {
         width: 32% !important;
+        margin: 4px 0;
       }
 
       & > img {
@@ -266,10 +271,8 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding: 20px;
-      position: absolute;
-      bottom: 0;
-      left: 0;
+      padding: 15px 20px 20px 20px;
+      width: 100%;
 
       .text {
         font-family: "Inter", sans-serif;

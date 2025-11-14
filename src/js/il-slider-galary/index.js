@@ -8,13 +8,40 @@ document.addEventListener('DOMContentLoaded', () => {
     let slider,
         observer,
         isLastSlide = false,
-        isSliderScrollEnabled = true, // TODO: сделать проверку при загрузке страницы
+        isSliderScrollEnabled = true,
         lastWindowWidth = window.innerWidth;
 
     if (!sliderEl && !sliderSection) {
         console.warn('Slider container or section not found');
         return;
     }
+
+    /**
+     * Reset all videos in the slider to the beginning
+     */
+    const resetAllVideos = () => {
+        const allVideos = sliderEl.querySelectorAll('video');
+        allVideos.forEach(video => {
+            video.pause();
+            video.currentTime = 0;
+        });
+    };
+
+    /**
+     * Play video in the active slide from the beginning
+     */
+    const playActiveSlideVideo = () => {
+        const activeSlide = sliderEl.querySelector('.swiper-slide-active');
+        if (activeSlide) {
+            const videos = activeSlide.querySelectorAll('video');
+            videos.forEach(video => {
+                video.currentTime = 0;
+                video.play().catch(error => {
+                    console.debug('Video autoplay prevented:', error);
+                });
+            });
+        }
+    };
 
     const sliderConfig = {
         direction: 'vertical',
@@ -61,17 +88,23 @@ document.addEventListener('DOMContentLoaded', () => {
                 if (isLastSlide) {
                     toggleSliderScroll(false);
                     isSliderScrollEnabled = false;
-
                 }
-            },
-            touchStart: function (event) {
-               /* event.preventDefault();
-                event.stopPropagation();*/
+
+                // Reset all videos and play video in active slide
+                resetAllVideos();
+                setTimeout(() => {
+                    playActiveSlideVideo();
+                }, 100);
             }
         },
     }
 
     slider = new Swiper(sliderEl, sliderConfig);
+
+    // Initialize video for the first slide
+    setTimeout(() => {
+        playActiveSlideVideo();
+    }, 200);
 
     const toggleSliderScroll = (makeSliderActive) => {
         if (makeSliderActive) {
@@ -94,7 +127,7 @@ document.addEventListener('DOMContentLoaded', () => {
     };
 
     /* Fix ful height fpr Safari on mobile */
-    function setSliderHeight() {
+    const setSliderHeight = () => {
         const height = `${window.innerHeight}px`
         sliderEl.style.height = height;
     }
@@ -120,4 +153,42 @@ document.addEventListener('DOMContentLoaded', () => {
     window.addEventListener('orientationchange', () => {
         setSliderHeight();
     });
+
+    /**
+     * Handle keyboard navigation (Arrow Up/Down)
+     */
+    const handleKeyboardNavigation = (event) => {
+        // Check if slider is visible on screen
+        const sliderRect = sliderEl.getBoundingClientRect();
+        const isSliderVisible = sliderRect.top < window.innerHeight && sliderRect.bottom > 0;
+
+        // Only handle keyboard events if slider is visible and enabled
+        if (!isSliderVisible || !isSliderScrollEnabled) {
+            return;
+        }
+
+        // Check if user is not typing in an input field
+        const activeElement = document.activeElement;
+        const isInputFocused = activeElement && (
+            activeElement.tagName === 'INPUT' ||
+            activeElement.tagName === 'TEXTAREA' ||
+            activeElement.isContentEditable
+        );
+
+        if (isInputFocused) {
+            return;
+        }
+
+        if (event.key === 'ArrowUp' || event.key === 'ArrowDown') {
+            event.preventDefault();
+            
+            if (event.key === 'ArrowUp') {
+                slider.slidePrev();
+            } else if (event.key === 'ArrowDown') {
+                slider.slideNext();
+            }
+        }
+    };
+
+    window.addEventListener('keydown', handleKeyboardNavigation);
 });
