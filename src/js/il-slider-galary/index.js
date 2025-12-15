@@ -2,172 +2,267 @@ import Swiper from 'swiper';
 import { Mousewheel, Pagination } from 'swiper/modules';
 import 'swiper/css';
 
-document.addEventListener('DOMContentLoaded', () => {
-    const sliderSection = document.querySelector('.il-slider'),
-          sliderEl = document.querySelector('.il-slider__images .swiper-container');
-    let slider,
-        observer,
-        isLastSlide = false,
-        isSliderScrollEnabled = true,
-        lastWindowWidth = window.innerWidth;
+class IlSliderGallery extends HTMLElement {
+    constructor() {
+        super();
 
-    if (!sliderEl && !sliderSection) {
-        console.warn('Slider container or section not found');
-        return;
+        this.slider = null;
+        this.sliderEl = null;
+        this.isLastSlide = false;
+        this.isSliderScrollEnabled = true;
+        this.lastWindowWidth = window.innerWidth;
+        this.isMobile = window.innerWidth < 768;
+
+        this.handleScroll = this.handleScroll.bind(this);
+        this.handleResize = this.handleResize.bind(this);
+        this.handleOrientationChange = this.handleOrientationChange.bind(this);
+        this.handleKeyboardNavigation = this.handleKeyboardNavigation.bind(this);
     }
 
-    /**
-     * Reset all videos in the slider to the beginning
-     */
-    const resetAllVideos = () => {
-        const allVideos = sliderEl.querySelectorAll('video');
-        allVideos.forEach(video => {
+    connectedCallback() {
+        this.sliderEl = this.querySelector('.il-slider__images .swiper-container');
+
+        if (!this.sliderEl) {
+            console.warn('Slider container not found');
+            return;
+        }
+
+        this.initSlider();
+        this.setSliderHeight();
+       
+        window.addEventListener('scroll', this.handleScroll, { passive: true });
+        window.addEventListener('resize', this.handleResize);
+        window.addEventListener('orientationchange', this.handleOrientationChange);
+        window.addEventListener('keydown', this.handleKeyboardNavigation);
+    }
+
+    disconnectedCallback() {
+        window.removeEventListener('scroll', this.handleScroll);
+        window.removeEventListener('resize', this.handleResize);
+        window.removeEventListener('orientationchange', this.handleOrientationChange);
+        window.removeEventListener('keydown', this.handleKeyboardNavigation);
+
+        if (this.slider) {
+            this.slider.destroy(true, true);
+            this.slider = null;
+        }
+    }
+
+    loadVideo(video, needToPlay = false) {
+        if (!video) return;
+
+        // Skip if already loaded
+        if (video.dataset.loaded === 'true') return;
+
+        const videoUrl = video.dataset.videoUrl;
+        if (!videoUrl) return;
+
+        // Skip if already set to this URL (prevents double load when preload runs twice)
+        if (video.src === videoUrl) return;
+
+        return new Promise((resolve, reject) => {
+            const onLoaded = () => {
+                video.removeEventListener('loadeddata', onLoaded);
+                video.removeEventListener('error', onError);
+
+                if (needToPlay) {
+                    video.addEventListener('canplaythrough', () => {
+                        this.playActiveSlideVideo();
+                    }, { once: true });
+                    return resolve();
+                }
+                resolve();
+            };
+            const onError = (e) => {
+                video.removeEventListener('loadeddata', onLoaded);
+                video.removeEventListener('error', onError);
+                reject(e);
+            };
+
+            video.addEventListener('loadeddata', onLoaded);
+            video.addEventListener('error', onError, { once: true });
+
+            video.src = videoUrl;
+            video.load();
+            video.dataset.loaded = 'true';
+        });
+    }
+
+    getSlideVideos(slide) {
+        if (!slide) return [];
+        const preferredSelector = this.isMobile ? '.video-container.mobile video' : '.video-container:not(.mobile) video';
+        const preferred = Array.from(slide.querySelectorAll(preferredSelector));
+        if (preferred.length) return preferred;
+        return Array.from(slide.querySelectorAll('video'));
+    }
+
+    initSlider() {
+        if (this.slider) return;
+
+        const sliderConfig = {
+            direction: 'vertical',
+            slidesPerView: 1,
+            slidesPerGroup: 1,
+            slidesPerGroupSkip: 0,
+            spaceBetween: 0,
+            grabCursor: true,
+            allowSlidePrev: true,
+            allowTouchMove: true,
+            speed: 400,
+            effect: 'slide',
+            transitionTimingFunction: 'ease-out(0.4, 0, 0.2, 1)',
+            touchRatio: 1,
+            resistance: true,
+            resistanceRatio: 0.85,
+            freeMode: {
+                enabled: false,
+            },
+            lazy: {
+                loadPrevNext: true,
+                loadOnTransitionStart: true,
+            },
+            mousewheel: {
+                forceToAxis: true,
+                eventsTarget: '.il-slider__images .swiper-container',
+                enabled: true,
+                sensitivity: 1.2,
+                releaseOnEdges: true,
+                thresholdDelta: 30,
+                thresholdTime: 300,
+            },
+            pagination: {
+                el: this.querySelector('.swiper-pagination'),
+                clickable: true,
+                bulletClass: 'swiper-pagination-bullet',
+                bulletActiveClass: 'swiper-pagination-bullet-active',
+            },
+            modules: [Mousewheel, Pagination],
+            on: {
+                slideChange: (swiperInstance) => {
+                    this.isLastSlide = swiperInstance.activeIndex === swiperInstance.slides.length - 1;
+
+                    // Preload video for the new active slide matching current viewport
+                    const activeSlideEl = swiperInstance.slides[swiperInstance.activeIndex];
+                    const [activeVideo] = this.getSlideVideos(activeSlideEl);
+                    if (activeVideo) {
+                        this.loadVideo(activeVideo, false);
+                    }
+
+                    if (this.isLastSlide) {
+                        this.toggleSliderScroll(false);
+                        this.isSliderScrollEnabled = false;
+                    }
+
+                    this.resetAllVideos();
+
+                    setTimeout(() => {
+                        this.playActiveSlideVideo();
+                    }, 100);
+                },
+            },
+        };
+
+        this.slider = new Swiper(this.sliderEl, sliderConfig);
+
+        // Preload and play video from the first slide matching current viewport (mobile/desktop)
+        const firstSlide = this.slider.slides?.[0] || this.sliderEl.querySelector('.swiper-slide');
+        const [firstVideo] = this.getSlideVideos(firstSlide);
+        if (firstVideo) {
+            this.loadVideo(firstVideo, true);
+        }
+    }
+
+    resetAllVideos() {
+        if (!this.sliderEl) return;
+
+        const allVideos = this.sliderEl.querySelectorAll('video');
+        allVideos.forEach((video) => {
             video.pause();
             video.currentTime = 0;
         });
-    };
-
-    /**
-     * Play video in the active slide from the beginning
-     */
-    const playActiveSlideVideo = () => {
-        const activeSlide = sliderEl.querySelector('.swiper-slide-active');
-        if (activeSlide) {
-            const videos = activeSlide.querySelectorAll('video');
-            videos.forEach(video => {
-                video.currentTime = 0;
-                video.play().catch(error => {
-                    console.debug('Video autoplay prevented:', error);
-                });
-            });
-        }
-    };
-
-    const sliderConfig = {
-        direction: 'vertical',
-        slidesPerView: 1,
-        slidesPerGroup: 1,
-        slidesPerGroupSkip: 0,
-        spaceBetween: 0,
-        grabCursor: true,
-        allowSlidePrev: true,
-        allowTouchMove: true,
-        speed: 400,
-        effect: 'slide',
-        transitionTimingFunction: 'ease-out(0.4, 0, 0.2, 1)',
-        touchRatio: 1,
-        resistance: true,
-        resistanceRatio: 0.85,
-        freeMode: {
-            enabled: false,
-        },
-        lazy: {
-            loadPrevNext: true,
-            loadOnTransitionStart: true,
-        },
-        mousewheel: {
-            forceToAxis: true,
-            eventsTarget: '.il-slider__images .swiper-container',
-            enabled: true,
-            sensitivity: 1.2,
-            releaseOnEdges: true,
-            thresholdDelta: 30,
-            thresholdTime: 300,
-        },
-        pagination: {
-            el: '.swiper-pagination',
-            clickable: true,
-            bulletClass: 'swiper-pagination-bullet',
-            bulletActiveClass: 'swiper-pagination-bullet-active',
-        },
-        modules: [Mousewheel, Pagination],
-        on: {
-            slideChange: function () {
-                isLastSlide = this.activeIndex === this.slides.length - 1;
-
-                if (isLastSlide) {
-                    toggleSliderScroll(false);
-                    isSliderScrollEnabled = false;
-                }
-
-                // Reset all videos and play video in active slide
-                resetAllVideos();
-                setTimeout(() => {
-                    playActiveSlideVideo();
-                }, 100);
-            }
-        },
     }
 
-    slider = new Swiper(sliderEl, sliderConfig);
+    playActiveSlideVideo() {
+        if (!this.sliderEl) return;
 
-    // Initialize video for the first slide
-    setTimeout(() => {
-        playActiveSlideVideo();
-    }, 200);
+        const activeSlide = this.slider.slides[this.slider.activeIndex] || this.slider.slides[0];
+        if (!activeSlide) return;
 
-    const toggleSliderScroll = (makeSliderActive) => {
+        const videos = this.getSlideVideos(activeSlide);
+        for (const video of videos) {
+            video.currentTime = 0;
+            try {
+                video.play();
+            } catch (error) {
+                console.debug('Video autoplay prevented:', error);
+            }
+        }
+    }
+
+    toggleSliderScroll(makeSliderActive) {
+        if (!this.slider) return;
+
         if (makeSliderActive) {
-            slider.mousewheel.enable();
-            slider.allowTouchMove = true;
-            slider.slidesPerView = 1;
-            slider.slidesPerGroup = 1;
-            slider.slidesPerGroupSkip = 0;
-            slider.spaceBetween = 0;
-            slider.allowSlidePrev = true;
+            this.slider.mousewheel.enable();
+            this.slider.allowTouchMove = true;
+            this.slider.slidesPerView = 1;
+            this.slider.slidesPerGroup = 1;
+            this.slider.slidesPerGroupSkip = 0;
+            this.slider.spaceBetween = 0;
+            this.slider.allowSlidePrev = true;
 
-            isSliderScrollEnabled = true;
-
-        } else if (isSliderScrollEnabled) {
+            this.isSliderScrollEnabled = true;
+        } else if (this.isSliderScrollEnabled) {
             setTimeout(() => {
-                slider.mousewheel.disable();
-                slider.allowTouchMove = false;
+                this.slider.mousewheel.disable();
+                this.slider.allowTouchMove = false;
             }, 400);
         }
-    };
-
-    /* Fix ful height fpr Safari on mobile */
-    const setSliderHeight = () => {
-        const height = `${window.innerHeight}px`
-        sliderEl.style.height = height;
     }
 
-    setSliderHeight();
+    /* Fix full height for Safari on mobile */
+    setSliderHeight() {
+        if (!this.sliderEl) return;
+        this.sliderEl.style.height = `${window.innerHeight}px`;
+    }
 
-    window.addEventListener('scroll', () => {
-        const sliderTop = sliderEl.getBoundingClientRect().top;
-        if (sliderTop >= 0
-            && !isSliderScrollEnabled
-            && isLastSlide) {
-            toggleSliderScroll(true);
+    handleScroll() {
+        if (!this.sliderEl) return;
+
+        const sliderTop = this.sliderEl.getBoundingClientRect().top;
+        if (sliderTop >= 0 && !this.isSliderScrollEnabled && this.isLastSlide) {
+            this.toggleSliderScroll(true);
         }
-    });
+    }
 
-    window.addEventListener('resize', () => {
+    handleResize() {
         const currentWidth = window.innerWidth;
-        if (currentWidth !== lastWindowWidth) {
-            setSliderHeight();
-            lastWindowWidth = currentWidth; // Обновляем ширину
+
+        if (currentWidth !== this.lastWindowWidth) {
+            this.setSliderHeight();
+            this.lastWindowWidth = currentWidth;
+            this.isMobile = currentWidth < 768;
         }
-    });
-    window.addEventListener('orientationchange', () => {
-        setSliderHeight();
-    });
+        this.playActiveSlideVideo();
+    }
+
+    handleOrientationChange() {
+        this.setSliderHeight();
+    }
 
     /**
      * Handle keyboard navigation (Arrow Up/Down)
      */
-    const handleKeyboardNavigation = (event) => {
-        // Check if slider is visible on screen
-        const sliderRect = sliderEl.getBoundingClientRect();
+    handleKeyboardNavigation(event) {
+        if (!this.sliderEl || !this.slider) return;
+
+        const sliderRect = this.sliderEl.getBoundingClientRect();
         const isSliderVisible = sliderRect.top < window.innerHeight && sliderRect.bottom > 0;
 
-        // Only handle keyboard events if slider is visible and enabled
-        if (!isSliderVisible || !isSliderScrollEnabled) {
+        if (!isSliderVisible || !this.isSliderScrollEnabled) {
             return;
         }
 
-        // Check if user is not typing in an input field
         const activeElement = document.activeElement;
         const isInputFocused = activeElement && (
             activeElement.tagName === 'INPUT' ||
@@ -181,14 +276,16 @@ document.addEventListener('DOMContentLoaded', () => {
 
         if (event.key === 'ArrowUp' || event.key === 'ArrowDown') {
             event.preventDefault();
-            
+
             if (event.key === 'ArrowUp') {
-                slider.slidePrev();
+                this.slider.slidePrev();
             } else if (event.key === 'ArrowDown') {
-                slider.slideNext();
+                this.slider.slideNext();
             }
         }
-    };
+    }
+}
 
-    window.addEventListener('keydown', handleKeyboardNavigation);
-});
+if (!customElements.get('il-slider-gallery')) {
+    customElements.define('il-slider-gallery', IlSliderGallery);
+}
