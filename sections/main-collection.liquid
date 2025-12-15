@@ -34,6 +34,18 @@
 
 {% comment %} We always render this full-width, as the child blocks have width: page/full settings {% endcomment %}
 <div class="section-background color-{{ section.settings.color_scheme }}"></div>
+{% liquid
+    assign collection_title = collection.title
+    if collection.metafields.custom.title != blank
+      assign collection_title = collection.metafields.custom.title
+    endif
+    %}
+
+    {% if collection_title != blank %}
+      <div class="section collection-title-wrapper">
+        <h1 class="collection-title link-item">{{ collection_title }}</h1>
+      </div>
+{% endif %}
 <results-list
   class="section product-grid-container color-{{ section.settings.color_scheme }}"
   style="--padding-block-start: {{ section.settings.padding-block-start }}px; --padding-block-end: {{ section.settings.padding-block-end }}px;"
@@ -97,6 +109,15 @@
 </results-list>
 
 {% stylesheet %}
+  .collection-title-wrapper {
+    padding: 25px 0 20px 0;
+  }
+
+  .collection-title {
+    margin: 0;
+    text-align: center;
+  }
+
   .main-collection-grid {
     grid-column: var(--grid-column--mobile);
     @media screen and (width >= 750px) {

@@ -254,7 +254,7 @@ export class ProductCard extends Component {
    * @param {PointerEvent} event - The pointer event.
    */
   previewImage(event) {
-    const { slideshow } = this.refs;
+    const { slideshow, cardGallery } = this.refs;
 
     if (!slideshow || event.pointerType !== 'mouse') return;
 
@@ -263,19 +263,47 @@ export class ProductCard extends Component {
     if (this.#previousSlideIndex != null && this.#previousSlideIndex > 0) {
       slideshow.select(this.#previousSlideIndex, undefined, { animate: false });
     } else {
-      slideshow.next(undefined, { animate: false });
-      setTimeout(() => this.#preloadNextPreviewImage());
+      // Get hover image index from card-gallery data attribute or product-grid
+      // Index is already validated in Liquid template
+      let hoverImageIndex = 1; // Default to index 1 (2nd image, 0-based index 1)
+      
+      if (cardGallery) {
+        const hoverIndexAttr = cardGallery.getAttribute('data-hover-image-index');
+        if (hoverIndexAttr !== null) {
+          hoverImageIndex = parseInt(hoverIndexAttr, 10);
+        }
+      } else {
+        // Fallback: try to get from parent product-grid
+        const productGrid = this.closest('.product-grid');
+        if (productGrid) {
+          const hoverIndexAttr = productGrid.getAttribute('data-hover-image-index');
+          if (hoverIndexAttr !== null) {
+            hoverImageIndex = parseInt(hoverIndexAttr, 10);
+          }
+        }
+      }
+
+      // Select the image at the specified index (already validated in Liquid)
+      const totalSlides = slideshow.slides?.length || 0;
+      if (hoverImageIndex > 0 && hoverImageIndex < totalSlides) {
+        slideshow.select(hoverImageIndex, undefined, { animate: false });
+        setTimeout(() => this.#preloadNextPreviewImage());
+      } else {
+        slideshow.next(undefined, { animate: false });
+        setTimeout(() => this.#preloadNextPreviewImage());
+      }
     }
   }
 
   /**
-   * Resets the image to the variant image.
+   * Resets the image to the first image (or variant image if variant picker exists).
    */
   resetImage() {
     const { slideshow } = this.refs;
+    if (!slideshow) return;
+
     if (!this.variantPicker) {
-      if (!slideshow) return;
-      slideshow.previous(undefined, { animate: false });
+      slideshow.select(0, undefined, { animate: false });
     } else {
       this.#resetVariant();
     }
@@ -295,13 +323,13 @@ export class ProductCard extends Component {
       slideshow.select({ id: slideId }, undefined, { animate: false });
       return;
     } else if (!this.variantPicker?.selectedOption) {
-      slideshow.previous(undefined, { animate: false });
+      slideshow.select(0, undefined, { animate: false });
       return;
     }
 
     const id = this.variantPicker.selectedOption.dataset.optionMediaId;
     if (!id) {
-      slideshow.previous(undefined, { animate: false });
+      slideshow.select(0, undefined, { animate: false });
       return;
     }
 

@@ -141,11 +141,11 @@ class IlSliderGallery extends HTMLElement {
                 slideChange: (swiperInstance) => {
                     this.isLastSlide = swiperInstance.activeIndex === swiperInstance.slides.length - 1;
 
-                    // Preload video for the new active slide matching current viewport
+                    // Preload current active video first (if not yet loaded)
                     const activeSlideEl = swiperInstance.slides[swiperInstance.activeIndex];
                     const [activeVideo] = this.getSlideVideos(activeSlideEl);
-                    if (activeVideo) {
-                        this.loadVideo(activeVideo, false);
+                    if (activeVideo && activeVideo.dataset.loaded !== 'true') {
+                        this.loadVideo(activeVideo);
                     }
 
                     if (this.isLastSlide) {
@@ -158,6 +158,13 @@ class IlSliderGallery extends HTMLElement {
                     setTimeout(() => {
                         this.playActiveSlideVideo();
                     }, 100);
+                    
+                    // Then preload next slide video
+                    const nextSlideEl = swiperInstance.slides[swiperInstance.activeIndex + 1];
+                    const [nextVideo] = this.getSlideVideos(nextSlideEl);
+                    if (nextVideo && nextVideo.dataset.loaded !== 'true') {
+                        this.loadVideo(nextVideo);
+                    }
                 },
             },
         };
@@ -166,9 +173,13 @@ class IlSliderGallery extends HTMLElement {
 
         // Preload and play video from the first slide matching current viewport (mobile/desktop)
         const firstSlide = this.slider.slides?.[0] || this.sliderEl.querySelector('.swiper-slide');
+        const nextSlide = this.slider.slides?.[1] || this.sliderEl.querySelector('.swiper-slide:nth-child(2)');
         const [firstVideo] = this.getSlideVideos(firstSlide);
         if (firstVideo) {
             this.loadVideo(firstVideo, true);
+        }
+        if (nextSlide) {
+            this.loadVideo(nextSlide);
         }
     }
 

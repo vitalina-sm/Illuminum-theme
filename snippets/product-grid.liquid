@@ -120,6 +120,7 @@
         last-page="{{ paginate.pages }}"
         role="list"
         data-product-card-size="{{ section.settings.product_card_size }}"
+        data-hover-image-index="{{ settings.hover_image_index | default: 1 }}"
       >
         {{ children }}
       </ul>
@@ -170,6 +171,10 @@
     @media screen and (width >= 850px) {
       display: grid;
     }
+  }
+
+  .product-card:hover slideshow-arrows .slideshow-control {
+    display: none !important;
   }
 
   .main-collection-grid {

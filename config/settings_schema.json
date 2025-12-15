@@ -2059,6 +2059,24 @@
         "label": "t:settings.mobile_quick_add",
         "default": false,
         "visible_if": "{{ settings.quick_add == true }}"
+      },
+      {
+        "type": "checkbox",
+        "id": "enable_hover_image_slide",
+        "label": "Enable hover image slide",
+        "info": "Enable image slide on product card hover",
+        "default": true
+      },
+      {
+        "type": "range",
+        "id": "hover_image_index",
+        "label": "Hover image index",
+        "info": "Index of the image to show on hover (0 = first image, 1 = second image, etc.). If index is greater than available images, defaults to index 1 (second image).",
+        "min": 0,
+        "max": 10,
+        "step": 1,
+        "default": 1,
+        "visible_if": "{{ settings.enable_hover_image_slide == true }}"
       }
     ]
   },

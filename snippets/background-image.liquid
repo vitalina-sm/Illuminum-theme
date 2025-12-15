@@ -2,6 +2,7 @@
   Renders a background image
 
   @param {object} background_image - The background image
+  @param {object} background_image_mobile - The mobile background image
   @param {string} background_image_position - The background image position
   @param {string} section_id - The section ID
   @param {string} block_id - The block ID
@@ -14,16 +15,31 @@
   {% liquid
     assign media_width_desktop = '100vw'
     assign media_width_mobile = '100vw'
-    assign sizes = '(min-width: 850px) ' | append: media_width_desktop | append: ', ' | append: media_width_mobile
+    assign sizes = '(min-width: 768px) ' | append: media_width_desktop | append: ', ' | append: media_width_mobile
     assign widths = '300, 450, 600, 850, 900, 1050, 1200, 1350, 1500, 1650, 1800, 1950, 2000, 2500, 3000, 3500, 4000, 5000'
   %}
 
-  {%- if background_image != blank -%}
-    {{
-      background_image
-      | image_url: width: 3840
-      | image_tag: height: height, sizes: sizes, widths: widths, loading: 'eager'
-    }}
+  {%- if background_image != blank or background_image_mobile != blank -%}
+    {%- if background_image_mobile != blank -%}
+      {{
+        background_image_mobile
+        | image_url: width: 3840
+        | image_tag: height: height, sizes: sizes, widths: widths, loading: 'eager', class: 'background-image-mobile'
+      }}
+    {%- endif -%}
+    {%- if background_image != blank -%}
+      {%- liquid
+        assign desktop_class = 'background-image-desktop'
+        if background_image_mobile == blank
+          assign desktop_class = desktop_class | append: ' background-image-fallback'
+        endif
+      -%}
+      {{
+        background_image
+        | image_url: width: 3840
+        | image_tag: height: height, sizes: sizes, widths: widths, loading: 'eager', class: desktop_class
+      }}
+    {%- endif -%}
   {%- else -%}
     <placeholder-image
       data-block-id="{{ section_id }}-{{ block_id }}"
@@ -31,3 +47,43 @@
     ></placeholder-image>
   {%- endif -%}
 </div>
+
+{% stylesheet %}
+  .background-image-container .background-image-mobile {
+    display: block !important;
+    min-width: 100% !important;
+    height: 100% !important;
+    min-height: 64vh !important;
+    object-fit: cover;
+  }
+
+  .background-image-container .background-image-desktop {
+    display: none !important;
+    min-width: 100% !important;
+    height: 100% !important;
+    min-height: 100% !important;
+    max-height: 100vh !important;
+    object-fit: cover;
+  }
+
+  .background-image-container .background-image-fallback {
+    display: block !important;
+  }
+
+  .background-image-container.background-image-fit .background-image-mobile,
+  .background-image-container.background-image-fit .background-image-desktop {
+    object-fit: contain !important;
+    height: auto !important;
+  }
+
+  @media (min-width: 768px) {
+    .background-image-container .background-image-mobile {
+      display: none !important;
+
+    }
+
+    .background-image-container .background-image-desktop {
+      display: block !important;
+    }
+  }
+{% endstylesheet %}

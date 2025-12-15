@@ -62,8 +62,8 @@
           "settings": {
             "button_label": "menu",
             "menu": "main-menu",
-            "image_1": "shopify://shop_images/1.jpg",
-            "image_2": "shopify://shop_images/2.jpg"
+            "image_1": "shopify://shop_images/header-1.jpg",
+            "image_2": "shopify://shop_images/header-2_be227d89-b34c-45c9-8eb2-8c58f2cdb697.jpg"
           },
           "blocks": {}
         }

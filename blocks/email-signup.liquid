@@ -138,11 +138,13 @@
     {{ block.settings.privacy_text }}
   </div>
   {% if logo_image %}
-    <div class="il-logo__image-wrapper">
+    <a href="{{ routes.root_url }}" class="il-logo__image-wrapper">
       {{ logo_image }}
-    </div>
+    </a>
   {% else %}
-    {% render 'jumbo-text', text: shop.name %}
+    <a href="{{ routes.root_url }}" class="il-logo__text-wrapper">
+      {% render 'jumbo-text', text: shop.name %}
+    </a>
   {% endif %}
 </div>
 

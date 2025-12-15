@@ -18,8 +18,8 @@
             "media_type": "video",
             "image": "shopify://shop_images/hero-1_d96b2cf0-f135-4f6a-8782-dcb064716c00.jpg",
             "image_mobile": "shopify://shop_images/brand-1.jpg",
-            "video": "shopify://files/videos/BlackOud video home page.mp4",
-            "video_mobile": "shopify://files/videos/BlackOud Mobile.mp4",
+            "video": "shopify://files/videos/BlackOud video home page_4f04d983-c5db-4c4e-90cf-051f745ff5ac.mp4",
+            "video_mobile": "shopify://files/videos/BlackOud Mobile_4aac4c68-218c-4775-8897-9606cf766ae1.mp4",
             "product": "black-oud-234",
             "product_image": "shopify://shop_images/TheCoreRangeBlackOud01.jpg"
           }
@@ -30,8 +30,8 @@
             "media_type": "video",
             "image": "shopify://shop_images/hero-2.jpg",
             "image_mobile": "shopify://shop_images/hero-2.jpg",
-            "video": "shopify://files/videos/BlackRose.mp4",
-            "video_mobile": "shopify://files/videos/BlackRose Mobile.mp4",
+            "video": "shopify://files/videos/BlackRose_d6ef13aa-5bf3-4df7-a47a-2424e21ca267.mp4",
+            "video_mobile": "shopify://files/videos/BlackRose Mobile_097898c8-2940-4189-b038-4b67947672ba.mp4",
             "product": "black-rose-234",
             "product_image": "shopify://shop_images/TheCoreRangeBlackOud01_1.jpg"
           }
@@ -42,8 +42,8 @@
             "media_type": "video",
             "image": "shopify://shop_images/hero-3.jpg",
             "image_mobile": "shopify://shop_images/hero-3.jpg",
-            "video": "shopify://files/videos/GingerPear.mp4",
-            "video_mobile": "shopify://files/videos/GingerPear Mobile.mp4",
+            "video": "shopify://files/videos/GingerPear_36507986-1f2c-4581-a01f-418d6e440d5b.mp4",
+            "video_mobile": "shopify://files/videos/GingerPear Mobile_b274724b-2153-4f18-aa83-fca62c5ec610.mp4",
             "product": "gingerpear-234",
             "product_image": "shopify://shop_images/TheCoreRangeBlackOud01_2.jpg"
           }
@@ -54,8 +54,8 @@
             "media_type": "video",
             "image": "shopify://shop_images/hero-4.jpg",
             "image_mobile": "shopify://shop_images/hero-mobile.jpg",
-            "video": "shopify://files/videos/PiperLeather.mp4",
-            "video_mobile": "shopify://files/videos/PiperLeather Mobile.mp4",
+            "video": "shopify://files/videos/PiperLeather_0d170d4d-bbd4-4d24-ab0e-31ff186a233d.mp4",
+            "video_mobile": "shopify://files/videos/PiperLeather Mobile_8a442613-1347-4f4c-923f-ca0484f494c1.mp4",
             "product": "piperleather-234",
             "product_image": "shopify://shop_images/TheCoreRangeBlackOud01_3.jpg"
           }
@@ -64,8 +64,8 @@
           "type": "slide",
           "settings": {
             "media_type": "video",
-            "video": "shopify://files/videos/RoseOud.mp4",
-            "video_mobile": "shopify://files/videos/RoseOud Mobile.mp4",
+            "video": "shopify://files/videos/RoseOud_30943a29-b822-46de-90fa-123532eb09d2.mp4",
+            "video_mobile": "shopify://files/videos/RoseOud mobile_da93d231-5e36-43b7-ad39-1e991be295ec.mp4",
             "product": "roseoud-234",
             "product_image": "shopify://shop_images/TheCoreRangeBlackOud01_4.jpg"
           }
@@ -74,8 +74,8 @@
           "type": "slide",
           "settings": {
             "media_type": "video",
-            "video": "shopify://files/videos/TaifRose.mp4",
-            "video_mobile": "shopify://files/videos/TaifRose Mobile.mp4",
+            "video": "shopify://files/videos/TaifRose_ce8de74b-eee4-4ab0-8d7f-ccaac3c83470.mp4",
+            "video_mobile": "shopify://files/videos/TaifRose Mobile_e431cbfc-844b-404a-8763-d6f8534c1bf9.mp4",
             "product": "taifrose-234",
             "product_image": "shopify://shop_images/TheCoreRangeBlackOud01_5.jpg"
           }
@@ -84,8 +84,8 @@
           "type": "slide",
           "settings": {
             "media_type": "video",
-            "video": "shopify://files/videos/TribalBlackTea.mp4",
-            "video_mobile": "shopify://files/videos/TribalBlackTea Mobile.mp4",
+            "video": "shopify://files/videos/TribalBlackTea Video Home Page.mp4",
+            "video_mobile": "shopify://files/videos/TribalBlackTea Mobile_a7b29e4c-3b2d-4277-8759-28f810ba0c57.mp4",
             "product": "tribalblacktea-234",
             "product_image": "shopify://shop_images/TheCoreRangeBlackOud01_6.jpg"
           }
@@ -94,8 +94,8 @@
           "type": "slide",
           "settings": {
             "media_type": "video",
-            "video": "shopify://files/videos/WhiteGardeniaPetals.mp4",
-            "video_mobile": "shopify://files/videos/WhiteGardeniaPetals Mobile.mp4",
+            "video": "shopify://files/videos/WhiteGardeniaPetals_a7440a59-273d-4785-97ca-900780d8c169.mp4",
+            "video_mobile": "shopify://files/videos/WhiteGardeniaPetals Mobile_3f8c702b-5df2-46b9-8e44-552005d99b27.mp4",
             "product": "whitegardeniapetals",
             "product_image": "shopify://shop_images/TheCoreRangeBlackOud01_7.jpg"
           }
@@ -104,8 +104,8 @@
           "type": "slide",
           "settings": {
             "media_type": "video",
-            "video": "shopify://files/videos/WhiteMusk.mp4",
-            "video_mobile": "shopify://files/videos/WhiteMusk Mobile.mp4",
+            "video": "shopify://files/videos/WhiteMusk_ed3eebe4-5462-46d4-83a8-3a68a998cf41.mp4",
+            "video_mobile": "shopify://files/videos/WhiteMusk Mobile_4bca4b6a-c60b-4938-a4b6-72afd06cae69.mp4",
             "product": "whitemusk",
             "product_image": "shopify://shop_images/TheCoreRangeBlackOud01_8.jpg"
           }
@@ -114,8 +114,8 @@
           "type": "slide",
           "settings": {
             "media_type": "video",
-            "video": "shopify://files/videos/WhiteonWhite.mp4",
-            "video_mobile": "shopify://files/videos/WhiteOnWhite Mobile.mp4",
+            "video": "shopify://files/videos/WhiteonWhite_774b8951-ab83-43ff-9093-e61b9914e9c6.mp4",
+            "video_mobile": "shopify://files/videos/WhiteOnWhite Mobile_d9f8cc05-d418-421f-98e5-049af36344bd.mp4",
             "product": "white-on-white",
             "product_image": "shopify://shop_images/TheCoreRangeBlackOud01_9.jpg"
           }
@@ -124,8 +124,8 @@
           "type": "slide",
           "settings": {
             "media_type": "video",
-            "video": "shopify://files/videos/WhiteOud.mp4",
-            "video_mobile": "shopify://files/videos/WhiteOud Mobile.mp4",
+            "video": "shopify://files/videos/WhiteOud_2b9262b1-66d8-451c-9a69-377b7a469842.mp4",
+            "video_mobile": "shopify://files/videos/WhiteOud Mobile_86143d49-5e1f-436c-8729-d16730250e65.mp4",
             "product": "whiteoud",
             "product_image": "shopify://shop_images/TheCoreRangeBlackOud01_10.jpg"
           }
@@ -134,9 +134,10 @@
           "type": "slide",
           "settings": {
             "media_type": "video",
-            "video": "shopify://files/videos/WildTobacco.mp4",
-            "video_mobile": "shopify://files/videos/WildTobacco Mobile.mp4",
-            "product": "whitetobacco"
+            "video": "shopify://files/videos/WildTobacco_24260dc6-b249-4c16-a029-5dfb2fb11d48.mp4",
+            "video_mobile": "shopify://files/videos/WildTobacco Mobile_e6069805-0164-496b-b797-9e6f7dab5a77.mp4",
+            "product": "wildtobacco",
+            "product_image": "shopify://shop_images/TheCoreRangeBlackOud01_11.jpg"
           }
         }
       },

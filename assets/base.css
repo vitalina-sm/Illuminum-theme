@@ -623,9 +623,12 @@ p:empty {
 
 .background-image-container {
   overflow: hidden;
-  position: absolute;
   inset: 0;
   opacity: var(--image-opacity);
+}
+
+.background-image-container.background-image-fit {
+  position: static !important;
 }
 
 .background-image-container img,
