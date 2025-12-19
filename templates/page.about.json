@@ -41,7 +41,7 @@
       ],
       "name": "IL About hero",
       "settings": {
-        "image": "shopify://shop_images/hero_86146f29-e83e-4a10-bce1-ee02c37398cc.jpg",
+        "image": "shopify://shop_images/page04_1.png",
         "title": "ILLUMINUM BRINGS ART TO THE WORLD OF PERFUME",
         "subtext": "We create fragrances that inspire minds and stimulate emotions",
         "enable_margin_desktop": true,
@@ -72,7 +72,7 @@
       "type": "IL-image",
       "name": "IL Image",
       "settings": {
-        "image": "shopify://shop_images/wallpaper_picture.jpg",
+        "image": "shopify://shop_images/wallpaper_picture.png",
         "enable_margin_desktop": false,
         "margin_top_desktop": 0,
         "margin_bottom_desktop": 0,
@@ -98,7 +98,7 @@
         "image_banner_DLtQY8": {
           "type": "image_banner",
           "settings": {
-            "image": "shopify://shop_images/pic.jpg"
+            "image": "shopify://shop_images/Rectangle_149_92019664-2628-45b0-9f65-059ede9d0c6a.png"
           }
         },
         "content_banner_A4ezij": {
@@ -118,7 +118,7 @@
             "content_sequence": "text_image",
             "banner_title": "Your Story, Your Scent",
             "banner_text": "Our goal is to make you the author of your own meaningful encounter with fragrance. It means less mystery, more revelation.After all, as our name suggests, we’re about letting in the light",
-            "banner_image": "shopify://shop_images/pr-3_ccafb0ea-cb5e-4bc2-a11e-6ec614f83a8a.jpg",
+            "banner_image": "shopify://shop_images/Rectangle_151.png",
             "raise_image_up": true,
             "raise_image_up_percent": 40
           }
@@ -244,7 +244,7 @@
               "type": "il-about-collaboration-item-content-1",
               "name": "IL Collab Content 1",
               "settings": {
-                "image": "shopify://shop_images/coll-2.jpg",
+                "image": "shopify://shop_images/Rectangle_143.png",
                 "enable_square_ratio": true,
                 "text": "Illuminum say: ‘Outside the world of perfume, it is chefs who use their sense of smell on a daily basis to spark or guide their imagination. For Illuminum, this cross-disciplinary collaboration with three thoughtful practitioners, each with a clear view of the role and potential of scent, is a unique opportunity to transcend the borders of experience, expectation and practice in order to fashion the new.’\n\nFormulated in partnership with expert perfumers, the three new scents demonstrate the brand’s ethos of carrying a passion for perfume into fulfilling realms of shared experience, including the worlds of art and culture. For Illuminum, fragrance is an art form in its own right.",
                 "content_sequence": "text_image",
@@ -389,7 +389,7 @@
               "type": "il-about-collaboration-item-content-1",
               "name": "IL Collab Content 1",
               "settings": {
-                "image": "shopify://shop_images/1_81f0718e-aeda-4206-9224-5f7e4c391240.jpg",
+                "image": "shopify://shop_images/Rectangle_144.png",
                 "enable_square_ratio": false,
                 "text": "Italian architect Antonino Cardillo has created a multi-sensory space for experiencing and buying  fragrance by coating a room inside an old London building with volcanic ash.",
                 "content_sequence": "image_text",
@@ -513,7 +513,7 @@
               "type": "il-about-collaboration-item-content-1",
               "name": "IL Collab Content 1",
               "settings": {
-                "image": "shopify://shop_images/about-3-1.jpg",
+                "image": "shopify://shop_images/Rectangle_dsfdf.png",
                 "enable_square_ratio": true,
                 "text": "Have you ever wondered what the senses might look like? Imagine that a sound, touch, smell or  taste may be visualised. Following our gallery installation theme ‘Colour as a Narrative’, Illuminum  team explored a unique phenomenon called Synaesthesia, whereby two or more of the five senses  that are normally experienced separately are being interconnected.",
                 "content_sequence": "image_text",
@@ -638,7 +638,7 @@
               "type": "il-about-collaboration-item-content-1",
               "name": "IL Collab Content 1",
               "settings": {
-                "image": "shopify://shop_images/about-5-2.jpg",
+                "image": "shopify://shop_images/Rectangle_dsdsd.png",
                 "enable_square_ratio": false,
                 "text": "‘My inspiration for the Illuminum interior artwork is the Oud itself,  the ‘heartwood’ of the Aquaria and Gyrinops evergreen trees.  Intense, dark raw material, much like the essence of my painting.  Everything has a heart and my artwork will try and place a  beating heart within the space itself.’",
                 "content_sequence": "text_image",
