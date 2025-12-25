@@ -8,6 +8,7 @@
   column-gap: 28px;
   max-width: 1440px;
   margin: 0 auto;
+  width: 100%;
 
   @include media-max(lg) {
     display: flex;
@@ -287,7 +288,7 @@
         text-align: start;
 
         @include media-max(lg) {
-          margin: 0 20px 15px 20px;
+          margin: 0 0 10px 0;
         }
       }
 
@@ -295,7 +296,7 @@
         order: 2;
 
         @include media-max(lg) {
-          margin: 10px 20px 0;
+          margin: 15px 20px 0;
         }
       }
 
@@ -321,6 +322,23 @@
       @include media-max(lg) {
         max-width: 280px;
         min-width: unset;
+      }
+    }
+
+    &-content {
+      min-height: 385px;
+    }
+
+    &-image-container-outer {
+      position: relative;
+
+      .image-container {
+        overflow: visible;
+        object-fit: contain;
+        position: absolute;
+        height: max-content;
+        top: 0;
+        left: 0;
       }
     }
   }
@@ -443,6 +461,7 @@
   &__subtitle {
     margin: 0;
     text-align: start;
+    color: $text-color-black-2;
   }
 
   &__content {
@@ -821,5 +840,9 @@
       width: 100%;
       z-index: 8;
     }
+  }
+
+  .il-email-signup__description {
+    color: $text-color-black-2 !important;
   }
 }

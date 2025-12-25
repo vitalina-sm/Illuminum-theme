@@ -21,7 +21,7 @@
 				%}
 				<div class="il-principles__banner-content col-6">
 					{% if banner_title != blank %}
-						<h3 class="il-principles__banner-title heading-6{% if content_sequence == 'image-text' %} desktop-only--lg{% endif %}">
+						<h3 class="il-principles__banner-title heading-6">
 							{{ banner_title }}
 						</h3>
 					{% endif %}
@@ -48,16 +48,17 @@
 				</style>
 				{% endif %}
 
-				{% if banner_title != blank and content_sequence == 'image-text' %}
-						<h3 class="il-principles__banner-title heading-6 col-12 mobile-only--lg">
-							{{ banner_title }}
-						</h3>
+				{% if raise_image_up_percent > 0 %}
+				<div class="il-principles__banner-image-container-outer col-6">
 				{% endif %}
-				<div class="il-principles__banner-image-container image-container {{ block.id }} col-6">
-					<img class="image"
-							 src="{{ banner_image | img_url: 'master' }}"
-							 alt="{{ banner_image.alt | escape }}">
+					<div class="il-principles__banner-image-container image-container {{ block.id }} {% if raise_image_up_percent == 0 %} col-6{% endif %}">
+						<img class="image"
+								 src="{{ banner_image | img_url: 'master' }}"
+								 alt="{{ banner_image.alt | escape }}">
 					</div>
+				{% if raise_image_up_percent > 0 %}
+				</div>
+				{% endif %}
 				{% endif %}
 			{% endcapture %}
 

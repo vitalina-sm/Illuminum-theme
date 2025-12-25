@@ -106,7 +106,7 @@
         "content_banner_A4ezij": {
           "type": "content_banner",
           "settings": {
-            "content_sequence": "text_image",
+            "content_sequence": "image_text",
             "banner_title": "Fragrance as a Creative Force",
             "banner_text": "Science already recognises the unique ability of scent to release in us the power and potential of emotion and imagination. There’s much more to discover. That’s why Illuminum collaborates with leading artists in exploring the role and value of fragrance as a creative medium. For us, fragrance is an art form in its own right",
             "banner_image": "shopify://shop_images/pr-2_6f5a6ece-d44d-4e20-93ca-f755e8b52261.jpg",
@@ -122,7 +122,7 @@
             "banner_text": "Our goal is to make you the author of your own meaningful encounter with fragrance. It means less mystery, more revelation.After all, as our name suggests, we’re about letting in the light",
             "banner_image": "shopify://shop_images/Rectangle_151.png",
             "raise_image_up": true,
-            "raise_image_up_percent": 40
+            "raise_image_up_percent": 54
           }
         }
       },
@@ -137,7 +137,7 @@
         "title": "Illuminum: Where Perfume Becomes Expression",
         "enable_margin_desktop": true,
         "margin_top_desktop": 100,
-        "margin_bottom_desktop": 0,
+        "margin_bottom_desktop": 150,
         "enable_margin_mobile": true,
         "margin_top_mobile": 150,
         "margin_bottom_mobile": 50
@@ -811,7 +811,7 @@
         "title": "The Art of Collaboration",
         "subtitle": "Exploring the creative intersections of scent, design, and culture",
         "enable_margin_desktop": true,
-        "margin_top_desktop": 100,
+        "margin_top_desktop": 50,
         "margin_bottom_desktop": 0,
         "enable_margin_mobile": true,
         "margin_top_mobile": 50,
@@ -871,8 +871,8 @@
         "margin_top_desktop": 200,
         "margin_bottom_desktop": 200,
         "enable_margin_mobile": true,
-        "margin_top_mobile": 49,
-        "margin_bottom_mobile": 75
+        "margin_top_mobile": 50,
+        "margin_bottom_mobile": 50
       }
     },
     "il_product_carousel_hjPdWb": {
@@ -901,9 +901,9 @@
         "enable_margin_desktop": true,
         "margin_top_desktop": 0,
         "margin_bottom_desktop": 200,
-        "enable_margin_mobile": false,
+        "enable_margin_mobile": true,
         "margin_top_mobile": 0,
-        "margin_bottom_mobile": 0
+        "margin_bottom_mobile": 50
       }
     }
   },

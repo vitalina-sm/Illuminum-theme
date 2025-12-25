@@ -30,7 +30,7 @@
     max-width: 731px;
 
     & > * {
-      @include regular-text ($color: $text-color-gray);
+      @include regular-text ($color: $text-color-black-2);
     }
   }
 }
