@@ -903,7 +903,7 @@
         "margin_bottom_desktop": 200,
         "enable_margin_mobile": true,
         "margin_top_mobile": 0,
-        "margin_bottom_mobile": 50
+        "margin_bottom_mobile": 100
       }
     }
   },
