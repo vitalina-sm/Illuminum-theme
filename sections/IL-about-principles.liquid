@@ -19,14 +19,14 @@
 					assign banner_title = block.settings.banner_title
 					assign banner_text = block.settings.banner_text
 				%}
-				<div class="il-principles__banner-content col-6 grid-container">
+				<div class="il-principles__banner-content col-6">
 					{% if banner_title != blank %}
-						<h3 class="il-principles__banner-title heading-6 col-12{% if content_sequence == 'image-text' %} desktop-only--lg{% endif %}">
+						<h3 class="il-principles__banner-title heading-6{% if content_sequence == 'image-text' %} desktop-only--lg{% endif %}">
 							{{ banner_title }}
 						</h3>
 					{% endif %}
 					{% if banner_text != blank %}
-						<p class="il-principles__banner-text regular-text col-4">{{ banner_text }}</p>
+						<p class="il-principles__banner-text regular-text">{{ banner_text }}</p>
 					{% endif %}
 				</div>
 			{% endcapture %}

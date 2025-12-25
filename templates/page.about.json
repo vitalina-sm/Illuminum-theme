@@ -21,6 +21,7 @@
         },
         "scrolling_to_section_L47tHq": {
           "type": "scrolling-to-section",
+          "disabled": true,
           "settings": {
             "title": "Team",
             "element_id": "ILTeam"
@@ -62,7 +63,7 @@
         "title_right": "Founded in 2011, Illuminum is a British fine fragrance collection that views scent as an open-ended adventure in&nbsp;self-expression",
         "enable_margin_desktop": true,
         "margin_top_desktop": 0,
-        "margin_bottom_desktop": 300,
+        "margin_bottom_desktop": 200,
         "enable_margin_mobile": true,
         "margin_top_mobile": 135,
         "margin_bottom_mobile": 0
@@ -77,7 +78,7 @@
         "margin_top_desktop": 0,
         "margin_bottom_desktop": 0,
         "enable_margin_mobile": true,
-        "margin_top_mobile": 185,
+        "margin_top_mobile": 210,
         "margin_bottom_mobile": 0
       }
     },
@@ -97,6 +98,7 @@
         },
         "image_banner_DLtQY8": {
           "type": "image_banner",
+          "disabled": true,
           "settings": {
             "image": "shopify://shop_images/Rectangle_149_92019664-2628-45b0-9f65-059ede9d0c6a.png"
           }
@@ -104,7 +106,7 @@
         "content_banner_A4ezij": {
           "type": "content_banner",
           "settings": {
-            "content_sequence": "image_text",
+            "content_sequence": "text_image",
             "banner_title": "Fragrance as a Creative Force",
             "banner_text": "Science already recognises the unique ability of scent to release in us the power and potential of emotion and imagination. There’s much more to discover. That’s why Illuminum collaborates with leading artists in exploring the role and value of fragrance as a creative medium. For us, fragrance is an art form in its own right",
             "banner_image": "shopify://shop_images/pr-2_6f5a6ece-d44d-4e20-93ca-f755e8b52261.jpg",
@@ -134,11 +136,11 @@
       "settings": {
         "title": "Illuminum: Where Perfume Becomes Expression",
         "enable_margin_desktop": true,
-        "margin_top_desktop": 300,
+        "margin_top_desktop": 100,
         "margin_bottom_desktop": 0,
         "enable_margin_mobile": true,
-        "margin_top_mobile": 125,
-        "margin_bottom_mobile": 0
+        "margin_top_mobile": 150,
+        "margin_bottom_mobile": 50
       }
     },
     "il_about_team_8Bgtjb": {
@@ -207,6 +209,7 @@
         "team_member_nc3MXX",
         "team_member_e9K89T"
       ],
+      "disabled": true,
       "name": "IL About Team",
       "settings": {
         "title": "The Team Behind Illuminum",
@@ -459,7 +462,7 @@
                   "name": "IL Content 2 Person",
                   "settings": {
                     "image": "shopify://shop_images/about-2-2.jpg",
-                    "text": ""
+                    "text": "HARRY HENSMAN"
                   },
                   "blocks": {}
                 },
@@ -476,7 +479,7 @@
                   "name": "IL Content 2 Person",
                   "settings": {
                     "image": "shopify://shop_images/about-2-3.jpg",
-                    "text": ""
+                    "text": "CHANDLER BURR"
                   },
                   "blocks": {}
                 },
@@ -808,10 +811,10 @@
         "title": "The Art of Collaboration",
         "subtitle": "Exploring the creative intersections of scent, design, and culture",
         "enable_margin_desktop": true,
-        "margin_top_desktop": 300,
+        "margin_top_desktop": 100,
         "margin_bottom_desktop": 0,
         "enable_margin_mobile": true,
-        "margin_top_mobile": 150,
+        "margin_top_mobile": 50,
         "margin_bottom_mobile": 0
       }
     },
@@ -865,8 +868,8 @@
       "name": "IL Subscriptions",
       "settings": {
         "enable_margin_desktop": true,
-        "margin_top_desktop": 300,
-        "margin_bottom_desktop": 300,
+        "margin_top_desktop": 200,
+        "margin_bottom_desktop": 200,
         "enable_margin_mobile": true,
         "margin_top_mobile": 49,
         "margin_bottom_mobile": 75
@@ -878,7 +881,7 @@
       "settings": {
         "title": "Dive into the World\nof Illuminum",
         "subtitle": "Unveil the artful fusion of nature and creativity in every scent.",
-        "image": "shopify://shop_images/coll-1.jpg",
+        "image": "shopify://shop_images/Rectangle_133.png",
         "collection_title": "Core\nRange",
         "button_link": "shopify://collections/the-core-range",
         "button_text": "VIEW THE CATALOG",
@@ -897,7 +900,7 @@
         ],
         "enable_margin_desktop": true,
         "margin_top_desktop": 0,
-        "margin_bottom_desktop": 300,
+        "margin_bottom_desktop": 200,
         "enable_margin_mobile": false,
         "margin_top_mobile": 0,
         "margin_bottom_mobile": 0

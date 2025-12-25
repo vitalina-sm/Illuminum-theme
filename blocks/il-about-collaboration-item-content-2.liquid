@@ -9,6 +9,10 @@
 
 {% liquid
 	assign margin_bottom = block.settings.margin_bottom | append: 'px'
+	assign three_blocks = false
+	if block.blocks.size == 3
+		assign three_blocks = true
+	endif
 %}
 
 <style>
@@ -19,7 +23,7 @@
     }
 </style>
 
-<div class="item-content-2 grid-container {{ content_sequence }}">
+<div class="item-content-2 grid-container{% if three_blocks %} three-blocks{% endif %} {{ content_sequence }}">
 	{% content_for 'blocks' %}
 </div>
 

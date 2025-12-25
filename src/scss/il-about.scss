@@ -217,7 +217,7 @@
 
   &__text {
     margin: 0;
-    color: $text-color-gray;
+    color: $text-color-black-2;
   }
 }
 
@@ -235,18 +235,21 @@
     margin-bottom: 50px;
 
     @include media-max(lg) {
-      margin-bottom: 60px;
+      margin-bottom: 30px;
     }
   }
 
   &__title {
-    margin: 0 20px 75px 20px;
+    padding: 0 20px 75px 20px;
     text-align: center;
+    max-width: 1009px;
+    width: 100%;
+    margin: 0 auto;
 
     @include media-max(lg) {
       @include heading-3;
       text-align: start;
-      margin-bottom: 40px;
+      padding-bottom: 40px;
     }
   }
 
@@ -311,9 +314,13 @@
     &-text {
       text-align: start;
       margin: 0;
+      max-width: 340px;
+      min-width: 340px;
+      color: $text-color-black-2;
 
       @include media-max(lg) {
         max-width: 280px;
+        min-width: unset;
       }
     }
   }
@@ -410,6 +417,7 @@
 
 .il-collaboration {
   padding: 0 30px;
+  color: $text-color-black-2;
 
   @include media-max(lg) {
     padding: 0 20px;
@@ -481,6 +489,10 @@
           }
         }
 
+        &__text {
+          color: $text-color-black-2;
+        }
+
         &.text-image {
           .item-content-1__image-container {
             order: 2;
@@ -509,6 +521,7 @@
 
         &__text {
           margin: 0;
+          color: $text-color-black-2;
         }
       }
     }
@@ -565,6 +578,7 @@
 
         &__text {
           margin: 20px 0 0 0;
+          color: $text-color-black-2;
         }
       }
 
@@ -573,15 +587,45 @@
         grid-template-areas:
           "person image"
           "text text";
-        grid-template-columns: 1fr 1fr;
+        grid-template-columns: 1fr;
         grid-auto-rows: min-content;
         column-gap: 10px;
         row-gap: 5px;
         margin-bottom: 20px;
+
+        &.three-blocks {
+          grid-template-areas:
+          "person image"
+          "text text";
+          grid-template-columns: 1fr 1fr;
+
+          .il-collab-person {
+            grid-column: span 6;
+            width: 100%;
+          }
+        }
+
+        &__text {
+          color: $text-color-black-2;
+        }
+      }
+
+      .item-content-2.three-blocks {
+        .il-collab-person {
+          grid-area: person;
+        }
+
+        .il-collab-image {
+          grid-area: image;
+        }
+
+        .il-collab-text {
+          grid-area: text;
+        }
       }
 
       .il-collab-person {
-        grid-area: person;
+        width: 50%;
 
         &__image-container {
           height: auto;
@@ -591,13 +635,8 @@
         }
       }
 
-      .il-collab-image {
-        grid-area: image;
-      }
 
       .il-collab-text {
-        grid-area: text;
-
         .item-content-2__text {
           margin: 0;
         }
@@ -650,6 +689,14 @@
       margin: -10px 0 0 -10px;
       display: flex;
       width: max-content;
+    }
+
+    &__content {
+      & > div:last-child > div {
+        @include media-max(lg) {
+          margin-bottom: 50px;
+        }
+      }
     }
   }
 }
