@@ -61,7 +61,6 @@
                        alt="{{ image_mob.alt | escape }}"
                        data-block-id="{{ block.id }}">
                 </div>
-              <div class="swiper-pagination"></div>
               <div class="il-interactive__text-container-inner">
                 <div class="il-interactive__text-content" data-block-id="{{ block.id }}">
                   <p class="il-interactive__title">{{ block.settings.title }}</p>
@@ -72,6 +71,7 @@
           </div>
         {% endfor %}
       </div>
+      <div class="swiper-pagination"></div>
     </div>
   </il-interactive-notes-slider>
 </div>

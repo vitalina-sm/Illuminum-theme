@@ -2,16 +2,30 @@
 
 {% liquid
   assign section_class = 'il-subscriptions--' | append: section.id
+
+  capture left_content
+    content_for 'block', type: 'email-signup', id: 'email_signup'
+  endcapture
+  assign left_content = left_content | strip
+
+  capture right_content
+    content_for 'block', type: 'il-text-with-link', id: 'il_text_with_link'
+  endcapture
+  assign right_content = right_content | strip
 %}
 
 <div class="section">
   <div class="{{ section_class }} il-subscriptions">
-    <div class="il-subscriptions__left">
-      {% content_for 'block', type: 'email-signup', id: 'email_signup' %}
-    </div>
-     <div class="il-subscriptions__right">
-      {% content_for 'block', type: 'il-text-with-link', id: 'il_text_with_link' %}
-    </div>
+    {% if left_content != blank %}
+      <div class="il-subscriptions__left">
+        {{ left_content }}
+      </div>
+    {% endif %}
+    {% if right_content != blank %}
+      <div class="il-subscriptions__right">
+        {{ right_content }}
+      </div>
+    {% endif %}
   </div>
 </div>
 

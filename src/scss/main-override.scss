@@ -152,12 +152,87 @@ rte-formatter {
 }
 
 .shopify-policy__container {
-  max-width: 100ch!important;
+  max-width: 100%!important;
+  padding: 0 30px!important;
+
+  @include media-max(lg) {
+    padding: 0 20px!important;
+  }
 }
 
 .rte {
-  padding-block: 23vh;
-  max-width: 100ch!important;
+  width: 100%;
+  padding-top: 227px;
+  padding-bottom: 200px;
+  max-width: 1440px!important;
+  display: flex;
+  column-gap: 30px;
+  margin: 0 auto;
+
+  @include media-max(lg) {
+    padding-top: 192px;
+    padding-bottom: 80px;
+    flex-direction: column;
+    row-gap: 30px;
+  }
+
+  & > div {
+    width: 100%;
+  }
+
+  .left {
+    & > p {
+      width: 100%;
+      max-width: 440px;
+
+      @include media-max(lg) {
+        max-width: 100%;
+      }
+    }
+  }
+
+  .right {
+    display: flex;
+    flex-direction: column;
+    row-gap: 40px;
+
+    @include media-max(lg) {
+      row-gap: 30px;
+    }
+  }
+
+  .row {
+    display: flex;
+    justify-content: space-between;
+    column-gap: 30px;
+
+    @include media-max(xl) {
+      flex-direction: column;
+      row-gap: 20px;
+    }
+
+    @include media-max(lg) {
+      row-gap: 10px;
+    }
+
+    .title {
+      min-width: 150px;
+      flex: 1;
+    }
+
+    .content {
+      width: 100%;
+      max-width: 440px;
+
+      @include media-max(xl) {
+        max-width: 100%;
+      }
+
+      ul, ol {
+        margin: 0 0 10px 0;
+      }
+    }
+  }
 
   :is(h4, h5, h6) {
     @include regular-text ($color: #000);
@@ -167,11 +242,31 @@ rte-formatter {
     @include regular-text ($color: #000);
   }
 
-  :is(ul) {
+  :is(ul, ol) {
     padding: 0 0 0 18px;
 
     @media screen and (width >= 750px) {
       padding: 0 0 0 27px;
+    }
+  }
+
+  ol {
+    list-style: none;
+    padding-left: 0;
+    counter-reset: item;
+
+    li {
+      padding-left: 27px;
+      position: relative;
+      counter-increment: item;
+
+      &::before {
+        content: counter(item) '.';
+        position: absolute;
+        left: 10px;
+        width: 1.5em;
+        text-align: left;
+      }
     }
   }
 
@@ -188,28 +283,20 @@ rte-formatter {
   :is(h1) {
     @include heading-3;
     text-transform: uppercase;
-
-    @media screen and (width >= 750px) {
-      @include heading-2;
-    }
   }
 
   :is(h1):first-child {
-    margin: 0 0 30px 0;
+    margin: 0 0 20px 0;
 
-    @media screen and (width >= 750px) {
-      margin: 0 0 35px 0;
+    @include media-max(lg) {
+      margin: 0 0 40px 0;
     }
   }
 
   :is(h2) {
-    margin: 15px 0;
     text-transform: uppercase;
     @include heading-5;
-  }
-
-  :is(h3) {
-    @include regular-text ($color: #000);
+    margin: 0 !important;
   }
 }
 
@@ -221,22 +308,18 @@ rte-formatter {
   :is(h1, h2) {
     @include heading-3;
     text-transform: uppercase;
-
-    @media screen and (width >= 750px) {
-      @include heading-2;
-    }
   }
 
   :is(h1, h2):first-child {
-    margin: 0 0 30px 0;
+    margin: 0 0 20px 0;
 
-    @media screen and (width >= 750px) {
-      margin: 0 0 35px 0;
+    @include media-max(lg) {
+      margin: 0 0 40px 0;
     }
   }
 
   :is(h3) {
-    margin: 15px 0;
+    margin: 0;
     text-transform: uppercase;
     @include heading-5;
   }

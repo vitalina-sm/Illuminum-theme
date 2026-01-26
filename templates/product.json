@@ -330,6 +330,7 @@
         "limit_details_width": true,
         "gap": 32,
         "color_scheme": "",
+        "enable_scroll_to_top": true,
         "padding-block-start": 100,
         "padding-block-end": 100
       }
@@ -339,7 +340,7 @@
       "name": "IL Text Message",
       "settings": {
         "title": "Overview of the collection",
-        "subtext": "<p>“95 Percent” is a fragrance collection by Illuminum created in collaboration with three remarkable chefs — Jackson Boxer, Yuki Gomi, and Tom Wolfe. Inspired by the fact that 95% of what we taste is actually scent, the series explores the boundary between flavor and aroma. Using their refined sense of smell, the chefs crafted unique perfumes that push the limits of sensory experience.</p>",
+        "subtext": "<p>Our new scents expand on the success of our Vaporizer and Haute Perfume lines, keeping the same focus on quality and luxury using the best, ethically sourced ingredients. Now, sustainability and inclusivity are also key.</p>",
         "enable_margin_desktop": true,
         "margin_top_desktop": 150,
         "margin_bottom_desktop": 125,
@@ -423,6 +424,7 @@
         },
         "il_text_with_link": {
           "type": "il-text-with-link",
+          "disabled": true,
           "static": true,
           "settings": {
             "heading": "Illuminum wrapping service",

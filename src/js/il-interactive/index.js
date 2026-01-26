@@ -1,5 +1,5 @@
 import Swiper from 'swiper';
-import { Mousewheel, Pagination, FreeMode, Navigation } from 'swiper/modules';
+import { Mousewheel, Pagination, Navigation } from 'swiper/modules';
 import 'swiper/css';
 
 class ILInteractiveNotes extends HTMLElement {
@@ -75,14 +75,13 @@ class ILInteractiveNotesSlider extends HTMLElement {
             sliderEl = this.querySelector('.swiper-container');
 
         const config = {
-            modules: [Navigation, FreeMode, Mousewheel, Pagination],
+            modules: [Navigation, Mousewheel, Pagination],
             mousewheel: {
                 forceToAxis: true,
             },
             slidesPerView: 1,
             spaceBetween: 20,
             watchSlidesVisibility: true,
-            freeMode: true,
             preloadImages: true,
             lazyLoading: true,
             lazy: {
