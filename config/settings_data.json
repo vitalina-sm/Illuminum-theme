@@ -11,7 +11,7 @@
   "current": {
     "logo": "shopify://shop_images/logo-final.svg",
     "logo_inverse": "shopify://shop_images/illuminum_london_logo.svg",
-    "favicon": "shopify://shop_images/logo-final.svg",
+    "favicon": "shopify://shop_images/illuminum_favicon.svg",
     "type_body_font": "inter_n4",
     "type_subheading_font": "inter_n4",
     "type_heading_font": "inter_n4",
