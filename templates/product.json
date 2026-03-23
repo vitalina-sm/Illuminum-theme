@@ -330,9 +330,15 @@
         "limit_details_width": true,
         "gap": 32,
         "color_scheme": "",
-        "enable_scroll_to_top": true,
         "padding-block-start": 100,
         "padding-block-end": 100
+      }
+    },
+    "scroll_to_top_VQcp7Y": {
+      "type": "scroll-to-top",
+      "name": "Scroll to Top",
+      "settings": {
+        "enable_scroll_to_top": true
       }
     },
     "il_text_message_NzPhMN": {
@@ -820,6 +826,7 @@
   },
   "order": [
     "main",
+    "scroll_to_top_VQcp7Y",
     "il_text_message_NzPhMN",
     "il_interactive_notes_EzgEhA",
     "il_subscriptions_YfjyaQ",

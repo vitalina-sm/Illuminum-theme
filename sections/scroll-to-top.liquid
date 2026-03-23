@@ -1,0 +1,22 @@
+{%- if section.settings.enable_scroll_to_top -%}
+  {% render 'scroll-to-top-button' %}
+{%- endif -%}
+
+{% schema %}
+{
+  "name": "Scroll to Top",
+  "settings": [
+    {
+      "type": "checkbox",
+      "id": "enable_scroll_to_top",
+      "label": "Enable scroll to top button",
+      "default": true
+    }
+  ],
+  "presets": [
+    {
+      "name": "Scroll to Top"
+    }
+  ]
+}
+{% endschema %}

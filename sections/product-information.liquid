@@ -87,10 +87,6 @@
   </div>
 
   {% content_for 'blocks' %}
-
-  {%- if section.settings.enable_scroll_to_top -%}
-    {% render 'scroll-to-top-button' %}
-  {%- endif -%}
 </div>
 
 {% stylesheet %}
@@ -365,16 +361,6 @@
       "id": "color_scheme",
       "label": "t:settings.color_scheme",
       "default": "scheme-1"
-    },
-    {
-      "type": "header",
-      "content": "Scroll to Top"
-    },
-    {
-      "type": "checkbox",
-      "id": "enable_scroll_to_top",
-      "label": "Enable scroll to top button",
-      "default": false
     },
     {
       "type": "header",

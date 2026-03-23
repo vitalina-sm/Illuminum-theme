@@ -895,8 +895,9 @@
           "tribal-black-tea",
           "white-gardenia-petals",
           "white-musk",
+          "white-on-white",
           "white-oud",
-          "whitetobacco"
+          "wild-tobacco"
         ],
         "enable_margin_desktop": true,
         "margin_top_desktop": 0,
@@ -905,10 +906,18 @@
         "margin_top_mobile": 0,
         "margin_bottom_mobile": 100
       }
+    },
+    "scroll_to_top_3KA6xh": {
+      "type": "scroll-to-top",
+      "name": "Scroll to Top",
+      "settings": {
+        "enable_scroll_to_top": true
+      }
     }
   },
   "order": [
     "il_about_hero_PJWQ4P",
+    "scroll_to_top_3KA6xh",
     "il_about_brand_p8NpnG",
     "il_image_kyQdK6",
     "il_about_principles_mTjt96",
